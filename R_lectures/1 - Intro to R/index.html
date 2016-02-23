@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introduction to R">
+  <meta name="author" content="Manuel A. Bolivar">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Introduction to R</h1>
+    <h2>Data types, subsetting, vectorized operations &amp; packages</h2>
+    <p>Manuel A. Bolivar<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Course outline</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Introduction to R</li>
+<li>Control structures </li>
+<li>R functions </li>
+<li>Reading and writing data </li>
+<li>Dates &amp; times </li>
+<li>Plotting in R </li>
+<li>Manipulate </li>
+<li>Tidy data </li>
+<li>Processing acelerometry data</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Session 1 - Outline</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Introduction to R
+
+<ul>
+<li>What is R?</li>
+<li>Data types</li>
+<li>Subsetting</li>
+<li>Packages</li>
+</ul></li>
+<li>Control structures 
+
+<ul>
+<li><code>if</code>, <code>for</code> &amp; <code>while</code></li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What is R?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="https://www.r-project.org/logo/Rlogo.png" alt="Drawing" style="width: 250px;"/></center></p>
+
+<ul>
+<li>R is a language and environment for statistical computing and graphics. </li>
+<li>R provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, ...) and graphical techniques.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Why should we learn R?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Open source</li>
+<li>Cross-platform compatible</li>
+<li>Advance statistical language</li>
+<li>Outstanding graphs</li>
+<li>Built-in modules</li>
+<li>Extensible</li>
+<li>Vast community </li>
+<li>Short program length</li>
+<li>Widely supported (Books, web pages, etc)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>RStudio is an IDE that makes R easier to use and more productive.</p>
+
+<p><center><img src="https://www.rstudio.com/wp-content/uploads/2014/04/rstudio-windows.png" alt="RStudio" style="width: 600px;"/></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Data types &amp; data structures</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>R</strong> has a wide variety of <strong>data types</strong>:</p>
+
+<ul>
+<li>Numeric</li>
+<li>String</li>
+<li>Logical (True/False)</li>
+<li>Date</li>
+</ul>
+
+<p>And <strong>data structures</strong>:</p>
+
+<ul>
+<li>Vectors</li>
+<li>Lists</li>
+<li>Factors</li>
+<li>Matrices</li>
+<li>Data frames</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Vector</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The basic data structure in R is the vector.</p>
+
+<ul>
+<li>All elements must be the same type.</li>
+<li>Created with <code>c()</code> (combine).</li>
+</ul>
+
+<pre><code class="r">&gt; #Numeric vector
+&gt; a &lt;- c(1,2,3,6,-2,4)
+&gt; 
+&gt; #Character vector
+&gt; b &lt;- c(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;)
+&gt; 
+&gt; #logical vector
+&gt; c &lt;- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Vector</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Vectors have three common properties</p>
+
+<ul>
+<li><code>typeof()</code>: what it is.</li>
+<li><code>length()</code>: how many elements contains.</li>
+<li><code>attributes</code>: additionally arbitrary data.</li>
+</ul>
+
+<pre><code class="r">&gt; a
+## [1]  1  2  3  6 -2  4
+&gt; typeof(a)
+## [1] &quot;double&quot;
+&gt; length(a)
+## [1] 6
+&gt; attributes(a)
+## NULL
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Vector</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Given a vector, you can ask if correspond to certain type:</p>
+
+<ul>
+<li><code>is.numeric()</code></li>
+<li><code>is.integer()</code></li>
+<li><code>is.character()</code></li>
+<li><code>is.logical()</code></li>
+</ul>
+
+<pre><code class="r">&gt; is.character(a)
+## [1] FALSE
+&gt; is.numeric(a)
+## [1] TRUE
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Vector coercion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Q: What happend if you attempt to combine different elements types in one vector?</p>
+
+<pre><code class="r">&gt;  c(FALSE,1,2)
+</code></pre>
+
+<pre><code class="r">&gt;  c(1,2,&quot;three&quot;)
+</code></pre>
+
+<pre><code class="r">&gt;  c(FALSE,3,&quot;two&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Vector coercion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A: They will be coerced to the most <strong>flexible type</strong>.</p>
+
+<p><center>logical <code>&lt;</code> integer <code>&lt;</code> double <code>&lt;</code> character
+</center></p>
+
+<pre><code class="r">&gt;  c(FALSE,1,2)
+## [1] 0 1 2
+</code></pre>
+
+<pre><code class="r">&gt;  c(1,2,&quot;three&quot;)
+## [1] &quot;1&quot;     &quot;2&quot;     &quot;three&quot;
+</code></pre>
+
+<pre><code class="r">&gt;  c(FALSE,3,&quot;two&quot;)
+## [1] &quot;FALSE&quot; &quot;3&quot;     &quot;two&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Extra: The <code>str()</code> function</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>str()</code> is short for instruction.</li>
+<li><code>str()</code> provides a human readable description of any R data structure.</li>
+</ul>
+
+<pre><code class="r">&gt;  str(c(FALSE,1,2))
+##  num [1:3] 0 1 2
+</code></pre>
+
+<pre><code class="r">&gt;  str(c(1,2,&quot;three&quot;))
+##  chr [1:3] &quot;1&quot; &quot;2&quot; &quot;three&quot;
+</code></pre>
+
+<pre><code class="r">&gt;  str(c(FALSE,3,&quot;two&quot;))
+##  chr [1:3] &quot;FALSE&quot; &quot;3&quot; &quot;two&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Lists</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>List can contain elements of any type, including lists.</p>
+
+<ul>
+<li>Use <code>list()</code> to construct lists.</li>
+<li>Some built-in functions returns lists as output.</li>
+</ul>
+
+<pre><code class="r">&gt; x &lt;- list(5:9,a,b,c, list(&quot;four&quot;,&quot;five&quot;))
+</code></pre>
+
+<p>What is going to return the command <code>str(x)</code>?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Lists</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>List can contain elements of any type, including lists.</p>
+
+<ul>
+<li>Use <code>list()</code> to construct lists.</li>
+<li>Some built-in functions returns lists as output.</li>
+</ul>
+
+<pre><code class="r">&gt; x &lt;- list(5:9,a,b,c, list(&quot;four&quot;,&quot;five&quot;))
+</code></pre>
+
+<p>What is going to return the command <code>str(x)</code>?</p>
+
+<pre><code>## List of 5
+##  $ : int [1:5] 5 6 7 8 9
+##  $ : num [1:6] 1 2 3 6 -2 4
+##  $ : chr [1:3] &quot;one&quot; &quot;two&quot; &quot;three&quot;
+##  $ : logi [1:6] TRUE TRUE TRUE FALSE TRUE FALSE
+##  $ :List of 2
+##   ..$ : chr &quot;four&quot;
+##   ..$ : chr &quot;five&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).</p>
+
+<pre><code class="r">&gt; x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
+&gt; x
+## [1] a b b a
+## Levels: a b
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).</p>
+
+<pre><code class="r">&gt; x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
+&gt; x
+## [1] a b b a
+## Levels: a b
+</code></pre>
+
+<pre><code class="r">&gt; class(x)
+## [1] &quot;factor&quot;
+&gt; levels(x)
+## [1] &quot;a&quot; &quot;b&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).</p>
+
+<pre><code class="r">&gt; x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
+&gt; x
+## [1] a b b a
+## Levels: a b
+</code></pre>
+
+<pre><code class="r">&gt; class(x)
+## [1] &quot;factor&quot;
+&gt; levels(x)
+## [1] &quot;a&quot; &quot;b&quot;
+</code></pre>
+
+<pre><code class="r">&gt; str(x)
+##  Factor w/ 2 levels &quot;a&quot;,&quot;b&quot;: 1 2 2 1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Matrices</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).</li>
+<li>Matrices are created with <code>matrix()</code>.</li>
+</ul>
+
+<pre><code class="r">&gt; #A matrix of 3x4 dimensions
+&gt; a &lt;- matrix(1:12,ncol=4, nrow=3)
+&gt; a
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Matrices</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).</li>
+<li>Matrices are created with <code>matrix()</code>.</li>
+</ul>
+
+<pre><code class="r">&gt; #A matrix of 3x4 dimensions
+&gt; a &lt;- matrix(1:12,ncol=4, nrow=3)
+&gt; a
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+</code></pre>
+
+<pre><code class="r">&gt; #A second matrix
+&gt; b &lt;- 1:12
+&gt; dim(b) &lt;- c(3,4)
+</code></pre>
+
+<p>Are matrices <code>a</code> and <code>b</code> equal?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Arrays</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>An array is matrix of more than two dimensions.</li>
+<li>Arrays are created with <code>array()</code>.</li>
+</ul>
+
+<pre><code class="r">&gt; c &lt;- array(1:12, c(2, 3, 2))
+&gt; c
+## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    7    9   11
+## [2,]    8   10   12
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>nrow()</code> and <code>ncol()</code> return the number of rows and columns for a matrix respectively.</li>
+<li><code>dim()</code> &quot;returns&quot; the dimensions of an array (including matrices)</li>
+</ul>
+
+<pre><code class="r">&gt; nrow(a)
+## [1] 3
+&gt; ncol(a)
+## [1] 4
+&gt; dim(c)
+## [1] 2 3 2
+</code></pre>
+
+<p>What do <code>length()</code> and <code>dim()</code> return when they are applied to a matrix?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>nrow()</code> and <code>ncol()</code> return the number of rows and columns for a matrix respectively.</li>
+<li><code>dim()</code> &quot;returns&quot; the dimensions of an array (including matrices)</li>
+</ul>
+
+<pre><code class="r">&gt; nrow(a)
+## [1] 3
+&gt; ncol(a)
+## [1] 4
+&gt; dim(c)
+## [1] 2 3 2
+</code></pre>
+
+<p>What do <code>length()</code> and <code>dim()</code> return when they are applied to a matrix?</p>
+
+<pre><code class="r">&gt; length(a)
+## [1] 12
+&gt; dim(a)
+## [1] 3 4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a)
+</code></pre>
+
+<pre><code class="r">&gt; colnames(a)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a)
+## NULL
+</code></pre>
+
+<pre><code class="r">&gt; colnames(a)
+## NULL
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+&gt; colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+</code></pre>
+
+<pre><code class="r">&gt; a
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+&gt; colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+</code></pre>
+
+<pre><code class="r">&gt; a
+##   a b c  d
+## A 1 4 7 10
+## B 2 5 8 11
+## C 3 6 9 12
+</code></pre>
+
+<pre><code class="r">&gt; str(a)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Names and dimmensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+&gt; colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+</code></pre>
+
+<pre><code class="r">&gt; a
+##   a b c  d
+## A 1 4 7 10
+## B 2 5 8 11
+## C 3 6 9 12
+</code></pre>
+
+<pre><code class="r">&gt; str(a)
+##  int [1:3, 1:4] 1 2 3 4 5 6 7 8 9 10 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : chr [1:3] &quot;A&quot; &quot;B&quot; &quot;C&quot;
+##   ..$ : chr [1:4] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Data frames</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A data frame is the most common way of storing data in R, and if used systematically makes data analysis easier.</p>
+
+<ul>
+<li>A data frame is a list of equal-length vectors.</li>
+<li>This makes it a 2-dimensional structure, so it shares properties of matrices and lists.</li>
+<li>The data frames have <code>names()</code>, <code>colnames()</code>, <code>rownames()</code>, <code>ncol()</code>, and <code>nrow()</code>. </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Data frames</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><code>data.frame()</code> takes vectors as input and creates data.frames.</p>
+
+<pre><code class="r">&gt; df &lt;- data.frame(x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Data frames</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><code>data.frame()</code> takes vectors as input and creates data.frames.</p>
+
+<pre><code class="r">&gt; df &lt;- data.frame(x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
+</code></pre>
+
+<pre><code class="r">&gt; df
+##   x y
+## 1 1 a
+## 2 2 b
+## 3 3 c
+</code></pre>
+
+<ul>
+<li>How are they similar to matrices?</li>
+<li>How are similar to lists? 
+(Hint: <code>str()</code>)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Data frames with factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>data.frame</code> convert character vectors into factors by default.</li>
+<li>To avoid this, you can use <code>stringAsFactors = FALSE</code>.</li>
+</ul>
+
+<pre><code class="r">&gt; df &lt;- data.frame(
++   x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
+&gt; str(df)
+## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ x: int  1 2 3
+##  $ y: Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 2 3
+</code></pre>
+
+<pre><code class="r">&gt; df &lt;- data.frame(
++   x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;),
++   stringsAsFactors = FALSE)
+&gt; str(df)
+## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ x: int  1 2 3
+##  $ y: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Coersion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>You can coerce an object to a data frame with <code>as.data.frame()</code>:</p>
+
+<ul>
+<li>A vector will create a one-column data frame.</li>
+<li>A list will create one column for each element; it’s an error if they’re not all the same length.</li>
+<li>A matrix will create a data frame with the same number of columns and rows as the matrix.</li>
+</ul>
+
+<p>Lets try:</p>
+
+<pre><code class="r">&gt; x &lt;- as.data.frame(a)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Coersion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>You can coerce an object to a data frame with <code>as.data.frame()</code>:</p>
+
+<ul>
+<li>A vector will create a one-column data frame.</li>
+<li>A list will create one column for each element; it’s an error if they’re not all the same length.</li>
+<li>A matrix will create a data frame with the same number of columns and rows as the matrix.</li>
+</ul>
+
+<p>Lets try:</p>
+
+<pre><code class="r">&gt; x &lt;- as.data.frame(a)
+</code></pre>
+
+<pre><code class="r">&gt; x
+##   a b c  d
+## A 1 4 7 10
+## B 2 5 8 11
+## C 3 6 9 12
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Combining data frames</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Data frames con be combined using <code>cbind()</code> or <code>rbind()</code>.</p>
+
+<pre><code class="r">&gt; cbind(df, data.frame(z = 3:1))
+</code></pre>
+
+<pre><code class="r">&gt; rbind(df, data.frame(x=10,y = &quot;z&quot;))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
+    <h2>Combining data frames</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Data frames con be combined using <code>cbind()</code> or <code>rbind</code>.</p>
+
+<pre><code class="r">&gt; cbind(df, data.frame(z = 3:1))
+##   x y z
+## 1 1 a 3
+## 2 2 b 2
+## 3 3 c 1
+</code></pre>
+
+<pre><code class="r">&gt; rbind(df, data.frame(x=10,y = &quot;z&quot;))
+##    x y
+## 1  1 a
+## 2  2 b
+## 3  3 c
+## 4 10 z
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Course outline'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Session 1 - Outline'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='What is R?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Why should we learn R?'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='RStudio'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Data types &amp; data structures'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Vector'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Vector'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Vector'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Vector coercion'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Vector coercion'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Extra: The <code>str()</code> function'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Lists'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Lists'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Factors'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Factors'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Factors'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Matrices'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Matrices'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Arrays'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Names and dimmensions'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Names and dimmensions'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Names and dimmensions'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Names and dimmensions'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Names and dimmensions'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Names and dimmensions'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Names and dimmensions'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Data frames'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Data frames'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Data frames'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Data frames with factors'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Coersion'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Coersion'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Combining data frames'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Combining data frames'>
+         35
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -1,0 +1,583 @@
+---
+title       : Introduction to R
+subtitle    : Data types, subsetting, vectorized operations & packages
+author      : Manuel A. Bolivar
+job         :  
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+--- 
+
+```{r setup, include=FALSE}
+# This is an R setup chunk, containing default options applied to all other chunks
+library(knitr)
+# This sets the chunk default options
+opts_chunk$set(cache=TRUE, collapse=TRUE, error=FALSE, prompt=TRUE)
+# This sets the chunk display theme
+thm <- knit_theme$get("acid")
+knit_theme$set(thm)
+# This sets some display options
+options(digits=3)
+options(width=80)
+```
+
+
+## Course outline
+1. Introduction to R
+2. Control structures 
+3. R functions 
+4. Reading and writing data 
+5. Dates & times 
+6. Plotting in R 
+7. Manipulate 
+8. Tidy data 
+9. Processing acelerometry data
+
+---
+
+## Session 1 - Outline
+
+1. Introduction to R
+  - What is R?
+  - Data types
+  - Subsetting
+  - Packages
+2. Control structures 
+  - `if`, `for` & `while`
+
+
+--- .class #id 
+
+
+## What is R?
+
+<center><img src="https://www.r-project.org/logo/Rlogo.png" alt="Drawing" style="width: 250px;"/></center>
+
++ R is a language and environment for statistical computing and graphics. 
++ R provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, ...) and graphical techniques.
+
+
+--- 
+
+## Why should we learn R?
+
+
++ Open source
++ Cross-platform compatible
++ Advance statistical language
++ Outstanding graphs
++ Built-in modules
++ Extensible
++ Vast community 
++ Short program length
++ Widely supported (Books, web pages, etc)
+
+---
+
+## RStudio
+
+RStudio is an IDE that makes R easier to use and more productive.
+
+<center><img src="https://www.rstudio.com/wp-content/uploads/2014/04/rstudio-windows.png" alt="RStudio" style="width: 600px;"/></center>
+
+---
+
+## Data types & data structures
+
+**R** has a wide variety of **data types**:
+
++ Numeric
++ String
++ Logical (True/False)
++ Date
+
+And **data structures**:
+
++ Vectors
++ Lists
++ Factors
++ Matrices
++ Data frames
+
+
+---
+
+## Vector
+
+The basic data structure in R is the vector.
+  + All elements must be the same type.
+  + Created with `c()` (combine).
+
+```{r vectors1}
+#Numeric vector
+a <- c(1,2,3,6,-2,4)
+
+#Character vector
+b <- c("one","two","three")
+
+#logical vector
+c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
+```
+
+---
+
+## Vector
+
+Vectors have three common properties
+ + `typeof()`: what it is.
+ + `length()`: how many elements contains.
+ + `attributes`: additionally arbitrary data.
+
+```{r vectors3}
+a
+typeof(a)
+length(a)
+attributes(a)
+```
+
+---
+
+## Vector
+
+Given a vector, you can ask if correspond to certain type:
+ + `is.numeric()`
+ + `is.integer()`
+ + `is.character()`
+ + `is.logical()`
+ 
+```{r}
+is.character(a)
+is.numeric(a)
+```
+
+---
+
+## Vector coercion
+
+Q: What happend if you attempt to combine different elements types in one vector?
+
+```{r, echo=TRUE, results="hide"}
+ c(FALSE,1,2)
+```
+
+```{r, echo=TRUE, results="hide"}
+ c(1,2,"three")
+```
+
+```{r, echo=TRUE, results="hide"}
+ c(FALSE,3,"two")
+```
+
+---
+
+## Vector coercion
+
+A: They will be coerced to the most **flexible type**.
+
+<center>logical `<` integer `<` double `<` character
+</center>
+
+```{r, echo=TRUE}
+ c(FALSE,1,2)
+```
+
+```{r, echo=TRUE}
+ c(1,2,"three")
+```
+
+```{r, echo=TRUE}
+ c(FALSE,3,"two")
+```
+
+---
+
+## Extra: The `str()` function
+
++ `str()` is short for instruction.
++ `str()` provides a human readable description of any R data structure.
+
+```{r, echo=TRUE}
+ str(c(FALSE,1,2))
+```
+
+```{r, echo=TRUE}
+ str(c(1,2,"three"))
+```
+
+```{r, echo=TRUE}
+ str(c(FALSE,3,"two"))
+```
+
+---
+
+## Lists
+
+List can contain elements of any type, including lists.
+  + Use `list()` to construct lists.
+  + Some built-in functions returns lists as output.
+  
+```{r}
+x <- list(5:9,a,b,c, list("four","five"))
+```
+
+What is going to return the command `str(x)`?
+
+---
+
+## Lists
+
+List can contain elements of any type, including lists.
+  + Use `list()` to construct lists.
+  + Some built-in functions returns lists as output.
+  
+```{r}
+x <- list(5:9,a,b,c, list("four","five"))
+```
+
+What is going to return the command `str(x)`?
+
+```{r, echo=F}
+str(x)
+```
+
+---
+
+## Factors
+
+A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).
+
+```{r}
+x <- factor(c("a", "b", "b", "a"))
+x
+```
+
+---
+
+## Factors
+
+A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).
+
+```{r}
+x <- factor(c("a", "b", "b", "a"))
+x
+```
+
+```{r}
+class(x)
+levels(x)
+```
+
+---
+
+## Factors
+
+A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).
+
+```{r}
+x <- factor(c("a", "b", "b", "a"))
+x
+```
+
+```{r}
+class(x)
+levels(x)
+```
+
+```{r}
+str(x)
+```
+
+---
+
+## Matrices
+
++ Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).
++ Matrices are created with `matrix()`.
+
+```{r}
+#A matrix of 3x4 dimensions
+a <- matrix(1:12,ncol=4, nrow=3)
+a
+```
+
+---
+
+## Matrices
+
++ Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).
++ Matrices are created with `matrix()`.
+
+```{r}
+#A matrix of 3x4 dimensions
+a <- matrix(1:12,ncol=4, nrow=3)
+a
+```
+
+```{r}
+#A second matrix
+b <- 1:12
+dim(b) <- c(3,4)
+```
+
+Are matrices `a` and `b` equal?
+
+---
+
+
+## Arrays
+
++ An array is matrix of more than two dimensions.
++ Arrays are created with `array()`.
+
+```{r}
+c <- array(1:12, c(2, 3, 2))
+c
+```
+
+---
+
+## Names and dimensions
+
++ `nrow()` and `ncol()` return the number of rows and columns for a matrix respectively.
++ `dim()` "returns" the dimensions of an array (including matrices)
+
+```{r}
+nrow(a)
+ncol(a)
+dim(c)
+```
+
+What do `length()` and `dim()` return when they are applied to a matrix?
+
+---
+
+## Names and dimensions
+
++ `nrow()` and `ncol()` return the number of rows and columns for a matrix respectively.
++ `dim()` "returns" the dimensions of an array (including matrices)
+
+```{r}
+nrow(a)
+ncol(a)
+dim(c)
+```
+
+What do `length()` and `dim()` return when they are applied to a matrix?
+```{r}
+length(a)
+dim(a)
+```
+
+---
+
+## Names and dimensions
+
++ `rownames()` and `colnames()` "return" row an column names.
++ `dimnames()` "returns" a list of character vectors for arrays.
+
+```{r, results="hide"}
+rownames(a)
+```
+
+```{r, results="hide"}
+colnames(a)
+```
+
+---
+
+## Names and dimensions
+
++ `rownames()` and `colnames()` "return" row an column names.
++ `dimnames()` "returns" a list of character vectors for arrays.
+
+```{r}
+rownames(a)
+```
+
+```{r}
+colnames(a)
+```
+
+---
+
+## Names and dimensions
+
++ `rownames()` and `colnames()` "return" row an column names.
++ `dimnames()` "returns" a list of character vectors for arrays.
+
+```{r}
+rownames(a) <- c("A","B","C")
+colnames(a) <- c("a","b","c","d")
+```
+
+```{r, results="hide"}
+a
+```
+
+---
+
+## Names and dimensions
+
++ `rownames()` and `colnames()` "return" row an column names.
++ `dimnames()` "returns" a list of character vectors for arrays.
+
+```{r}
+rownames(a) <- c("A","B","C")
+colnames(a) <- c("a","b","c","d")
+```
+
+```{r}
+a
+```
+
+```{r, results="hide"}
+str(a)
+```
+
+---
+
+## Names and dimensions
+
++ `rownames()` and `colnames()` "return" row an column names.
++ `dimnames()` "returns" a list of character vectors for arrays.
+
+```{r}
+rownames(a) <- c("A","B","C")
+colnames(a) <- c("a","b","c","d")
+```
+
+```{r}
+a
+```
+
+```{r}
+str(a)
+```
+
+---
+
+## Data frames
+
+A data frame is the most common way of storing data in R, and if used systematically makes data analysis easier.
+
+ + A data frame is a list of equal-length vectors.
+ + This makes it a 2-dimensional structure, so it shares properties of matrices and lists.
+ + The data frames have `names()`, `colnames()`, `rownames()`, `ncol()`, and `nrow()`. 
+
+---
+
+## Data frames
+
+`data.frame()` takes vectors as input and creates data.frames.
+
+```{r}
+df <- data.frame(x = 1:3, y = c("a", "b", "c"))
+```
+
+---
+
+## Data frames
+
+`data.frame()` takes vectors as input and creates data.frames.
+
+```{r}
+df <- data.frame(x = 1:3, y = c("a", "b", "c"))
+```
+
+```{r}
+df
+```
+
++ How are they similar to matrices?
++ How are similar to lists? 
+  (Hint: `str()`)
+
+--- 
+
+## Data frames with factors
+
++ `data.frame` convert character vectors into factors by default.
++ To avoid this, you can use `stringAsFactors = FALSE`.
+
+
+```{r}
+df <- data.frame(
+  x = 1:3, y = c("a", "b", "c"))
+str(df)
+```
+
+```{r}
+df <- data.frame(
+  x = 1:3, y = c("a", "b", "c"),
+  stringsAsFactors = FALSE)
+str(df)
+```
+
+---
+
+## Coersion
+
+You can coerce an object to a data frame with `as.data.frame()`:
+
++ A vector will create a one-column data frame.
++ A list will create one column for each element; it’s an error if they’re not all the same length.
++ A matrix will create a data frame with the same number of columns and rows as the matrix.
+
+Lets try:
+
+```{r}
+x <- as.data.frame(a)
+```
+
+---
+
+## Coersion
+
+You can coerce an object to a data frame with `as.data.frame()`:
+
++ A vector will create a one-column data frame.
++ A list will create one column for each element; it’s an error if they’re not all the same length.
++ A matrix will create a data frame with the same number of columns and rows as the matrix.
+
+Lets try:
+
+```{r}
+x <- as.data.frame(a)
+```
+
+```{r}
+x
+```
+
+---
+
+## Combining data frames
+
+Data frames con be combined using `cbind()` or `rbind()`.
+
+```{r, results="hide"}
+cbind(df, data.frame(z = 3:1))
+```
+
+```{r, results = "hide"}
+rbind(df, data.frame(x=10,y = "z"))
+```
+
+---
+
+## Combining data frames
+
+Data frames con be combined using `cbind()` or `rbind`.
+
+```{r}
+cbind(df, data.frame(z = 3:1))
+```
+
+```{r}
+rbind(df, data.frame(x=10,y = "z"))
+```
+
+

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(devtools)\ninstall_github(\"slidify\",\"ramnathv\")\ninstall_github(\"slidifyLibraries\",\"ramnathv\")\nlibrary(slidify)\nlibrary(slidifyLibraries)\nlibrary(rmarkdown)\nlibrary(knitr)\n\nsetwd(\"./R_lectures\")\n\nauthor(\"1 - Intro to R\")\n",
+    "created" : 1456178833137.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "745166377",
+    "id" : "89891307",
+    "lastKnownWriteTime" : 1456188608,
+    "last_content_update" : 1456188608019,
+    "path" : "C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/R_lectures/lectures_main.R",
+    "project_path" : "R_lectures/lectures_main.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
