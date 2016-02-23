@@ -402,7 +402,7 @@ Are matrices `a` and `b` equal?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `nrow()` and `ncol()` return the number of rows and columns for a matrix respectively.
 + `dim()` "returns" the dimensions of an array (including matrices)
@@ -421,7 +421,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `nrow()` and `ncol()` return the number of rows and columns for a matrix respectively.
 + `dim()` "returns" the dimensions of an array (including matrices)
@@ -447,7 +447,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `rownames()` and `colnames()` "return" row an column names.
 + `dimnames()` "returns" a list of character vectors for arrays.
@@ -464,7 +464,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `rownames()` and `colnames()` "return" row an column names.
 + `dimnames()` "returns" a list of character vectors for arrays.
@@ -483,7 +483,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `rownames()` and `colnames()` "return" row an column names.
 + `dimnames()` "returns" a list of character vectors for arrays.
@@ -501,7 +501,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `rownames()` and `colnames()` "return" row an column names.
 + `dimnames()` "returns" a list of character vectors for arrays.
@@ -528,7 +528,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 ---
 
-## Names and dimmensions
+## Names and dimensions
 
 + `rownames()` and `colnames()` "return" row an column names.
 + `dimnames()` "returns" a list of character vectors for arrays.
@@ -714,5 +714,13 @@ Data frames con be combined using `cbind()` or `rbind`.
 ## 3  3 c
 ## 4 10 z
 ```
+
+---
+
+## Exercises
+
+1. If `is.matrix(x)` is TRUE, what will `is.array(x)` return?
+2. What does `as.matrix()` do when applied to a data frame with columns of different types?
+3. Given two vectors `a = c(1:3)` and `b = c("a","b","c")`, if I want to build a data.frame maintaining the vectors' orginal data types, should I combine them first and them turn them as data.frame or visceversa? (Hint: `cbind()`)
 
 

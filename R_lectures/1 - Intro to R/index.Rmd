@@ -580,4 +580,12 @@ cbind(df, data.frame(z = 3:1))
 rbind(df, data.frame(x=10,y = "z"))
 ```
 
+---
+
+## Exercises
+
+1. If `is.matrix(x)` is TRUE, what will `is.array(x)` return?
+2. What does `as.matrix()` do when applied to a data frame with columns of different types?
+3. Given two vectors `a = c(1:3)` and `b = c("a","b","c")`, if I want to build a data.frame maintaining the vectors' orginal data types, should I combine them first and them turn them as data.frame or visceversa? (Hint: `cbind()`)
+
 
