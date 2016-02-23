@@ -8,4 +8,5 @@ library(knitr)
 
 setwd("./R_lectures")
 
-author("1 - Intro to R")
+#author("1 - Intro to R")
+author("2 - Subsetting")

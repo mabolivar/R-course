@@ -1,6 +1,6 @@
 ---
 title       : Introduction to R
-subtitle    : Data types, subsetting, vectorized operations & packages
+subtitle    : Data structures & types
 author      : Manuel A. Bolivar
 job         :  
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -578,6 +578,10 @@ A data frame is the most common way of storing data in R, and if used systematic
 > df <- data.frame(x = 1:3, y = c("a", "b", "c"))
 ```
 
++ How are data frames similar to matrices?
++ How are data frames similar to lists? 
+  (Hint: `str()`)
+
 ---
 
 ## Data frames
@@ -589,6 +593,10 @@ A data frame is the most common way of storing data in R, and if used systematic
 > df <- data.frame(x = 1:3, y = c("a", "b", "c"))
 ```
 
++ How are data frames similar to matrices?
++ How are data frames similar to lists? 
+  (Hint: `str()`)
+  
 
 ```r
 > df
@@ -598,9 +606,6 @@ A data frame is the most common way of storing data in R, and if used systematic
 ## 3 3 c
 ```
 
-+ How are they similar to matrices?
-+ How are similar to lists? 
-  (Hint: `str()`)
 
 --- 
 
