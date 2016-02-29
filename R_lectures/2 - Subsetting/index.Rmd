@@ -113,14 +113,6 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 
 `Logical vectors`: select elements where the corresponding logical value is `TRUE`.
 
-```{r}
-x[c(TRUE,FALSE,TRUE,TRUE)]
-```
-
-```{r}
-x[x>3]
-```
-
 ---
 
 ## Vectors
@@ -130,6 +122,15 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Logical vectors`: select elements where the corresponding logical value is `TRUE`.
+
+
+```{r}
+x[c(TRUE,FALSE,TRUE,TRUE)]
+```
+
+```{r}
+x[x>3]
+```
 
 
 ---
