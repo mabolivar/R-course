@@ -12,18 +12,7 @@ knit        : slidify::knit2slides
 ---
 
 
-```{r setup, include=FALSE}
-# This is an R setup chunk, containing default options applied to all other chunks
-library(knitr)
-# This sets the chunk default options
-opts_chunk$set(cache=TRUE, collapse=TRUE, error=FALSE, prompt=TRUE)
-# This sets the chunk display theme
-thm <- knit_theme$get("acid")
-knit_theme$set(thm)
-# This sets some display options
-options(digits=3)
-options(width=80)
-```
+
 
 
 <style>
@@ -52,10 +41,11 @@ Functions are created using `fuction()` and are stored as R objects and are cons
 
 The functions are R objects of class *function*.
 
-```{r,eval = F, message=FALSE, warning=FALSE, include=TRUE}
-f <- function(args){
-  body #Do something interesting
-}
+
+```r
+> f <- function(args){
++   body #Do something interesting
++ }
 ```
 
 where 
@@ -85,17 +75,21 @@ f <- function(a, b = 1, c = 2, d = NULL) {
 
 Arguments can be matched by position and name.
 
-```{r}
-args(plot) #argument names of plot function
+
+```r
+> args(plot) #argument names of plot function
+## function (x, y, ...) 
+## NULL
 ```
 
 All the following calls to the `plot()` function are equivalent.
 
-```{r, eval= F}
-plot(1:20,log(1:20))
-plot(1:20,y = log(1:20))
-plot(x = 1:20, y = log(1:20))
-plot(y = log(1:20),x = 1:20)
+
+```r
+> plot(1:20,log(1:20))
+> plot(1:20,y = log(1:20))
+> plot(x = 1:20, y = log(1:20))
+> plot(y = log(1:20),x = 1:20)
 ```
 
 ---
@@ -104,18 +98,20 @@ plot(y = log(1:20),x = 1:20)
 
 The `return()` function specifies the value (vector, list, data.frame, function) returned by the function. For example,
 
-```{r}
-f <- function(x){
-  return(x^2+5)
-}
+
+```r
+> f <- function(x){
++   return(x^2+5)
++ }
 ```
 
 However, if the `return()` function is not used, R returns the last expression in the *body* evaluated.
 
-```{r}
-f <- function(x){
-  x^2+5
-}
+
+```r
+> f <- function(x){
++   x^2+5
++ }
 ```
 
 ---
@@ -124,14 +120,17 @@ f <- function(x){
 
 Arguments to functions are evaluated only as needed (*lazily*). For example,
 
-```{r, error=T}
-f <- function(a,b){
-  a^3
-}
+
+```r
+> f <- function(a,b){
++   a^3
++ }
 ```
 
-```{r}
-f(2) #Equivalent to f(a=2)
+
+```r
+> f(2) #Equivalent to f(a=2)
+## [1] 8
 ```
 
 ---
@@ -140,15 +139,19 @@ f(2) #Equivalent to f(a=2)
 
 R executed the function's body statements sequentially.
 
-```{r}
-f <- function(a, b) {
-print(a)
-print(b)
-}
+
+```r
+> f <- function(a, b) {
++ print(a)
++ print(b)
++ }
 ```
 
-```{r, error=T}
-f(30)
+
+```r
+> f(30)
+## [1] 30
+## Error in print(b): el argumento "b" está ausente, sin valor por omisión
 ```
 
 ---
@@ -157,12 +160,18 @@ f(30)
 
 The `...` arguments indicates a variable number of arguments. It is used when:
   + The number of arguments passed to the function is not known it advanced (e.g. `paste()`).
-  ```{r}
-  args(paste)
+  
+  ```r
+  > args(paste)
+  ## function (..., sep = " ", collapse = NULL) 
+  ## NULL
   ```
   + The functions is extending another function and uses the same arguments (e.g. `plot()`).
-  ```{r}
-  args(plot)
+  
+  ```r
+  > args(plot)
+  ## function (x, y, ...) 
+  ## NULL
   ```
   + Take into acount that any argument after `...` must be named explicitly. 
 
