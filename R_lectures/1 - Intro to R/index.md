@@ -90,7 +90,6 @@ RStudio is an Integrated Development Environment (IDE) that makes R easier to us
 
 ---
 
-
 ## Data types & data structures
 
 **R** has a wide variety of **data types**:

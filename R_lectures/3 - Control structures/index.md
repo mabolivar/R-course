@@ -64,7 +64,97 @@ The `for` loop executes a statement repetitively until a variable’s value is n
 + }
 ```
 
+where,
++ *var* is a variable name,
++ *seq* is a vector of any type, and
++ *statement* is the statement you want to execute repetitively.
+
 ---
+
+## For - Example 1
+
+Print the numbers from 1 to 10
+
+```r
+> nums <- 1:10
+```
+
+
+```r
+>   for(i in nums){
++     print(i)
++   }
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
+```
+
+
+---
+
+## For - Example 2
+
+The for loop can also iterate other data type vectors.
+
+
+```r
+>   weekdays <- c("Monday","Tuesday","Wednesday","Thursday","Friday")
+```
+
+
+```r
+>   for(day in weekdays){
++     print(day)
++   }
+## [1] "Monday"
+## [1] "Tuesday"
+## [1] "Wednesday"
+## [1] "Thursday"
+## [1] "Friday"
+```
+
+---
+
+## For - Example 3
+
+`seq_along(x)` function returns a numeric vector of the form `1:length(x)`. It can be used as argument for the for loop.
+
+
+```r
+>   weekdays <- c("Monday","Tuesday","Wednesday","Thursday","Friday")
+```
+
+
+```r
+>   for(i in seq_along(weekdays)){
++     day <- weekdays[i]
++     print(day)
++   }
+## [1] "Monday"
+## [1] "Tuesday"
+## [1] "Wednesday"
+## [1] "Thursday"
+## [1] "Friday"
+```
+
+---
+
+## For - Exercises
+
+1. Write a program which sums the integers from 1 to 10 using a `for` loop (and prints the total at the end).
+2. Write a program which finds the factorial of a given number. E.g. 3 factorial, or $3!$ is equal to 3 x 2 x 1; 5! is equal to 5 x 4 x 3 x 2 x 1, etc.. Your program should only contain a single loop.
+
+
+
+---
+
 ## While
 
 A `while` loop executes a statement repetitively until the condition is no longer true. The sintaxys is: 

@@ -114,11 +114,111 @@ strong {
 + }
 </code></pre>
 
+<p>where,</p>
+
+<ul>
+<li><em>var</em> is a variable name,</li>
+<li><em>seq</em> is a vector of any type, and</li>
+<li><em>statement</em> is the statement you want to execute repetitively.</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>For - Example 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Print the numbers from 1 to 10</p>
+
+<pre><code class="r">&gt; nums &lt;- 1:10
+</code></pre>
+
+<pre><code class="r">&gt;   for(i in nums){
++     print(i)
++   }
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>For - Example 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The for loop can also iterate other data type vectors.</p>
+
+<pre><code class="r">&gt;   weekdays &lt;- c(&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;)
+</code></pre>
+
+<pre><code class="r">&gt;   for(day in weekdays){
++     print(day)
++   }
+## [1] &quot;Monday&quot;
+## [1] &quot;Tuesday&quot;
+## [1] &quot;Wednesday&quot;
+## [1] &quot;Thursday&quot;
+## [1] &quot;Friday&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>For - Example 3</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><code>seq_along(x)</code> function returns a numeric vector of the form <code>1:length(x)</code>. It can be used as argument for the for loop.</p>
+
+<pre><code class="r">&gt;   weekdays &lt;- c(&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;)
+</code></pre>
+
+<pre><code class="r">&gt;   for(i in seq_along(weekdays)){
++     day &lt;- weekdays[i]
++     print(day)
++   }
+## [1] &quot;Monday&quot;
+## [1] &quot;Tuesday&quot;
+## [1] &quot;Wednesday&quot;
+## [1] &quot;Thursday&quot;
+## [1] &quot;Friday&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>For - Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Write a program which sums the integers from 1 to 10 using a <code>for</code> loop (and prints the total at the end).</li>
+<li>Write a program which finds the factorial of a given number. E.g. 3 factorial, or \(3!\) is equal to 3 x 2 x 1; 5! is equal to 5 x 4 x 3 x 2 x 1, etc.. Your program should only contain a single loop.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>While</h2>
   </hgroup>
@@ -134,7 +234,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark nobackground" id="slide-6" style="background:;">
+<slide class="segue dark nobackground" id="slide-10" style="background:;">
   <hgroup>
     <h2>Conditional execution</h2>
   </hgroup>
@@ -144,7 +244,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Conditional execution</h2>
   </hgroup>
@@ -162,7 +262,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -187,7 +287,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -206,7 +306,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>ifelse</h2>
   </hgroup>
@@ -227,7 +327,7 @@ vectors from the construct.</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
@@ -242,7 +342,7 @@ vectors from the construct.</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Remarks</h2>
   </hgroup>
@@ -256,7 +356,7 @@ vectors from the construct.</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
@@ -269,7 +369,7 @@ vectors from the construct.</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark nobackground" id="slide-14" style="background:;">
+<slide class="segue dark nobackground" id="slide-18" style="background:;">
   <hgroup>
     <h2>Birthday Problem</h2>
   </hgroup>
@@ -309,62 +409,86 @@ vectors from the construct.</p></li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='While'>
+        data-slide=5 title='For - Example 1'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Conditional execution'>
+        data-slide=6 title='For - Example 2'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Conditional execution'>
+        data-slide=7 title='For - Example 3'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='if-else'>
+        data-slide=8 title='For - Exercises'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='if-else'>
+        data-slide=9 title='While'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='ifelse'>
+        data-slide=10 title='Conditional execution'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Exercises'>
+        data-slide=11 title='Conditional execution'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Remarks'>
+        data-slide=12 title='if-else'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='References'>
+        data-slide=13 title='if-else'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Birthday Problem'>
+        data-slide=14 title='ifelse'>
          14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Exercises'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Remarks'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='References'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Birthday Problem'>
+         18
       </a>
     </li>
   </ul>
