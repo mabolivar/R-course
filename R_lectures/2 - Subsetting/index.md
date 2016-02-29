@@ -1,6 +1,6 @@
 ---
-title       : Subsetting
-subtitle    : 
+title       : R programming
+subtitle    : Lecture 2. Subsetting
 author      : Manuel A. Bolivar
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -13,14 +13,34 @@ knit        : slidify::knit2slides
 
 
 
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
 ## Subsetting
 
 + Subsetting allows you to pull out the pieces that you’re interested in. 
 + R’s subsetting operators are powerful and fast.
-+ Subsetting can be applied to vectors, lists, factors, arrays, and data frames.
++ Subsetting can be applied to vectors, lists, factors, arrays, and data frames. 
 
 
 --- .class #id 
+
+## Vectors
+
+
+```r
+> x <- c(2.1, 4.2, 3.3, 5.4)
+```
+
+`Positive integers:` Return elements at the specified positions.
+
+---
 
 ## Vectors
 
@@ -60,6 +80,17 @@ knit        : slidify::knit2slides
 
 `Negative integers:` omit elements at the specified positions.
 
+---
+
+## Vectors
+
+
+```r
+> x <- c(2.1, 4.2, 3.3, 5.4)
+```
+
+`Negative integers:` omit elements at the specified positions.
+
 
 ```r
 > x[-c(2,4)]
@@ -73,6 +104,7 @@ but you can´t mix positive and neative integers.
 > x[c(-2,4)]
 ## Error in x[c(-2, 4)]: solamente 0's pueden ser mezclados con subscritos negativos
 ```
+
 
 ---
 
@@ -96,6 +128,18 @@ but you can´t mix positive and neative integers.
 > x[x>3]
 ## [1] 4.2 3.3 5.4
 ```
+
+---
+
+## Vectors
+
+
+```r
+> x <- c(2.1, 4.2, 3.3, 5.4)
+```
+
+`Logical vectors`: select elements where the corresponding logical value is `TRUE`.
+
 
 ---
 
@@ -162,19 +206,13 @@ The most common way of subsetting matrices (2d) and arrays (>2d) is a simple gen
 ## [3,]    3    6    9
 ```
 
+Write the statements that return each of the following statements for matrix `a`:
 
-```r
-> a[,3] # 3th  column of the matrix
-## [1] 7 8 9
-```
-
-
-```r
-> a[2,] # 2th row of the matrix
-## [1] 2 5 8
-```
-
-What is the code to return the intersection between the 2nd and 3rd rows and the 1st and 3rd columns?
+ + 3th row
+ + 2nd column
+ + 1st and 2nd column
+ + Element located at the 2nd row and second column
+ + The intersection between the 2nd and 3rd rows and the 1st and 3rd columns
 
 ---
 
@@ -390,12 +428,17 @@ But `x$a`, `x[[1]]`, and `x[["a"]]` return a vector.
 
 ## Exercises
 
-1. If a matrix `a` is defined as `a <- matrix(1:9, nrow = 3)`, What would return `a[c(TRUE,TRUE,FALSE),c(-3)]`?
+1. If a matrix `a` is defined as `a <- matrix(1:9, nrow = 3)`, what would return `a[c(TRUE,TRUE,FALSE),c(-3)]`?
 2. Fix each of the following common data frame subsetting errors:
   + `mtcars[mtcars$cyl = 4, ]`
   + `mtcars[-1:4, ]`
   + `mtcars[mtcars$cyl <= 5]`
   + `mtcars[mtcars$cyl == 4 | 6, ]`
   
-3. Given a linear model, e.g., `mod <- lm(mpg ~ wt, data = mtcars)`, extract the residual degrees of freedom. Extract the R squared from the model summary (summary(mod))
+3. Given a linear model, e.g., `mod <- lm(mpg ~ wt, data = mtcars)`, extract the residual degrees of freedom. Extract the R squared from the model summary (`summary(mod)`)
 
+---
+
+## References
+
++ Wickham, H. (2014). *Advanced R*. CRC Press.

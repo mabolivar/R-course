@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R programming">
+  <meta name="author" content="Manuel A. BolÃ­var">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R programming</h1>
+    <h2>Lecture 3. Control structures</h2>
+    <p>Manuel A. BolÃ­var<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Motivation</h2>
+
+<ul>
+<li>The statements in R are executed sequentially (normally).</li>
+<li>But sometimes you might:
+
+<ul>
+<li>Execute some statemets repetitively (<code>for</code>, <code>while</code>)</li>
+<li>Execute statements only if certain conditions are met (<code>if-else</code>)</li>
+</ul></li>
+</ul>
+
+<p><strong>e.g.</strong></p>
+
+<ul>
+<li>Read multiple files at once (.agd).</li>
+<li>Identify valid participants given their MVPA minutes.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Repetition and looping</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Repetition and looping</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Looping constructs repetitively execute a statement or series of statements until a condition is not true.</p>
+
+<ul>
+<li><code>for</code></li>
+<li><code>while</code></li>
+<li><code>repeat</code>*</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>For</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <code>for</code> loop executes a statement repetitively until a variable’s value is no longer contained in the sequence <code>seq</code>. The syntaxis is:</p>
+
+<pre><code class="r">&gt; for(var in seq){
++   statement
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>While</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A <code>while</code> loop executes a statement repetitively until the condition is no longer true. The sintaxys is: </p>
+
+<pre><code class="r">&gt; while(cond){
++   statement
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Conditional execution</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Conditional execution</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In conditional execution, a statement or statements are executed only if a specified condition is met. </p>
+
+<p>These constructs include:</p>
+
+<ul>
+<li><code>if-else</code></li>
+<li><code>ifelse</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>if-else</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <code>if-else</code> control structure executes a statement if a given condition is true.</p>
+
+<pre><code class="r">&gt; # Option 1
+&gt; if(cond){
++   statement #do something
++ }
+</code></pre>
+
+<pre><code class="r">&gt; # Option 2
+&gt; if(cond){
++   statement1 # do something
++ } else{
++   statement2 # do somenthing else
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>if-else</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; # Option 3
+&gt; if(cond1){
++   statement1 # do something
++ } else if(cond2){
++   statement2 # do somenthing different
++ } else{
++   statement3 # do something else
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>ifelse</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <code>ifelse</code> construct is a compact and vectorized version of the <code>if-else</code> construct.
+The syntax is:</p>
+
+<pre><code class="r">&gt; ifelse(cond,statement1,statement2)
+</code></pre>
+
+<ul>
+<li><p>The first statement is executed if <em>cond</em> is <code>TRUE</code>. If <em>cond</em> is <code>FALSE</code>, the second statement is executed.</p></li>
+<li><p>Use <code>ifelse</code> when you want to take a binary action or when you want to input and output
+vectors from the construct.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li></li>
+<li>
+3.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Remarks</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Looping in R can be inefficient and time consuming when you’re processing the rows or columns of large datasets.</li>
+<li>Whenever possible, it’s better to use R’s built-in numerical and character functions in conjunction with the apply family of functions.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Kabacoff, R. (2015). <em>R in action: data analysis and graphics with R</em>. Manning Publications Co.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Birthday Problem</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Repetition and looping'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Repetition and looping'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='For'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='While'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Conditional execution'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Conditional execution'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='if-else'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='if-else'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='ifelse'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Exercises'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Remarks'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='References'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Birthday Problem'>
+         14
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

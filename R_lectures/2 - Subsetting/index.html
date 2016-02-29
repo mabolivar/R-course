@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Subsetting</title>
+  <title>R programming</title>
   <meta charset="utf-8">
-  <meta name="description" content="Subsetting">
+  <meta name="description" content="R programming">
   <meta name="author" content="Manuel A. Bolivar">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,8 +32,8 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Subsetting</h1>
-    <h2></h2>
+    <h1>R programming</h1>
+    <h2>Lecture 2. Subsetting</h2>
     <p>Manuel A. Bolivar<br/></p>
   </hgroup>
   <article></article>  
@@ -42,14 +42,22 @@
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Subsetting</h2>
-  </hgroup>
   <article data-timings="">
-    <ul>
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Subsetting</h2>
+
+<ul>
 <li>Subsetting allows you to pull out the pieces that you’re interested in. </li>
 <li>R’s subsetting operators are powerful and fast.</li>
-<li>Subsetting can be applied to vectors, lists, factors, arrays, and data frames.</li>
+<li>Subsetting can be applied to vectors, lists, factors, arrays, and data frames. </li>
 </ul>
 
   </article>
@@ -57,6 +65,20 @@
 </slide>
 
 <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
+</code></pre>
+
+<p><code>Positive integers:</code> Return elements at the specified positions.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -82,7 +104,21 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-3" style="background:;">
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
+</code></pre>
+
+<p><code>Negative integers:</code> omit elements at the specified positions.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -106,7 +142,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -128,7 +164,21 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
+</code></pre>
+
+<p><code>Logical vectors</code>: select elements where the corresponding logical value is <code>TRUE</code>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -158,7 +208,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Matrices and arrays</h2>
   </hgroup>
@@ -182,7 +232,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Matrices and arrays - examples</h2>
   </hgroup>
@@ -194,21 +244,21 @@
 ## [3,]    3    6    9
 </code></pre>
 
-<pre><code class="r">&gt; a[,3] # 3th  column of the matrix
-## [1] 7 8 9
-</code></pre>
+<p>Write the statements that return each of the following statements for matrix <code>a</code>:</p>
 
-<pre><code class="r">&gt; a[2,] # 2th row of the matrix
-## [1] 2 5 8
-</code></pre>
-
-<p>What is the code to return the intersection between the 2nd and 3rd rows and the 1st and 3rd columns?</p>
+<ul>
+<li>3th row</li>
+<li>2nd column</li>
+<li>1st and 2nd column</li>
+<li>Element located at the 2nd row and second column</li>
+<li>The intersection between the 2nd and 3rd rows and the 1st and 3rd columns</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Matrices and arrays - examples</h2>
   </hgroup>
@@ -238,7 +288,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Data frames</h2>
   </hgroup>
@@ -264,7 +314,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Data frames - examples</h2>
   </hgroup>
@@ -306,7 +356,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Data frames - examples</h2>
   </hgroup>
@@ -340,7 +390,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Lists</h2>
   </hgroup>
@@ -366,7 +416,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Lists</h2>
   </hgroup>
@@ -394,7 +444,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Lists</h2>
   </hgroup>
@@ -420,13 +470,13 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
   <article data-timings="">
     <ol>
-<li>If a matrix <code>a</code> is defined as <code>a &lt;- matrix(1:9, nrow = 3)</code>, What would return <code>a[c(TRUE,TRUE,FALSE),c(-3)]</code>?</li>
+<li>If a matrix <code>a</code> is defined as <code>a &lt;- matrix(1:9, nrow = 3)</code>, what would return <code>a[c(TRUE,TRUE,FALSE),c(-3)]</code>?</li>
 <li><p>Fix each of the following common data frame subsetting errors:</p>
 
 <ul>
@@ -435,8 +485,21 @@
 <li><code>mtcars[mtcars$cyl &lt;= 5]</code></li>
 <li><code>mtcars[mtcars$cyl == 4 | 6, ]</code></li>
 </ul></li>
-<li><p>Given a linear model, e.g., <code>mod &lt;- lm(mpg ~ wt, data = mtcars)</code>, extract the residual degrees of freedom. Extract the R squared from the model summary (summary(mod))</p></li>
+<li><p>Given a linear model, e.g., <code>mod &lt;- lm(mpg ~ wt, data = mtcars)</code>, extract the residual degrees of freedom. Extract the R squared from the model summary (<code>summary(mod)</code>)</p></li>
 </ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Wickham, H. (2014). <em>Advanced R</em>. CRC Press.</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -448,7 +511,7 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Subsetting'>
+        data-slide=1 title='NA'>
          1
       </a>
     </li>
@@ -478,62 +541,86 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Matrices and arrays'>
+        data-slide=6 title='Vectors'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Matrices and arrays - examples'>
+        data-slide=7 title='Vectors'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Matrices and arrays - examples'>
+        data-slide=8 title='Vectors'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Data frames'>
+        data-slide=9 title='Matrices and arrays'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Data frames - examples'>
+        data-slide=10 title='Matrices and arrays - examples'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Data frames - examples'>
+        data-slide=11 title='Matrices and arrays - examples'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Lists'>
+        data-slide=12 title='Data frames'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Lists'>
+        data-slide=13 title='Data frames - examples'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Lists'>
+        data-slide=14 title='Data frames - examples'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Exercises'>
+        data-slide=15 title='Lists'>
          15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Lists'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Lists'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Exercises'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='References'>
+         19
       </a>
     </li>
   </ul>

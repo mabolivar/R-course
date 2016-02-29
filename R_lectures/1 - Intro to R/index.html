@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Introduction to R</title>
+  <title>R programming</title>
   <meta charset="utf-8">
-  <meta name="description" content="Introduction to R">
+  <meta name="description" content="R programming">
   <meta name="author" content="Manuel A. Bolivar">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,8 +32,8 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Introduction to R</h1>
-    <h2>Data structures &amp; types</h2>
+    <h1>R programming</h1>
+    <h2>Lecture 1. Data types &amp; structures</h2>
     <p>Manuel A. Bolivar<br/></p>
   </hgroup>
   <article></article>  
@@ -42,19 +42,26 @@
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Course outline</h2>
-  </hgroup>
   <article data-timings="">
-    <ol>
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Course outline</h2>
+
+<ol>
 <li>Introduction to R</li>
 <li>Control structures </li>
 <li>R functions </li>
 <li>Reading and writing data </li>
 <li>Dates &amp; times </li>
 <li>Plotting in R </li>
-<li>Manipulate </li>
-<li>Tidy data </li>
+<li>Manipulating &amp; tidying data </li>
 <li>Processing acelerometry data</li>
 </ol>
 
@@ -72,14 +79,8 @@
 
 <ul>
 <li>What is R?</li>
-<li>Data types</li>
+<li>Data structures</li>
 <li>Subsetting</li>
-<li>Packages</li>
-</ul></li>
-<li>Control structures 
-
-<ul>
-<li><code>if</code>, <code>for</code> &amp; <code>while</code></li>
 </ul></li>
 </ol>
 
@@ -126,12 +127,12 @@
 
 <slide class="" id="slide-5" style="background:;">
   <hgroup>
-    <h2>RStudio</h2>
+    <h2>R vs. SAS vs. SPSS</h2>
   </hgroup>
   <article data-timings="">
-    <p>RStudio is an IDE that makes R easier to use and more productive.</p>
+    <p><a href="https://www.google.com/trends/explore#q=%2Fm%2F0212jm%2C%20%2Fm%2F02l0yf8%2C%20%2Fm%2F018fh1&amp;cmpt=q&amp;tz=Etc%2FGMT%2B5">link</a></p>
 
-<p><center><img src="https://www.rstudio.com/wp-content/uploads/2014/04/rstudio-windows.png" alt="RStudio" style="width: 600px;"/></center></p>
+<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=es&q=/m/0212jm,+/m/02l0yf8,+/m/018fh1&cmpt=q&tz=Etc/GMT%2B5&tz=Etc/GMT%2B5&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=500&h=330"></script>
 
   </article>
   <!-- Presenter Notes -->
@@ -139,14 +140,37 @@
 
 <slide class="" id="slide-6" style="background:;">
   <hgroup>
+    <h2>RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>RStudio is an Integrated Development Environment (IDE) that makes R easier to use.</p>
+
+<p><center><img src="https://www.rstudio.com/wp-content/uploads/2014/04/rstudio-windows.png" alt="RStudio" style="width: 600px;"/></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Data types &amp; data structures</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
     <h2>Data types &amp; data structures</h2>
   </hgroup>
   <article data-timings="">
     <p><strong>R</strong> has a wide variety of <strong>data types</strong>:</p>
 
 <ul>
-<li>Numeric</li>
-<li>String</li>
+<li>Numeric / Integer</li>
+<li>Character</li>
 <li>Logical (True/False)</li>
 <li>Date</li>
 </ul>
@@ -165,7 +189,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Vector</h2>
   </hgroup>
@@ -177,13 +201,13 @@
 <li>Created with <code>c()</code> (combine).</li>
 </ul>
 
-<pre><code class="r">&gt; #Numeric vector
+<pre><code class="r">&gt; # numeric vector
 &gt; a &lt;- c(1,2,3,6,-2,4)
 &gt; 
-&gt; #Character vector
+&gt; # character vector
 &gt; b &lt;- c(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;)
 &gt; 
-&gt; #logical vector
+&gt; # logical vector
 &gt; c &lt;- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
 </code></pre>
 
@@ -191,7 +215,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Vector</h2>
   </hgroup>
@@ -201,7 +225,7 @@
 <ul>
 <li><code>typeof()</code>: what it is.</li>
 <li><code>length()</code>: how many elements contains.</li>
-<li><code>attributes</code>: additionally arbitrary data.</li>
+<li><code>attributes()</code>: additionally arbitrary data.</li>
 </ul>
 
 <pre><code class="r">&gt; a
@@ -218,7 +242,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Vector</h2>
   </hgroup>
@@ -242,12 +266,12 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Vector coercion</h2>
   </hgroup>
   <article data-timings="">
-    <p>Q: What happend if you attempt to combine different elements types in one vector?</p>
+    <p><strong>Q:</strong> What happend if you attempt to combine different elements types in one vector?</p>
 
 <pre><code class="r">&gt;  c(FALSE,1,2)
 </code></pre>
@@ -262,12 +286,12 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Vector coercion</h2>
   </hgroup>
   <article data-timings="">
-    <p>A: They will be coerced to the most <strong>flexible type</strong>.</p>
+    <p><strong>A:</strong> They will be coerced to the most <strong>flexible type</strong>.</p>
 
 <p><center>logical <code>&lt;</code> integer <code>&lt;</code> double <code>&lt;</code> character
 </center></p>
@@ -288,13 +312,13 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
-    <h2>Extra: The <code>str()</code> function</h2>
+    <h2>Bonus: The <code>str()</code> function</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li><code>str()</code> is short for instruction.</li>
+<li><code>str()</code> is short for structure.</li>
 <li><code>str()</code> provides a human readable description of any R data structure.</li>
 </ul>
 
@@ -314,7 +338,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Lists</h2>
   </hgroup>
@@ -335,7 +359,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Lists</h2>
   </hgroup>
@@ -366,7 +390,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Factors</h2>
   </hgroup>
@@ -383,7 +407,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Factors</h2>
   </hgroup>
@@ -406,7 +430,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Factors</h2>
   </hgroup>
@@ -433,13 +457,13 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Matrices</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).</li>
+<li>Adding a <code>dim()</code> attribute to a vector allows it to behave like a multi-dimensional array (matrix).</li>
 <li>Matrices are created with <code>matrix()</code>.</li>
 </ul>
 
@@ -456,13 +480,13 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Matrices</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).</li>
+<li>Adding a <code>dim()</code> attribute to a vector allows it to behave like a multi-dimensional array (matrix).</li>
 <li>Matrices are created with <code>matrix()</code>.</li>
 </ul>
 
@@ -486,7 +510,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Arrays</h2>
   </hgroup>
@@ -515,14 +539,14 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Names and dimensions</h2>
   </hgroup>
   <article data-timings="">
     <ul>
 <li><code>nrow()</code> and <code>ncol()</code> return the number of rows and columns for a matrix respectively.</li>
-<li><code>dim()</code> &quot;returns&quot; the dimensions of an array (including matrices)</li>
+<li><code>dim()</code> &quot;returns&quot; the dimensions of an array.</li>
 </ul>
 
 <pre><code class="r">&gt; nrow(a)
@@ -539,7 +563,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Names and dimensions</h2>
   </hgroup>
@@ -569,49 +593,49 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
-  <hgroup>
-    <h2>Names and dimensions</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
-<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
-</ul>
-
-<pre><code class="r">&gt; rownames(a)
-</code></pre>
-
-<pre><code class="r">&gt; colnames(a)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-24" style="background:;">
-  <hgroup>
-    <h2>Names and dimensions</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
-<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
-</ul>
-
-<pre><code class="r">&gt; rownames(a)
-## NULL
-</code></pre>
-
-<pre><code class="r">&gt; colnames(a)
-## NULL
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
 <slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Names and dimensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a)
+</code></pre>
+
+<pre><code class="r">&gt; colnames(a)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Names and dimensions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>rownames()</code> and <code>colnames()</code> &quot;return&quot; row an column names.</li>
+<li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
+</ul>
+
+<pre><code class="r">&gt; rownames(a)
+## NULL
+</code></pre>
+
+<pre><code class="r">&gt; colnames(a)
+## NULL
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Names and dimensions</h2>
   </hgroup>
@@ -632,7 +656,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Names and dimensions</h2>
   </hgroup>
@@ -660,7 +684,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Names and dimensions</h2>
   </hgroup>
@@ -692,7 +716,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Data frames</h2>
   </hgroup>
@@ -709,7 +733,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Data frames</h2>
   </hgroup>
@@ -729,7 +753,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Data frames</h2>
   </hgroup>
@@ -756,7 +780,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Data frames with factors</h2>
   </hgroup>
@@ -787,7 +811,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Coersion</h2>
   </hgroup>
@@ -809,7 +833,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Coersion</h2>
   </hgroup>
@@ -838,7 +862,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Combining data frames</h2>
   </hgroup>
@@ -855,7 +879,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Combining data frames</h2>
   </hgroup>
@@ -881,7 +905,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
@@ -889,7 +913,7 @@
     <ol>
 <li>If <code>is.matrix(x)</code> is TRUE, what will <code>is.array(x)</code> return?</li>
 <li>What does <code>as.matrix()</code> do when applied to a data frame with columns of different types?</li>
-<li>Given two vectors <code>a = c(1:3)</code> and <code>b = c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)</code>, if I want to build a data.frame maintaining the vectors&#39; orginal data types, should I combine them first and them turn them as data.frame or visceversa? (Hint: <code>cbind()</code>)</li>
+<li>Given two vectors <code>a &lt;- c(1:3)</code> and <code>b &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)</code>, if I want to build a data.frame maintaining the vectors&#39; original data types, should I combine them first (<code>cbind</code>) and them turn them as data.frame or visceversa?</li>
 </ol>
 
   </article>
@@ -902,7 +926,7 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Course outline'>
+        data-slide=1 title='NA'>
          1
       </a>
     </li>
@@ -926,25 +950,25 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='RStudio'>
+        data-slide=5 title='R vs. SAS vs. SPSS'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Data types &amp; data structures'>
+        data-slide=6 title='RStudio'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Vector'>
+        data-slide=7 title='Data types &amp; data structures'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Vector'>
+        data-slide=8 title='Data types &amp; data structures'>
          8
       </a>
     </li>
@@ -956,43 +980,43 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Vector coercion'>
+        data-slide=10 title='Vector'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Vector coercion'>
+        data-slide=11 title='Vector'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Extra: The <code>str()</code> function'>
+        data-slide=12 title='Vector coercion'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Lists'>
+        data-slide=13 title='Vector coercion'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Lists'>
+        data-slide=14 title='Bonus: The <code>str()</code> function'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Factors'>
+        data-slide=15 title='Lists'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Factors'>
+        data-slide=16 title='Lists'>
          16
       </a>
     </li>
@@ -1004,31 +1028,31 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Matrices'>
+        data-slide=18 title='Factors'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Matrices'>
+        data-slide=19 title='Factors'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Arrays'>
+        data-slide=20 title='Matrices'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Names and dimensions'>
+        data-slide=21 title='Matrices'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Names and dimensions'>
+        data-slide=22 title='Arrays'>
          22
       </a>
     </li>
@@ -1064,13 +1088,13 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Data frames'>
+        data-slide=28 title='Names and dimensions'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Data frames'>
+        data-slide=29 title='Names and dimensions'>
          29
       </a>
     </li>
@@ -1082,38 +1106,50 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Data frames with factors'>
+        data-slide=31 title='Data frames'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Coersion'>
+        data-slide=32 title='Data frames'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Coersion'>
+        data-slide=33 title='Data frames with factors'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Combining data frames'>
+        data-slide=34 title='Coersion'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Combining data frames'>
+        data-slide=35 title='Coersion'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Exercises'>
+        data-slide=36 title='Combining data frames'>
          36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Combining data frames'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Exercises'>
+         38
       </a>
     </li>
   </ul>

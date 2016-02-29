@@ -1,11 +1,11 @@
 ---
-title       : Introduction to R
-subtitle    : Data structures & types
+title       : R programming
+subtitle    : Lecture 1. Data types & structures
 author      : Manuel A. Bolivar
 job         :  
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : zenburn      # 
+hitheme     : zenburn       # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
@@ -13,6 +13,14 @@ knit        : slidify::knit2slides
 
 
 
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
 
 ## Course outline
 1. Introduction to R
@@ -21,9 +29,8 @@ knit        : slidify::knit2slides
 4. Reading and writing data 
 5. Dates & times 
 6. Plotting in R 
-7. Manipulate 
-8. Tidy data 
-9. Processing acelerometry data
+7. Manipulating & tidying data 
+8. Processing acelerometry data
 
 ---
 
@@ -31,11 +38,8 @@ knit        : slidify::knit2slides
 
 1. Introduction to R
   - What is R?
-  - Data types
+  - Data structures
   - Subsetting
-  - Packages
-2. Control structures 
-  - `if`, `for` & `while`
 
 
 --- .class #id 
@@ -66,20 +70,33 @@ knit        : slidify::knit2slides
 
 ---
 
+## R vs. SAS vs. SPSS
+
+[link](https://www.google.com/trends/explore#q=%2Fm%2F0212jm%2C%20%2Fm%2F02l0yf8%2C%20%2Fm%2F018fh1&cmpt=q&tz=Etc%2FGMT%2B5)
+
+<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=es&q=/m/0212jm,+/m/02l0yf8,+/m/018fh1&cmpt=q&tz=Etc/GMT%2B5&tz=Etc/GMT%2B5&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=500&h=330"></script>
+
+
+---
 ## RStudio
 
-RStudio is an IDE that makes R easier to use and more productive.
+RStudio is an Integrated Development Environment (IDE) that makes R easier to use.
 
 <center><img src="https://www.rstudio.com/wp-content/uploads/2014/04/rstudio-windows.png" alt="RStudio" style="width: 600px;"/></center>
 
+--- .segue .dark .nobackground
+
+## Data types & data structures
+
 ---
+
 
 ## Data types & data structures
 
 **R** has a wide variety of **data types**:
 
-+ Numeric
-+ String
++ Numeric / Integer
++ Character
 + Logical (True/False)
 + Date
 
@@ -102,13 +119,13 @@ The basic data structure in R is the vector.
 
 
 ```r
-> #Numeric vector
+> # numeric vector
 > a <- c(1,2,3,6,-2,4)
 > 
-> #Character vector
+> # character vector
 > b <- c("one","two","three")
 > 
-> #logical vector
+> # logical vector
 > c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
 ```
 
@@ -119,7 +136,7 @@ The basic data structure in R is the vector.
 Vectors have three common properties
  + `typeof()`: what it is.
  + `length()`: how many elements contains.
- + `attributes`: additionally arbitrary data.
+ + `attributes()`: additionally arbitrary data.
 
 
 ```r
@@ -155,7 +172,7 @@ Given a vector, you can ask if correspond to certain type:
 
 ## Vector coercion
 
-Q: What happend if you attempt to combine different elements types in one vector?
+**Q:** What happend if you attempt to combine different elements types in one vector?
 
 
 ```r
@@ -176,7 +193,7 @@ Q: What happend if you attempt to combine different elements types in one vector
 
 ## Vector coercion
 
-A: They will be coerced to the most **flexible type**.
+**A:** They will be coerced to the most **flexible type**.
 
 <center>logical `<` integer `<` double `<` character
 </center>
@@ -201,9 +218,9 @@ A: They will be coerced to the most **flexible type**.
 
 ---
 
-## Extra: The `str()` function
+## Bonus: The `str()` function
 
-+ `str()` is short for instruction.
++ `str()` is short for structure.
 + `str()` provides a human readable description of any R data structure.
 
 
@@ -334,7 +351,7 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 ## Matrices
 
-+ Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).
++ Adding a `dim()` attribute to a vector allows it to behave like a multi-dimensional array (matrix).
 + Matrices are created with `matrix()`.
 
 
@@ -352,7 +369,7 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 ## Matrices
 
-+ Adding a dim() attribute to a vector allows it to behave like a multi-dimensional array (matrix).
++ Adding a `dim()` attribute to a vector allows it to behave like a multi-dimensional array (matrix).
 + Matrices are created with `matrix()`.
 
 
@@ -405,7 +422,7 @@ Are matrices `a` and `b` equal?
 ## Names and dimensions
 
 + `nrow()` and `ncol()` return the number of rows and columns for a matrix respectively.
-+ `dim()` "returns" the dimensions of an array (including matrices)
++ `dim()` "returns" the dimensions of an array.
 
 
 ```r
@@ -726,6 +743,6 @@ Data frames con be combined using `cbind()` or `rbind`.
 
 1. If `is.matrix(x)` is TRUE, what will `is.array(x)` return?
 2. What does `as.matrix()` do when applied to a data frame with columns of different types?
-3. Given two vectors `a = c(1:3)` and `b = c("a","b","c")`, if I want to build a data.frame maintaining the vectors' orginal data types, should I combine them first and them turn them as data.frame or visceversa? (Hint: `cbind()`)
+3. Given two vectors `a <- c(1:3)` and `b <- c("a","b","c")`, if I want to build a data.frame maintaining the vectors' original data types, should I combine them first (`cbind`) and them turn them as data.frame or visceversa?
 
 
