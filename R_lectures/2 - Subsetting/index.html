@@ -69,7 +69,7 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Positive integers:</code> Return elements at the specified positions.</p>
@@ -83,27 +83,21 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Positive integers:</code> Return elements at the specified positions.</p>
 
-<pre><code class="r">x[c(2,4)]
+<pre><code class="r">&gt; x[c(2,4)]
+## [1] 4.2 5.4
 </code></pre>
 
-<pre><code>## [1] 4.2 5.4
+<pre><code class="r">&gt; x[order(x)]
+## [1] 2.1 3.3 4.2 5.4
 </code></pre>
 
-<pre><code class="r">x[order(x)]
-</code></pre>
-
-<pre><code>## [1] 2.1 3.3 4.2 5.4
-</code></pre>
-
-<pre><code class="r">x[c(1,1)]
-</code></pre>
-
-<pre><code>## [1] 2.1 2.1
+<pre><code class="r">&gt; x[c(1,1)]
+## [1] 2.1 2.1
 </code></pre>
 
   </article>
@@ -115,7 +109,7 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Negative integers:</code> omit elements at the specified positions.</p>
@@ -129,23 +123,19 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Negative integers:</code> omit elements at the specified positions.</p>
 
-<pre><code class="r">x[-c(2,4)]
-</code></pre>
-
-<pre><code>## [1] 2.1 3.3
+<pre><code class="r">&gt; x[-c(2,4)]
+## [1] 2.1 3.3
 </code></pre>
 
 <p>but you can´t mix positive and neative integers.</p>
 
-<pre><code class="r">x[c(-2,4)]
-</code></pre>
-
-<pre><code>## Error in x[c(-2, 4)]: solamente 0&#39;s pueden ser mezclados con subscritos negativos
+<pre><code class="r">&gt; x[c(-2,4)]
+## Error in x[c(-2, 4)]: solamente 0&#39;s pueden ser mezclados con subscritos negativos
 </code></pre>
 
   </article>
@@ -157,7 +147,7 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Logical vectors</code>: select elements where the corresponding logical value is <code>TRUE</code>.</p>
@@ -171,21 +161,17 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Logical vectors</code>: select elements where the corresponding logical value is <code>TRUE</code>.</p>
 
-<pre><code class="r">x[c(TRUE,FALSE,TRUE,TRUE)]
+<pre><code class="r">&gt; x[c(TRUE,FALSE,TRUE,TRUE)]
+## [1] 2.1 3.3 5.4
 </code></pre>
 
-<pre><code>## [1] 2.1 3.3 5.4
-</code></pre>
-
-<pre><code class="r">x[x&gt;3]
-</code></pre>
-
-<pre><code>## [1] 4.2 3.3 5.4
+<pre><code class="r">&gt; x[x&gt;3]
+## [1] 4.2 3.3 5.4
 </code></pre>
 
   </article>
@@ -197,35 +183,17 @@ strong {
     <h2>Vectors</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- c(2.1, 4.2, 3.3, 5.4)
+    <pre><code class="r">&gt; x &lt;- c(2.1, 4.2, 3.3, 5.4)
 </code></pre>
 
 <p><code>Logical vectors</code>: select elements where the corresponding logical value is <code>TRUE</code>.</p>
 
-<pre><code class="r">x[c(TRUE,FALSE,TRUE,TRUE)]
-</code></pre>
-
-<pre><code>## [1] 2.1 3.3 5.4
-</code></pre>
-
-<pre><code class="r">x[x&gt;3]
-</code></pre>
-
-<pre><code>## [1] 4.2 3.3 5.4
-</code></pre>
-
 <p>If the logical vector is shorter than the vector being subsetted, it will be recycled to be the same length.</p>
 
-<pre><code class="r">x[c(TRUE, FALSE)]
-</code></pre>
-
-<pre><code>## [1] 2.1 3.3
-</code></pre>
-
-<pre><code class="r">x[c(TRUE, FALSE,TRUE, FALSE)]
-</code></pre>
-
-<pre><code>## [1] 2.1 3.3
+<pre><code class="r">&gt; x[c(TRUE, FALSE)]
+## [1] 2.1 3.3
+&gt; x[c(TRUE, FALSE,TRUE, FALSE)]
+## [1] 2.1 3.3
 </code></pre>
 
   </article>
@@ -244,11 +212,9 @@ strong {
 <li>Blank subsetting is now useful because it lets you keep all rows or all columns.</li>
 </ul>
 
-<pre><code class="r">a &lt;- matrix(1:9, nrow = 3)
-a
-</code></pre>
-
-<pre><code>##      [,1] [,2] [,3]
+<pre><code class="r">&gt; a &lt;- matrix(1:9, nrow = 3)
+&gt; a
+##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9
@@ -263,10 +229,8 @@ a
     <h2>Matrices and arrays - examples</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">a
-</code></pre>
-
-<pre><code>##      [,1] [,2] [,3]
+    <pre><code class="r">&gt; a
+##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9
@@ -291,31 +255,23 @@ a
     <h2>Matrices and arrays - examples</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">a
-</code></pre>
-
-<pre><code>##      [,1] [,2] [,3]
+    <pre><code class="r">&gt; a
+##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9
 </code></pre>
 
-<pre><code class="r">a[,3] # 3th  column of the matrix
+<pre><code class="r">&gt; a[,3] # 3th  column of the matrix
+## [1] 7 8 9
 </code></pre>
 
-<pre><code>## [1] 7 8 9
+<pre><code class="r">&gt; a[2,] # 2th row of the matrix
+## [1] 2 5 8
 </code></pre>
 
-<pre><code class="r">a[2,] # 2th row of the matrix
-</code></pre>
-
-<pre><code>## [1] 2 5 8
-</code></pre>
-
-<pre><code class="r">a[c(2,3),c(1,3)] # 2nd and 3rd rows and 1st and 3rd columns of the matrix
-</code></pre>
-
-<pre><code>##      [,1] [,2]
+<pre><code class="r">&gt; a[c(2,3),c(1,3)] # 2nd and 3rd rows and 1st and 3rd columns of the matrix
+##      [,1] [,2]
 ## [1,]    2    8
 ## [2,]    3    9
 </code></pre>
@@ -334,14 +290,12 @@ a
 <li>Now we have an additional operator <code>$</code> besides <code>[</code>.</li>
 </ul>
 
-<pre><code class="r">df &lt;- data.frame(ID = 1:4, 
-                 Color = c(&quot;red&quot;,&quot;white&quot;,&quot;red&quot;,NA),
-                 Passed = c(T,T,T,F),
-                 stringsAsFactors = F)
-df
-</code></pre>
-
-<pre><code>##   ID Color Passed
+<pre><code class="r">&gt; df &lt;- data.frame(ID = 1:4, 
++                  Color = c(&quot;red&quot;,&quot;white&quot;,&quot;red&quot;,NA),
++                  Passed = c(T,T,T,F),
++                  stringsAsFactors = F)
+&gt; df
+##   ID Color Passed
 ## 1  1   red   TRUE
 ## 2  2 white   TRUE
 ## 3  3   red   TRUE
@@ -359,48 +313,34 @@ df
   <article data-timings="">
     <p>Using the <code>[</code>, we will obtain a data frame.</p>
 
-<pre><code class="r">str(df)
-</code></pre>
-
-<pre><code>## &#39;data.frame&#39;:    4 obs. of  3 variables:
+<pre><code class="r">&gt; str(df)
+## &#39;data.frame&#39;:    4 obs. of  3 variables:
 ##  $ ID    : int  1 2 3 4
 ##  $ Color : chr  &quot;red&quot; &quot;white&quot; &quot;red&quot; NA
 ##  $ Passed: logi  TRUE TRUE TRUE FALSE
 </code></pre>
 
 <div style='float:left;width:48%;' class='centered'>
-  <pre><code class="r">df[1]
-</code></pre>
-
-<pre><code>##   ID
+  <pre><code class="r">&gt; df[1]
+##   ID
 ## 1  1
 ## 2  2
 ## 3  3
 ## 4  4
-</code></pre>
-
-<pre><code class="r">class(df[1])
-</code></pre>
-
-<pre><code>## [1] &quot;data.frame&quot;
+&gt; class(df[1])
+## [1] &quot;data.frame&quot;
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;'>
-  <pre><code class="r">df[&quot;ID&quot;]
-</code></pre>
-
-<pre><code>##   ID
+  <pre><code class="r">&gt; df[&quot;ID&quot;]
+##   ID
 ## 1  1
 ## 2  2
 ## 3  3
 ## 4  4
-</code></pre>
-
-<pre><code class="r">class(df[&quot;ID&quot;])
-</code></pre>
-
-<pre><code>## [1] &quot;data.frame&quot;
+&gt; class(df[&quot;ID&quot;])
+## [1] &quot;data.frame&quot;
 </code></pre>
 
 </div>
@@ -415,40 +355,26 @@ df
   <article data-timings="">
     <p>Using the <code>[[</code> or <code>$</code>, we obtain a vector.</p>
 
-<pre><code class="r">str(df)
-</code></pre>
-
-<pre><code>## &#39;data.frame&#39;:    4 obs. of  3 variables:
+<pre><code class="r">&gt; str(df)
+## &#39;data.frame&#39;:    4 obs. of  3 variables:
 ##  $ ID    : int  1 2 3 4
 ##  $ Color : chr  &quot;red&quot; &quot;white&quot; &quot;red&quot; NA
 ##  $ Passed: logi  TRUE TRUE TRUE FALSE
 </code></pre>
 
 <div style='float:left;width:48%;' class='centered'>
-  <pre><code class="r">df$ID
-</code></pre>
-
-<pre><code>## [1] 1 2 3 4
-</code></pre>
-
-<pre><code class="r">class(df$ID)
-</code></pre>
-
-<pre><code>## [1] &quot;integer&quot;
+  <pre><code class="r">&gt; df$ID
+## [1] 1 2 3 4
+&gt; class(df$ID)
+## [1] &quot;integer&quot;
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;'>
-  <pre><code class="r">df[[&quot;ID&quot;]]
-</code></pre>
-
-<pre><code>## [1] 1 2 3 4
-</code></pre>
-
-<pre><code class="r">class(df[[&quot;ID&quot;]])
-</code></pre>
-
-<pre><code>## [1] &quot;integer&quot;
+  <pre><code class="r">&gt; df[[&quot;ID&quot;]]
+## [1] 1 2 3 4
+&gt; class(df[[&quot;ID&quot;]])
+## [1] &quot;integer&quot;
 </code></pre>
 
 </div>
@@ -468,11 +394,9 @@ df
 <li><code>[[</code> and <code>$</code> return the components of the list.</li>
 </ul>
 
-<pre><code class="r">x &lt;- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list(&quot;four&quot;,&quot;five&quot;))
-str(x)
-</code></pre>
-
-<pre><code>## List of 3
+<pre><code class="r">&gt; x &lt;- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list(&quot;four&quot;,&quot;five&quot;))
+&gt; str(x)
+## List of 3
 ##  $ a: int [1:5] 5 6 7 8 9
 ##  $ b: logi [1:4] TRUE FALSE FALSE TRUE
 ##  $ c:List of 2
@@ -489,35 +413,23 @@ str(x)
     <h2>Lists</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list(&quot;four&quot;,&quot;five&quot;))
+    <pre><code class="r">&gt; x &lt;- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list(&quot;four&quot;,&quot;five&quot;))
 </code></pre>
 
 <p>For example, <code>x[1]</code> and <code>x[&quot;a&quot;]</code> return a list.</p>
 
-<pre><code class="r">x[1]
-</code></pre>
-
-<pre><code>## $a
+<pre><code class="r">&gt; x[1]
+## $a
 ## [1] 5 6 7 8 9
+&gt; class(x[1])
+## [1] &quot;list&quot;
 </code></pre>
 
-<pre><code class="r">class(x[1])
-</code></pre>
-
-<pre><code>## [1] &quot;list&quot;
-</code></pre>
-
-<pre><code class="r">x[&quot;a&quot;]
-</code></pre>
-
-<pre><code>## $a
+<pre><code class="r">&gt; x[&quot;a&quot;]
+## $a
 ## [1] 5 6 7 8 9
-</code></pre>
-
-<pre><code class="r">class(x[&quot;a&quot;])
-</code></pre>
-
-<pre><code>## [1] &quot;list&quot;
+&gt; class(x[&quot;a&quot;])
+## [1] &quot;list&quot;
 </code></pre>
 
   </article>
@@ -529,33 +441,21 @@ str(x)
     <h2>Lists</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">x &lt;- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list(&quot;four&quot;,&quot;five&quot;))
+    <pre><code class="r">&gt; x &lt;- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list(&quot;four&quot;,&quot;five&quot;))
 </code></pre>
 
 <p>But <code>x$a</code>, <code>x[[1]]</code>, and <code>x[[&quot;a&quot;]]</code> return a vector.</p>
 
-<pre><code class="r">x[[1]]
+<pre><code class="r">&gt; x[[1]]
+## [1] 5 6 7 8 9
+&gt; class(x[[1]])
+## [1] &quot;integer&quot;
 </code></pre>
 
-<pre><code>## [1] 5 6 7 8 9
-</code></pre>
-
-<pre><code class="r">class(x[[1]])
-</code></pre>
-
-<pre><code>## [1] &quot;integer&quot;
-</code></pre>
-
-<pre><code class="r">x$a
-</code></pre>
-
-<pre><code>## [1] 5 6 7 8 9
-</code></pre>
-
-<pre><code class="r">class(x$a)
-</code></pre>
-
-<pre><code>## [1] &quot;integer&quot;
+<pre><code class="r">&gt; x$a
+## [1] 5 6 7 8 9
+&gt; class(x$a)
+## [1] &quot;integer&quot;
 </code></pre>
 
   </article>
@@ -569,13 +469,19 @@ str(x)
   <article data-timings="">
     <ol>
 <li>If a matrix <code>a</code> is defined as <code>a &lt;- matrix(1:9, nrow = 3)</code>, what would return <code>a[c(TRUE,TRUE,FALSE),c(-3)]</code>?</li>
-<li><p>Fix each of the following common data frame subsetting errors:</p>
+<li><p>Using the accelerometry data contained in <em>COL PA MARA.csv</em> file</p>
+
+<pre><code class="r">&gt; setwd(&quot;C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data&quot;)
+&gt; acdata &lt;- read.csv(&quot;COL PA MARA.csv&quot;)
+</code></pre>
+
+<p>Fix each of the following common data frame subsetting errors:</p>
 
 <ul>
-<li><code>mtcars[mtcars$cyl = 4, ]</code></li>
-<li><code>mtcars[-1:4, ]</code></li>
-<li><code>mtcars[mtcars$cyl &lt;= 5]</code></li>
-<li><code>mtcars[mtcars$cyl == 4 | 6, ]</code></li>
+<li><code>acdata[acdata$use = B, ]</code></li>
+<li><code>acdata[-1:4, ]</code></li>
+<li><code>acdata[acdata$valdays &gt;= 4]</code></li>
+<li><code>acdata[acdata$valdays == 4 | 6, ]</code></li>
 </ul></li>
 <li><p>Given a linear model, e.g., <code>mod &lt;- lm(mpg ~ wt, data = mtcars)</code>, extract the residual degrees of freedom. Extract the R squared from the model summary (<code>summary(mod)</code>)</p></li>
 </ol>

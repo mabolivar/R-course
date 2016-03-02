@@ -35,7 +35,7 @@ strong {
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Positive integers:` Return elements at the specified positions.
@@ -46,35 +46,26 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Positive integers:` Return elements at the specified positions.
 
 
 ```r
-x[c(2,4)]
-```
-
-```
+> x[c(2,4)]
 ## [1] 4.2 5.4
 ```
 
 
 ```r
-x[order(x)]
-```
-
-```
+> x[order(x)]
 ## [1] 2.1 3.3 4.2 5.4
 ```
 
 
 ```r
-x[c(1,1)]
-```
-
-```
+> x[c(1,1)]
 ## [1] 2.1 2.1
 ```
 
@@ -84,7 +75,7 @@ x[c(1,1)]
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Negative integers:` omit elements at the specified positions.
@@ -95,17 +86,14 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Negative integers:` omit elements at the specified positions.
 
 
 ```r
-x[-c(2,4)]
-```
-
-```
+> x[-c(2,4)]
 ## [1] 2.1 3.3
 ```
 
@@ -113,10 +101,7 @@ but you can´t mix positive and neative integers.
 
 
 ```r
-x[c(-2,4)]
-```
-
-```
+> x[c(-2,4)]
 ## Error in x[c(-2, 4)]: solamente 0's pueden ser mezclados con subscritos negativos
 ```
 
@@ -127,7 +112,7 @@ x[c(-2,4)]
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Logical vectors`: select elements where the corresponding logical value is `TRUE`.
@@ -138,7 +123,7 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Logical vectors`: select elements where the corresponding logical value is `TRUE`.
@@ -146,19 +131,13 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 
 
 ```r
-x[c(TRUE,FALSE,TRUE,TRUE)]
-```
-
-```
+> x[c(TRUE,FALSE,TRUE,TRUE)]
 ## [1] 2.1 3.3 5.4
 ```
 
 
 ```r
-x[x>3]
-```
-
-```
+> x[x>3]
 ## [1] 4.2 3.3 5.4
 ```
 
@@ -169,45 +148,18 @@ x[x>3]
 
 
 ```r
-x <- c(2.1, 4.2, 3.3, 5.4)
+> x <- c(2.1, 4.2, 3.3, 5.4)
 ```
 
 `Logical vectors`: select elements where the corresponding logical value is `TRUE`.
-
-
-```r
-x[c(TRUE,FALSE,TRUE,TRUE)]
-```
-
-```
-## [1] 2.1 3.3 5.4
-```
-
-
-```r
-x[x>3]
-```
-
-```
-## [1] 4.2 3.3 5.4
-```
 
 If the logical vector is shorter than the vector being subsetted, it will be recycled to be the same length.
 
 
 ```r
-x[c(TRUE, FALSE)]
-```
-
-```
+> x[c(TRUE, FALSE)]
 ## [1] 2.1 3.3
-```
-
-```r
-x[c(TRUE, FALSE,TRUE, FALSE)]
-```
-
-```
+> x[c(TRUE, FALSE,TRUE, FALSE)]
 ## [1] 2.1 3.3
 ```
 
@@ -222,11 +174,8 @@ The most common way of subsetting matrices (2d) and arrays (>2d) is a simple gen
 
 
 ```r
-a <- matrix(1:9, nrow = 3)
-a
-```
-
-```
+> a <- matrix(1:9, nrow = 3)
+> a
 ##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -239,10 +188,7 @@ a
 
 
 ```r
-a
-```
-
-```
+> a
 ##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -263,10 +209,7 @@ Write the statements that return each of the following statements for matrix `a`
 
 
 ```r
-a
-```
-
-```
+> a
 ##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -275,28 +218,19 @@ a
 
 
 ```r
-a[,3] # 3th  column of the matrix
-```
-
-```
+> a[,3] # 3th  column of the matrix
 ## [1] 7 8 9
 ```
 
 
 ```r
-a[2,] # 2th row of the matrix
-```
-
-```
+> a[2,] # 2th row of the matrix
 ## [1] 2 5 8
 ```
 
 
 ```r
-a[c(2,3),c(1,3)] # 2nd and 3rd rows and 1st and 3rd columns of the matrix
-```
-
-```
+> a[c(2,3),c(1,3)] # 2nd and 3rd rows and 1st and 3rd columns of the matrix
 ##      [,1] [,2]
 ## [1,]    2    8
 ## [2,]    3    9
@@ -311,14 +245,11 @@ a[c(2,3),c(1,3)] # 2nd and 3rd rows and 1st and 3rd columns of the matrix
 
 
 ```r
-df <- data.frame(ID = 1:4, 
-                 Color = c("red","white","red",NA),
-                 Passed = c(T,T,T,F),
-                 stringsAsFactors = F)
-df
-```
-
-```
+> df <- data.frame(ID = 1:4, 
++                  Color = c("red","white","red",NA),
++                  Passed = c(T,T,T,F),
++                  stringsAsFactors = F)
+> df
 ##   ID Color Passed
 ## 1  1   red   TRUE
 ## 2  2 white   TRUE
@@ -334,10 +265,7 @@ Using the `[`, we will obtain a data frame.
 
 
 ```r
-str(df)
-```
-
-```
+> str(df)
 ## 'data.frame':	4 obs. of  3 variables:
 ##  $ ID    : int  1 2 3 4
 ##  $ Color : chr  "red" "white" "red" NA
@@ -348,22 +276,13 @@ str(df)
 
 
 ```r
-df[1]
-```
-
-```
+> df[1]
 ##   ID
 ## 1  1
 ## 2  2
 ## 3  3
 ## 4  4
-```
-
-```r
-class(df[1])
-```
-
-```
+> class(df[1])
 ## [1] "data.frame"
 ```
 
@@ -371,22 +290,13 @@ class(df[1])
 
 
 ```r
-df["ID"]
-```
-
-```
+> df["ID"]
 ##   ID
 ## 1  1
 ## 2  2
 ## 3  3
 ## 4  4
-```
-
-```r
-class(df["ID"])
-```
-
-```
+> class(df["ID"])
 ## [1] "data.frame"
 ```
 
@@ -398,10 +308,7 @@ Using the `[[` or `$`, we obtain a vector.
 
 
 ```r
-str(df)
-```
-
-```
+> str(df)
 ## 'data.frame':	4 obs. of  3 variables:
 ##  $ ID    : int  1 2 3 4
 ##  $ Color : chr  "red" "white" "red" NA
@@ -412,18 +319,9 @@ str(df)
 
 
 ```r
-df$ID
-```
-
-```
+> df$ID
 ## [1] 1 2 3 4
-```
-
-```r
-class(df$ID)
-```
-
-```
+> class(df$ID)
 ## [1] "integer"
 ```
 
@@ -431,18 +329,9 @@ class(df$ID)
 
 
 ```r
-df[["ID"]]
-```
-
-```
+> df[["ID"]]
 ## [1] 1 2 3 4
-```
-
-```r
-class(df[["ID"]])
-```
-
-```
+> class(df[["ID"]])
 ## [1] "integer"
 ```
 
@@ -458,11 +347,8 @@ Subseting lists works the same than subsetting a vector.
 
 
 ```r
-x <- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list("four","five"))
-str(x)
-```
-
-```
+> x <- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list("four","five"))
+> str(x)
 ## List of 3
 ##  $ a: int [1:5] 5 6 7 8 9
 ##  $ b: logi [1:4] TRUE FALSE FALSE TRUE
@@ -477,44 +363,26 @@ str(x)
 
 
 ```r
-x <- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list("four","five"))
+> x <- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list("four","five"))
 ```
 
 For example, `x[1]` and `x["a"]` return a list.
 
 
 ```r
-x[1]
-```
-
-```
+> x[1]
 ## $a
 ## [1] 5 6 7 8 9
-```
-
-```r
-class(x[1])
-```
-
-```
+> class(x[1])
 ## [1] "list"
 ```
 
 
 ```r
-x["a"]
-```
-
-```
+> x["a"]
 ## $a
 ## [1] 5 6 7 8 9
-```
-
-```r
-class(x["a"])
-```
-
-```
+> class(x["a"])
 ## [1] "list"
 ```
 
@@ -524,42 +392,24 @@ class(x["a"])
 
 
 ```r
-x <- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list("four","five"))
+> x <- list(a=c(5:9),b=c(TRUE,FALSE,FALSE,TRUE), c=list("four","five"))
 ```
 
 But `x$a`, `x[[1]]`, and `x[["a"]]` return a vector.
 
 
 ```r
-x[[1]]
-```
-
-```
+> x[[1]]
 ## [1] 5 6 7 8 9
-```
-
-```r
-class(x[[1]])
-```
-
-```
+> class(x[[1]])
 ## [1] "integer"
 ```
 
 
 ```r
-x$a
-```
-
-```
+> x$a
 ## [1] 5 6 7 8 9
-```
-
-```r
-class(x$a)
-```
-
-```
+> class(x$a)
 ## [1] "integer"
 ```
 
@@ -568,11 +418,17 @@ class(x$a)
 ## Exercises
 
 1. If a matrix `a` is defined as `a <- matrix(1:9, nrow = 3)`, what would return `a[c(TRUE,TRUE,FALSE),c(-3)]`?
-2. Fix each of the following common data frame subsetting errors:
-  + `mtcars[mtcars$cyl = 4, ]`
-  + `mtcars[-1:4, ]`
-  + `mtcars[mtcars$cyl <= 5]`
-  + `mtcars[mtcars$cyl == 4 | 6, ]`
+2. Using the accelerometry data contained in *COL PA MARA.csv* file
+  
+  ```r
+  > setwd("C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data")
+  > acdata <- read.csv("COL PA MARA.csv")
+  ```
+  Fix each of the following common data frame subsetting errors:
+  + `acdata[acdata$use = B, ]`
+  + `acdata[-1:4, ]`
+  + `acdata[acdata$valdays >= 4]`
+  + `acdata[acdata$valdays == 4 | 6, ]`
   
 3. Given a linear model, e.g., `mod <- lm(mpg ~ wt, data = mtcars)`, extract the residual degrees of freedom. Extract the R squared from the model summary (`summary(mod)`)
 

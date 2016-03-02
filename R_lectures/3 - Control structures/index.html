@@ -211,7 +211,7 @@ strong {
   <article data-timings="">
     <ol>
 <li>Write a program which sums the integers from 1 to 10 using a <code>for</code> loop (and prints the total at the end).</li>
-<li>Write a program which finds the factorial of a given number. E.g. 3 factorial, or \(3!\) is equal to 3 x 2 x 1; 5! is equal to 5 x 4 x 3 x 2 x 1, etc.. Your program should only contain a single loop.</li>
+<li>Write a program which finds the factorial of a given number. E.g. 3 factorial, or 3! is equal to 3 x 2 x 1; 5! is equal to 5 x 4 x 3 x 2 x 1, etc.. Your program should only contain a single loop.</li>
 </ol>
 
   </article>
@@ -230,11 +230,66 @@ strong {
 + }
 </code></pre>
 
+<p>where,</p>
+
+<ul>
+<li><em>cond</em> is the condition that should be TRUE for keep iterating in the loop.</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark nobackground" id="slide-10" style="background:;">
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>While</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src = "http://python-textbok.readthedocs.org/en/latest/_images/blockdiag-f3a27d8f6b0baede43d98ee8746bc4ed43aa58c8.png" style="width: 500px;"></center></p>
+
+<p><strong>Source</strong>: <a href="http://python-textbok.readthedocs.org/en/latest/Loop_Control_Statements.html">http://python-textbok.readthedocs.org/en/latest/Loop_Control_Statements.html</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>While - Example 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Add the numbers from 1 to 10 together.</p>
+
+<pre><code class="r">&gt; sum &lt;- 0
+&gt; i &lt;- 1
+&gt; while(i&lt;=10){
++   sum &lt;- i + sum
++   i &lt;- i + 1
++ }
+</code></pre>
+
+<pre><code class="r">&gt; sum
+## [1] 55
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>While - Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Write a program which uses a while loop to sum the squares of integers (starting from 1) until the total exceeds 200. Print the final total and the last number to be squared and added.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-13" style="background:;">
   <hgroup>
     <h2>Conditional execution</h2>
   </hgroup>
@@ -244,7 +299,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Conditional execution</h2>
   </hgroup>
@@ -262,7 +317,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -287,7 +342,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -306,7 +361,104 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>if-else</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The conditions can be a compound conditions, e.g.</p>
+
+<ul>
+<li><code>if(cond1 &amp; cond2) {statement}</code>: <code>&amp;</code> is an <em>and</em> operator. </li>
+<li><code>if(cond1 | cond2) {statement}</code>: <code>|</code> is an <em>or</em> operator. </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>if-else - Example 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A participant with more than 600 minutes of moderate-to-vigorous physical activity (MVPA) in average is considered valid.</p>
+
+<pre><code class="r">&gt; minutes &lt;- 750
+&gt; if(minutes &gt; 600){
++   print(&quot;Valid participant&quot;)
++ }
+## [1] &quot;Valid participant&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>if-else - Example 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A participant with more than 600 minutes of moderate-to-vigorous physical activity (MVPA) in average is considered valid. <strong>Otherwise, they are invalid participants.</strong></p>
+
+<pre><code class="r">&gt; minutes &lt;- 450
+&gt; if(minutes &gt; 600){
++   print(&quot;Valid participant&quot;)
++ } else{
++   print(&quot;Invalid participant&quot;)
++ }
+## [1] &quot;Invalid participant&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>if-else - Example 3</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A participant with more than 600 minutes of moderate-to-vigorous physical activity (MVPA) in average <strong>and more than 4 valid days of wear time</strong> is considered valid. Otherwise, they are invalid participants.</p>
+
+<pre><code class="r">&gt; minutes &lt;- 750
+&gt; valdays &lt;- 3
+&gt; if(minutes &gt; 600 &amp; valdays &gt; 4){
++   print(&quot;Valid participant&quot;)
++ } else{
++   print(&quot;Invalid participant&quot;)
++ }
+## [1] &quot;Invalid participant&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>if-else - Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Run the following code chunk.</p>
+
+<pre><code class="r">&gt; set.seed(123) #Set the seed for the random number generation
+&gt; x &lt;- rnorm(n = 1000, mean = 1, sd = 3)
+</code></pre>
+
+<ul>
+<li>How many numbers in <code>x</code> are less or equal than 0. Use a <code>for</code> or <code>while</code> loop.</li>
+<li>How many numbers in <code>x</code> are more than 0 and less or equal than 1. Use a <code>for</code> or <code>while</code> loop.</li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>ifelse</h2>
   </hgroup>
@@ -319,30 +471,42 @@ The syntax is:</p>
 
 <ul>
 <li><p>The first statement is executed if <em>cond</em> is <code>TRUE</code>. If <em>cond</em> is <code>FALSE</code>, the second statement is executed.</p></li>
-<li><p>Use <code>ifelse</code> when you want to take a binary action or when you want to input and output
-vectors from the construct.</p></li>
+<li><p>Use <code>ifelse</code> when you want to take a binary action or when you want to input and output vectors from the construct.</p></li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
   <article data-timings="">
     <ol>
-<li></li>
-<li>
-3.</li>
+<li><p>Read the database <em>COL PA MARA.csv</em></p>
+
+<pre><code class="r">&gt; acdata &lt;- read.csv(&quot;COL PA MARA.csv&quot;)
+</code></pre>
+
+<p>A valid participant is the one who wear the accelerometer for more than 4 valid days and at least one valid weekend day. However, if a person wear the accelerometry for more than 2000 minutes in midweek, he is also considered a valid participant.</p>
+
+<ul>
+<li>Create a new logical variable named <code>valid</code> which indicates if a particiant is valid or not. Bind your new variable to <code>df</code> data frame. (Use loops and conditional statements)</li>
+<li>How many participants are valid?</li>
+</ul></li>
+<li><p>Using the <code>ifelse()</code> function, create a new logical variable named <code>valid</code> which indicates if a particiant is valid or not.</p>
+
+<ul>
+<li>Compare the code used in numerals 1 and 2, which one of them is more efficient?</li>
+</ul></li>
 </ol>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Remarks</h2>
   </hgroup>
@@ -356,7 +520,7 @@ vectors from the construct.</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
@@ -369,7 +533,7 @@ vectors from the construct.</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark nobackground" id="slide-18" style="background:;">
+<slide class="segue dark nobackground" id="slide-26" style="background:;">
   <hgroup>
     <h2>Birthday Problem</h2>
   </hgroup>
@@ -439,56 +603,104 @@ vectors from the construct.</p></li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Conditional execution'>
+        data-slide=10 title='While'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Conditional execution'>
+        data-slide=11 title='While - Example 1'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='if-else'>
+        data-slide=12 title='While - Exercises'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='if-else'>
+        data-slide=13 title='Conditional execution'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='ifelse'>
+        data-slide=14 title='Conditional execution'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Exercises'>
+        data-slide=15 title='if-else'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Remarks'>
+        data-slide=16 title='if-else'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='References'>
+        data-slide=17 title='if-else'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Birthday Problem'>
+        data-slide=18 title='if-else - Example 1'>
          18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='if-else - Example 2'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='if-else - Example 3'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='if-else - Exercises'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='ifelse'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Exercises'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Remarks'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='References'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Birthday Problem'>
+         26
       </a>
     </li>
   </ul>
