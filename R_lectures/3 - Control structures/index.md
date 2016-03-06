@@ -169,13 +169,6 @@ where,
 
 ---
 
-## While
-<center><img src = "http://python-textbok.readthedocs.org/en/latest/_images/blockdiag-f3a27d8f6b0baede43d98ee8746bc4ed43aa58c8.png" style="width: 500px;"></center>
-
-**Source**: http://python-textbok.readthedocs.org/en/latest/Loop_Control_Statements.html
-
----
-
 ## While - Example 1
 
 Add the numbers from 1 to 10 together.
@@ -318,6 +311,26 @@ A participant with more than 600 minutes of moderate-to-vigorous physical activi
 
 ---
 
+## Logical operators
+
+<!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
+<!-- Sun Mar 06 17:33:28 2016 -->
+<table border=1>
+<tr> <th> Operator </th> <th> Description </th>  </tr>
+  <tr> <td> &lt; </td> <td> less than
+ </td> </tr>
+  <tr> <td> &lt;= </td> <td> less than or equal to </td> </tr>
+  <tr> <td> &gt; </td> <td> greater than </td> </tr>
+  <tr> <td> &gt;= </td> <td> greater than or equal to </td> </tr>
+  <tr> <td> == </td> <td> exactly equal to </td> </tr>
+  <tr> <td> != </td> <td> not equal to </td> </tr>
+  <tr> <td> !x </td> <td> Not x </td> </tr>
+  <tr> <td> x | y </td> <td> x OR y </td> </tr>
+  <tr> <td> x &amp; y </td> <td> x AND y </td> </tr>
+   </table>
+
+---
+
 ## if-else - Exercises
 
 1. Run the following code chunk.
@@ -351,13 +364,13 @@ The syntax is:
 
 ## Exercises
 
-1. Read the database *COL PA MARA.csv*
+1. Read the database *COL PA MARA.csv*. ([data](https://goo.gl/77zASV)) ([codebook](https://goo.gl/28MBXi))
   
   ```r
   > acdata <- read.csv("COL PA MARA.csv")
   ```
   A valid participant is the one who wear the accelerometer for more than 4 valid days and at least one valid weekend day. However, if a person wear the accelerometry for more than 2000 minutes in midweek, he is also considered a valid participant.
-  + Create a new logical variable named `valid` which indicates if a particiant is valid or not. Bind your new variable to `df` data frame. (Use loops and conditional statements)
+  + Create a new logical variable named `valid` which indicates if a particiant is valid or not. Bind your new variable to `acdata` data frame. (Use loops and conditional statements)
   + How many participants are valid?
   
 2. Using the `ifelse()` function, create a new logical variable named `valid` which indicates if a particiant is valid or not.
@@ -382,6 +395,3 @@ The syntax is:
 
 + Kabacoff, R. (2015). *R in action: data analysis and graphics with R*. Manning Publications Co.
 
---- .segue .dark .nobackground
-
-## Birthday Problem

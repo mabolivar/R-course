@@ -201,14 +201,14 @@ strong {
 <li>Created with <code>c()</code> (combine).</li>
 </ul>
 
-<pre><code class="r">&gt; # numeric vector
-&gt; a &lt;- c(1,2,3,6,-2,4)
-&gt; 
-&gt; # character vector
-&gt; b &lt;- c(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;)
-&gt; 
-&gt; # logical vector
-&gt; c &lt;- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
+<pre><code class="r"># numeric vector
+a &lt;- c(1,2,3,6,-2,4)
+
+# character vector
+b &lt;- c(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;)
+
+# logical vector
+c &lt;- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
 </code></pre>
 
   </article>
@@ -228,14 +228,28 @@ strong {
 <li><code>attributes()</code>: additionally arbitrary data.</li>
 </ul>
 
-<pre><code class="r">&gt; a
-## [1]  1  2  3  6 -2  4
-&gt; typeof(a)
-## [1] &quot;double&quot;
-&gt; length(a)
-## [1] 6
-&gt; attributes(a)
-## NULL
+<pre><code class="r">a
+</code></pre>
+
+<pre><code>## [1]  1  2  3  6 -2  4
+</code></pre>
+
+<pre><code class="r">typeof(a)
+</code></pre>
+
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+
+<pre><code class="r">length(a)
+</code></pre>
+
+<pre><code>## [1] 6
+</code></pre>
+
+<pre><code class="r">attributes(a)
+</code></pre>
+
+<pre><code>## NULL
 </code></pre>
 
   </article>
@@ -256,10 +270,16 @@ strong {
 <li><code>is.logical()</code></li>
 </ul>
 
-<pre><code class="r">&gt; is.character(a)
-## [1] FALSE
-&gt; is.numeric(a)
-## [1] TRUE
+<pre><code class="r">is.character(a)
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">is.numeric(a)
+</code></pre>
+
+<pre><code>## [1] TRUE
 </code></pre>
 
   </article>
@@ -273,13 +293,13 @@ strong {
   <article data-timings="">
     <p><strong>Q:</strong> What happend if you attempt to combine different elements types in one vector?</p>
 
-<pre><code class="r">&gt;  c(FALSE,1,2)
+<pre><code class="r"> c(FALSE,1,2)
 </code></pre>
 
-<pre><code class="r">&gt;  c(1,2,&quot;three&quot;)
+<pre><code class="r"> c(1,2,&quot;three&quot;)
 </code></pre>
 
-<pre><code class="r">&gt;  c(FALSE,3,&quot;two&quot;)
+<pre><code class="r"> c(FALSE,3,&quot;two&quot;)
 </code></pre>
 
   </article>
@@ -296,16 +316,22 @@ strong {
 <p><center>logical <code>&lt;</code> integer <code>&lt;</code> double <code>&lt;</code> character
 </center></p>
 
-<pre><code class="r">&gt;  c(FALSE,1,2)
-## [1] 0 1 2
+<pre><code class="r"> c(FALSE,1,2)
 </code></pre>
 
-<pre><code class="r">&gt;  c(1,2,&quot;three&quot;)
-## [1] &quot;1&quot;     &quot;2&quot;     &quot;three&quot;
+<pre><code>## [1] 0 1 2
 </code></pre>
 
-<pre><code class="r">&gt;  c(FALSE,3,&quot;two&quot;)
-## [1] &quot;FALSE&quot; &quot;3&quot;     &quot;two&quot;
+<pre><code class="r"> c(1,2,&quot;three&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;1&quot;     &quot;2&quot;     &quot;three&quot;
+</code></pre>
+
+<pre><code class="r"> c(FALSE,3,&quot;two&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;FALSE&quot; &quot;3&quot;     &quot;two&quot;
 </code></pre>
 
   </article>
@@ -322,16 +348,22 @@ strong {
 <li><code>str()</code> provides a human readable description of any R data structure.</li>
 </ul>
 
-<pre><code class="r">&gt;  str(c(FALSE,1,2))
-##  num [1:3] 0 1 2
+<pre><code class="r"> str(c(FALSE,1,2))
 </code></pre>
 
-<pre><code class="r">&gt;  str(c(1,2,&quot;three&quot;))
-##  chr [1:3] &quot;1&quot; &quot;2&quot; &quot;three&quot;
+<pre><code>##  num [1:3] 0 1 2
 </code></pre>
 
-<pre><code class="r">&gt;  str(c(FALSE,3,&quot;two&quot;))
-##  chr [1:3] &quot;FALSE&quot; &quot;3&quot; &quot;two&quot;
+<pre><code class="r"> str(c(1,2,&quot;three&quot;))
+</code></pre>
+
+<pre><code>##  chr [1:3] &quot;1&quot; &quot;2&quot; &quot;three&quot;
+</code></pre>
+
+<pre><code class="r"> str(c(FALSE,3,&quot;two&quot;))
+</code></pre>
+
+<pre><code>##  chr [1:3] &quot;FALSE&quot; &quot;3&quot; &quot;two&quot;
 </code></pre>
 
   </article>
@@ -350,7 +382,7 @@ strong {
 <li>Some built-in functions returns lists as output.</li>
 </ul>
 
-<pre><code class="r">&gt; x &lt;- list(5:9,a,b,c, list(&quot;four&quot;,&quot;five&quot;))
+<pre><code class="r">x &lt;- list(5:9,a,b,c, list(&quot;four&quot;,&quot;five&quot;))
 </code></pre>
 
 <p>What is going to return the command <code>str(x)</code>?</p>
@@ -371,7 +403,7 @@ strong {
 <li>Some built-in functions returns lists as output.</li>
 </ul>
 
-<pre><code class="r">&gt; x &lt;- list(5:9,a,b,c, list(&quot;four&quot;,&quot;five&quot;))
+<pre><code class="r">x &lt;- list(5:9,a,b,c, list(&quot;four&quot;,&quot;five&quot;))
 </code></pre>
 
 <p>What is going to return the command <code>str(x)</code>?</p>
@@ -397,9 +429,11 @@ strong {
   <article data-timings="">
     <p>A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).</p>
 
-<pre><code class="r">&gt; x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
-&gt; x
-## [1] a b b a
+<pre><code class="r">x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
+x
+</code></pre>
+
+<pre><code>## [1] a b b a
 ## Levels: a b
 </code></pre>
 
@@ -414,16 +448,24 @@ strong {
   <article data-timings="">
     <p>A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).</p>
 
-<pre><code class="r">&gt; x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
-&gt; x
-## [1] a b b a
+<pre><code class="r">x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
+x
+</code></pre>
+
+<pre><code>## [1] a b b a
 ## Levels: a b
 </code></pre>
 
-<pre><code class="r">&gt; class(x)
-## [1] &quot;factor&quot;
-&gt; levels(x)
-## [1] &quot;a&quot; &quot;b&quot;
+<pre><code class="r">class(x)
+</code></pre>
+
+<pre><code>## [1] &quot;factor&quot;
+</code></pre>
+
+<pre><code class="r">levels(x)
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;
 </code></pre>
 
   </article>
@@ -437,20 +479,30 @@ strong {
   <article data-timings="">
     <p>A factor is a vector that can contain only predefined values, and is used to store categorical data (Wickham, 2014).</p>
 
-<pre><code class="r">&gt; x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
-&gt; x
-## [1] a b b a
+<pre><code class="r">x &lt;- factor(c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;a&quot;))
+x
+</code></pre>
+
+<pre><code>## [1] a b b a
 ## Levels: a b
 </code></pre>
 
-<pre><code class="r">&gt; class(x)
-## [1] &quot;factor&quot;
-&gt; levels(x)
-## [1] &quot;a&quot; &quot;b&quot;
+<pre><code class="r">class(x)
 </code></pre>
 
-<pre><code class="r">&gt; str(x)
-##  Factor w/ 2 levels &quot;a&quot;,&quot;b&quot;: 1 2 2 1
+<pre><code>## [1] &quot;factor&quot;
+</code></pre>
+
+<pre><code class="r">levels(x)
+</code></pre>
+
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;
+</code></pre>
+
+<pre><code class="r">str(x)
+</code></pre>
+
+<pre><code>##  Factor w/ 2 levels &quot;a&quot;,&quot;b&quot;: 1 2 2 1
 </code></pre>
 
   </article>
@@ -467,10 +519,12 @@ strong {
 <li>Matrices are created with <code>matrix()</code>.</li>
 </ul>
 
-<pre><code class="r">&gt; #A matrix of 3x4 dimensions
-&gt; a &lt;- matrix(1:12,ncol=4, nrow=3)
-&gt; a
-##      [,1] [,2] [,3] [,4]
+<pre><code class="r">#A matrix of 3x4 dimensions
+a &lt;- matrix(1:12,ncol=4, nrow=3)
+a
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    4    7   10
 ## [2,]    2    5    8   11
 ## [3,]    3    6    9   12
@@ -490,18 +544,20 @@ strong {
 <li>Matrices are created with <code>matrix()</code>.</li>
 </ul>
 
-<pre><code class="r">&gt; #A matrix of 3x4 dimensions
-&gt; a &lt;- matrix(1:12,ncol=4, nrow=3)
-&gt; a
-##      [,1] [,2] [,3] [,4]
+<pre><code class="r">#A matrix of 3x4 dimensions
+a &lt;- matrix(1:12,ncol=4, nrow=3)
+a
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    4    7   10
 ## [2,]    2    5    8   11
 ## [3,]    3    6    9   12
 </code></pre>
 
-<pre><code class="r">&gt; #A second matrix
-&gt; b &lt;- 1:12
-&gt; dim(b) &lt;- c(3,4)
+<pre><code class="r">#A second matrix
+b &lt;- 1:12
+dim(b) &lt;- c(3,4)
 </code></pre>
 
 <p>Are matrices <code>a</code> and <code>b</code> equal?</p>
@@ -520,9 +576,11 @@ strong {
 <li>Arrays are created with <code>array()</code>.</li>
 </ul>
 
-<pre><code class="r">&gt; c &lt;- array(1:12, c(2, 3, 2))
-&gt; c
-## , , 1
+<pre><code class="r">c &lt;- array(1:12, c(2, 3, 2))
+c
+</code></pre>
+
+<pre><code>## , , 1
 ## 
 ##      [,1] [,2] [,3]
 ## [1,]    1    3    5
@@ -549,12 +607,22 @@ strong {
 <li><code>dim()</code> &quot;returns&quot; the dimensions of an array.</li>
 </ul>
 
-<pre><code class="r">&gt; nrow(a)
-## [1] 3
-&gt; ncol(a)
-## [1] 4
-&gt; dim(c)
-## [1] 2 3 2
+<pre><code class="r">nrow(a)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">ncol(a)
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<pre><code class="r">dim(c)
+</code></pre>
+
+<pre><code>## [1] 2 3 2
 </code></pre>
 
 <p>What do <code>length()</code> and <code>dim()</code> return when they are applied to a matrix?</p>
@@ -573,20 +641,36 @@ strong {
 <li><code>dim()</code> &quot;returns&quot; the dimensions of an array (including matrices)</li>
 </ul>
 
-<pre><code class="r">&gt; nrow(a)
-## [1] 3
-&gt; ncol(a)
-## [1] 4
-&gt; dim(c)
-## [1] 2 3 2
+<pre><code class="r">nrow(a)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">ncol(a)
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<pre><code class="r">dim(c)
+</code></pre>
+
+<pre><code>## [1] 2 3 2
 </code></pre>
 
 <p>What do <code>length()</code> and <code>dim()</code> return when they are applied to a matrix?</p>
 
-<pre><code class="r">&gt; length(a)
-## [1] 12
-&gt; dim(a)
-## [1] 3 4
+<pre><code class="r">length(a)
+</code></pre>
+
+<pre><code>## [1] 12
+</code></pre>
+
+<pre><code class="r">dim(a)
+</code></pre>
+
+<pre><code>## [1] 3 4
 </code></pre>
 
   </article>
@@ -603,10 +687,10 @@ strong {
 <li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
 </ul>
 
-<pre><code class="r">&gt; rownames(a)
+<pre><code class="r">rownames(a)
 </code></pre>
 
-<pre><code class="r">&gt; colnames(a)
+<pre><code class="r">colnames(a)
 </code></pre>
 
   </article>
@@ -623,12 +707,16 @@ strong {
 <li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
 </ul>
 
-<pre><code class="r">&gt; rownames(a)
-## NULL
+<pre><code class="r">rownames(a)
 </code></pre>
 
-<pre><code class="r">&gt; colnames(a)
-## NULL
+<pre><code>## NULL
+</code></pre>
+
+<pre><code class="r">colnames(a)
+</code></pre>
+
+<pre><code>## NULL
 </code></pre>
 
   </article>
@@ -645,11 +733,11 @@ strong {
 <li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
 </ul>
 
-<pre><code class="r">&gt; rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
-&gt; colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+<pre><code class="r">rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
 </code></pre>
 
-<pre><code class="r">&gt; a
+<pre><code class="r">a
 </code></pre>
 
   </article>
@@ -666,18 +754,20 @@ strong {
 <li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
 </ul>
 
-<pre><code class="r">&gt; rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
-&gt; colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+<pre><code class="r">rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
 </code></pre>
 
-<pre><code class="r">&gt; a
-##   a b c  d
+<pre><code class="r">a
+</code></pre>
+
+<pre><code>##   a b c  d
 ## A 1 4 7 10
 ## B 2 5 8 11
 ## C 3 6 9 12
 </code></pre>
 
-<pre><code class="r">&gt; str(a)
+<pre><code class="r">str(a)
 </code></pre>
 
   </article>
@@ -694,19 +784,23 @@ strong {
 <li><code>dimnames()</code> &quot;returns&quot; a list of character vectors for arrays.</li>
 </ul>
 
-<pre><code class="r">&gt; rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
-&gt; colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+<pre><code class="r">rownames(a) &lt;- c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+colnames(a) &lt;- c(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
 </code></pre>
 
-<pre><code class="r">&gt; a
-##   a b c  d
+<pre><code class="r">a
+</code></pre>
+
+<pre><code>##   a b c  d
 ## A 1 4 7 10
 ## B 2 5 8 11
 ## C 3 6 9 12
 </code></pre>
 
-<pre><code class="r">&gt; str(a)
-##  int [1:3, 1:4] 1 2 3 4 5 6 7 8 9 10 ...
+<pre><code class="r">str(a)
+</code></pre>
+
+<pre><code>##  int [1:3, 1:4] 1 2 3 4 5 6 7 8 9 10 ...
 ##  - attr(*, &quot;dimnames&quot;)=List of 2
 ##   ..$ : chr [1:3] &quot;A&quot; &quot;B&quot; &quot;C&quot;
 ##   ..$ : chr [1:4] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
@@ -740,7 +834,7 @@ strong {
   <article data-timings="">
     <p><code>data.frame()</code> takes vectors as input and creates data.frames.</p>
 
-<pre><code class="r">&gt; df &lt;- data.frame(x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
+<pre><code class="r">df &lt;- data.frame(x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
 </code></pre>
 
 <ul>
@@ -760,7 +854,7 @@ strong {
   <article data-timings="">
     <p><code>data.frame()</code> takes vectors as input and creates data.frames.</p>
 
-<pre><code class="r">&gt; df &lt;- data.frame(x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
+<pre><code class="r">df &lt;- data.frame(x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
 </code></pre>
 
 <ul>
@@ -769,8 +863,10 @@ strong {
 (Hint: <code>str()</code>)</li>
 </ul>
 
-<pre><code class="r">&gt; df
-##   x y
+<pre><code class="r">df
+</code></pre>
+
+<pre><code>##   x y
 ## 1 1 a
 ## 2 2 b
 ## 3 3 c
@@ -790,19 +886,23 @@ strong {
 <li>To avoid this, you can use <code>stringAsFactors = FALSE</code>.</li>
 </ul>
 
-<pre><code class="r">&gt; df &lt;- data.frame(
-+   x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
-&gt; str(df)
-## &#39;data.frame&#39;:    3 obs. of  2 variables:
+<pre><code class="r">df &lt;- data.frame(
+  x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
+str(df)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
 ##  $ x: int  1 2 3
 ##  $ y: Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 2 3
 </code></pre>
 
-<pre><code class="r">&gt; df &lt;- data.frame(
-+   x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;),
-+   stringsAsFactors = FALSE)
-&gt; str(df)
-## &#39;data.frame&#39;:    3 obs. of  2 variables:
+<pre><code class="r">df &lt;- data.frame(
+  x = 1:3, y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;),
+  stringsAsFactors = FALSE)
+str(df)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
 ##  $ x: int  1 2 3
 ##  $ y: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot;
 </code></pre>
@@ -826,7 +926,7 @@ strong {
 
 <p>Lets try:</p>
 
-<pre><code class="r">&gt; x &lt;- as.data.frame(a)
+<pre><code class="r">x &lt;- as.data.frame(a)
 </code></pre>
 
   </article>
@@ -848,11 +948,13 @@ strong {
 
 <p>Lets try:</p>
 
-<pre><code class="r">&gt; x &lt;- as.data.frame(a)
+<pre><code class="r">x &lt;- as.data.frame(a)
 </code></pre>
 
-<pre><code class="r">&gt; x
-##   a b c  d
+<pre><code class="r">x
+</code></pre>
+
+<pre><code>##   a b c  d
 ## A 1 4 7 10
 ## B 2 5 8 11
 ## C 3 6 9 12
@@ -869,10 +971,10 @@ strong {
   <article data-timings="">
     <p>Data frames con be combined using <code>cbind()</code> or <code>rbind()</code>.</p>
 
-<pre><code class="r">&gt; cbind(df, data.frame(z = 3:1))
+<pre><code class="r">cbind(df, data.frame(z = 3:1))
 </code></pre>
 
-<pre><code class="r">&gt; rbind(df, data.frame(x=10,y = &quot;z&quot;))
+<pre><code class="r">rbind(df, data.frame(x=10,y = &quot;z&quot;))
 </code></pre>
 
   </article>
@@ -886,15 +988,19 @@ strong {
   <article data-timings="">
     <p>Data frames con be combined using <code>cbind()</code> or <code>rbind</code>.</p>
 
-<pre><code class="r">&gt; cbind(df, data.frame(z = 3:1))
-##   x y z
+<pre><code class="r">cbind(df, data.frame(z = 3:1))
+</code></pre>
+
+<pre><code>##   x y z
 ## 1 1 a 3
 ## 2 2 b 2
 ## 3 3 c 1
 </code></pre>
 
-<pre><code class="r">&gt; rbind(df, data.frame(x=10,y = &quot;z&quot;))
-##    x y
+<pre><code class="r">rbind(df, data.frame(x=10,y = &quot;z&quot;))
+</code></pre>
+
+<pre><code>##    x y
 ## 1  1 a
 ## 2  2 b
 ## 3  3 c
