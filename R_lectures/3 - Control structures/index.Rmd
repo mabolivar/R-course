@@ -282,6 +282,17 @@ if(minutes > 600 & valdays > 4){
 
 ---
 
+## Logical operators
+
+```{r, results='asis',echo=F}
+library(xtable)
+tab <- data.frame(Operator=c('<','<=','>','>=','==','!=','!x','x | y','x & y'),Description=c('less than
+','less than or equal to','greater than','greater than or equal to','exactly equal to','not equal to','Not x','x OR y','x AND y'))
+print(xtable(tab), type = "html",include.rownames = F)
+```
+
+---
+
 ## if-else - Exercises
 
 1. Run the following code chunk.
@@ -313,12 +324,12 @@ ifelse(cond,statement1,statement2)
 
 ## Exercises
 
-1. Read the database *COL PA MARA.csv*
+1. Read the database *COL PA MARA.csv*. ([data](https://goo.gl/77zASV)) ([codebook](https://goo.gl/28MBXi))
   ```{r, eval= FALSE}
   acdata <- read.csv("COL PA MARA.csv")
   ```
   A valid participant is the one who wear the accelerometer for more than 4 valid days and at least one valid weekend day. However, if a person wear the accelerometry for more than 2000 minutes in midweek, he is also considered a valid participant.
-  + Create a new logical variable named `valid` which indicates if a particiant is valid or not. Bind your new variable to `df` data frame. (Use loops and conditional statements)
+  + Create a new logical variable named `valid` which indicates if a particiant is valid or not. Bind your new variable to `acdata` data frame. (Use loops and conditional statements)
   + How many participants are valid?
   
 2. Using the `ifelse()` function, create a new logical variable named `valid` which indicates if a particiant is valid or not.
@@ -343,6 +354,3 @@ ifelse(cond,statement1,statement2)
 
 + Kabacoff, R. (2015). *R in action: data analysis and graphics with R*. Manning Publications Co.
 
---- .segue .dark .nobackground
-
-## Birthday Problem

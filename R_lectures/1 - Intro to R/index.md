@@ -118,14 +118,14 @@ The basic data structure in R is the vector.
 
 
 ```r
-> # numeric vector
-> a <- c(1,2,3,6,-2,4)
-> 
-> # character vector
-> b <- c("one","two","three")
-> 
-> # logical vector
-> c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
+# numeric vector
+a <- c(1,2,3,6,-2,4)
+
+# character vector
+b <- c("one","two","three")
+
+# logical vector
+c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
 ```
 
 ---
@@ -139,13 +139,34 @@ Vectors have three common properties
 
 
 ```r
-> a
+a
+```
+
+```
 ## [1]  1  2  3  6 -2  4
-> typeof(a)
+```
+
+```r
+typeof(a)
+```
+
+```
 ## [1] "double"
-> length(a)
+```
+
+```r
+length(a)
+```
+
+```
 ## [1] 6
-> attributes(a)
+```
+
+```r
+attributes(a)
+```
+
+```
 ## NULL
 ```
 
@@ -161,9 +182,18 @@ Given a vector, you can ask if correspond to certain type:
  
 
 ```r
-> is.character(a)
+is.character(a)
+```
+
+```
 ## [1] FALSE
-> is.numeric(a)
+```
+
+```r
+is.numeric(a)
+```
+
+```
 ## [1] TRUE
 ```
 
@@ -175,17 +205,17 @@ Given a vector, you can ask if correspond to certain type:
 
 
 ```r
->  c(FALSE,1,2)
+ c(FALSE,1,2)
 ```
 
 
 ```r
->  c(1,2,"three")
+ c(1,2,"three")
 ```
 
 
 ```r
->  c(FALSE,3,"two")
+ c(FALSE,3,"two")
 ```
 
 ---
@@ -199,19 +229,28 @@ Given a vector, you can ask if correspond to certain type:
 
 
 ```r
->  c(FALSE,1,2)
+ c(FALSE,1,2)
+```
+
+```
 ## [1] 0 1 2
 ```
 
 
 ```r
->  c(1,2,"three")
+ c(1,2,"three")
+```
+
+```
 ## [1] "1"     "2"     "three"
 ```
 
 
 ```r
->  c(FALSE,3,"two")
+ c(FALSE,3,"two")
+```
+
+```
 ## [1] "FALSE" "3"     "two"
 ```
 
@@ -224,19 +263,28 @@ Given a vector, you can ask if correspond to certain type:
 
 
 ```r
->  str(c(FALSE,1,2))
+ str(c(FALSE,1,2))
+```
+
+```
 ##  num [1:3] 0 1 2
 ```
 
 
 ```r
->  str(c(1,2,"three"))
+ str(c(1,2,"three"))
+```
+
+```
 ##  chr [1:3] "1" "2" "three"
 ```
 
 
 ```r
->  str(c(FALSE,3,"two"))
+ str(c(FALSE,3,"two"))
+```
+
+```
 ##  chr [1:3] "FALSE" "3" "two"
 ```
 
@@ -250,7 +298,7 @@ List can contain elements of any type, including lists.
   
 
 ```r
-> x <- list(5:9,a,b,c, list("four","five"))
+x <- list(5:9,a,b,c, list("four","five"))
 ```
 
 What is going to return the command `str(x)`?
@@ -265,7 +313,7 @@ List can contain elements of any type, including lists.
   
 
 ```r
-> x <- list(5:9,a,b,c, list("four","five"))
+x <- list(5:9,a,b,c, list("four","five"))
 ```
 
 What is going to return the command `str(x)`?
@@ -290,8 +338,11 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 
 ```r
-> x <- factor(c("a", "b", "b", "a"))
-> x
+x <- factor(c("a", "b", "b", "a"))
+x
+```
+
+```
 ## [1] a b b a
 ## Levels: a b
 ```
@@ -304,17 +355,29 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 
 ```r
-> x <- factor(c("a", "b", "b", "a"))
-> x
+x <- factor(c("a", "b", "b", "a"))
+x
+```
+
+```
 ## [1] a b b a
 ## Levels: a b
 ```
 
 
 ```r
-> class(x)
+class(x)
+```
+
+```
 ## [1] "factor"
-> levels(x)
+```
+
+```r
+levels(x)
+```
+
+```
 ## [1] "a" "b"
 ```
 
@@ -326,23 +389,38 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 
 ```r
-> x <- factor(c("a", "b", "b", "a"))
-> x
+x <- factor(c("a", "b", "b", "a"))
+x
+```
+
+```
 ## [1] a b b a
 ## Levels: a b
 ```
 
 
 ```r
-> class(x)
+class(x)
+```
+
+```
 ## [1] "factor"
-> levels(x)
+```
+
+```r
+levels(x)
+```
+
+```
 ## [1] "a" "b"
 ```
 
 
 ```r
-> str(x)
+str(x)
+```
+
+```
 ##  Factor w/ 2 levels "a","b": 1 2 2 1
 ```
 
@@ -355,9 +433,12 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 
 ```r
-> #A matrix of 3x4 dimensions
-> a <- matrix(1:12,ncol=4, nrow=3)
-> a
+#A matrix of 3x4 dimensions
+a <- matrix(1:12,ncol=4, nrow=3)
+a
+```
+
+```
 ##      [,1] [,2] [,3] [,4]
 ## [1,]    1    4    7   10
 ## [2,]    2    5    8   11
@@ -373,9 +454,12 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 
 ```r
-> #A matrix of 3x4 dimensions
-> a <- matrix(1:12,ncol=4, nrow=3)
-> a
+#A matrix of 3x4 dimensions
+a <- matrix(1:12,ncol=4, nrow=3)
+a
+```
+
+```
 ##      [,1] [,2] [,3] [,4]
 ## [1,]    1    4    7   10
 ## [2,]    2    5    8   11
@@ -384,9 +468,9 @@ A factor is a vector that can contain only predefined values, and is used to sto
 
 
 ```r
-> #A second matrix
-> b <- 1:12
-> dim(b) <- c(3,4)
+#A second matrix
+b <- 1:12
+dim(b) <- c(3,4)
 ```
 
 Are matrices `a` and `b` equal?
@@ -401,8 +485,11 @@ Are matrices `a` and `b` equal?
 
 
 ```r
-> c <- array(1:12, c(2, 3, 2))
-> c
+c <- array(1:12, c(2, 3, 2))
+c
+```
+
+```
 ## , , 1
 ## 
 ##      [,1] [,2] [,3]
@@ -425,11 +512,26 @@ Are matrices `a` and `b` equal?
 
 
 ```r
-> nrow(a)
+nrow(a)
+```
+
+```
 ## [1] 3
-> ncol(a)
+```
+
+```r
+ncol(a)
+```
+
+```
 ## [1] 4
-> dim(c)
+```
+
+```r
+dim(c)
+```
+
+```
 ## [1] 2 3 2
 ```
 
@@ -444,20 +546,44 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> nrow(a)
+nrow(a)
+```
+
+```
 ## [1] 3
-> ncol(a)
+```
+
+```r
+ncol(a)
+```
+
+```
 ## [1] 4
-> dim(c)
+```
+
+```r
+dim(c)
+```
+
+```
 ## [1] 2 3 2
 ```
 
 What do `length()` and `dim()` return when they are applied to a matrix?
 
 ```r
-> length(a)
+length(a)
+```
+
+```
 ## [1] 12
-> dim(a)
+```
+
+```r
+dim(a)
+```
+
+```
 ## [1] 3 4
 ```
 
@@ -470,12 +596,12 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> rownames(a)
+rownames(a)
 ```
 
 
 ```r
-> colnames(a)
+colnames(a)
 ```
 
 ---
@@ -487,13 +613,19 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> rownames(a)
+rownames(a)
+```
+
+```
 ## NULL
 ```
 
 
 ```r
-> colnames(a)
+colnames(a)
+```
+
+```
 ## NULL
 ```
 
@@ -506,13 +638,13 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> rownames(a) <- c("A","B","C")
-> colnames(a) <- c("a","b","c","d")
+rownames(a) <- c("A","B","C")
+colnames(a) <- c("a","b","c","d")
 ```
 
 
 ```r
-> a
+a
 ```
 
 ---
@@ -524,13 +656,16 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> rownames(a) <- c("A","B","C")
-> colnames(a) <- c("a","b","c","d")
+rownames(a) <- c("A","B","C")
+colnames(a) <- c("a","b","c","d")
 ```
 
 
 ```r
-> a
+a
+```
+
+```
 ##   a b c  d
 ## A 1 4 7 10
 ## B 2 5 8 11
@@ -539,7 +674,7 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> str(a)
+str(a)
 ```
 
 ---
@@ -551,13 +686,16 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> rownames(a) <- c("A","B","C")
-> colnames(a) <- c("a","b","c","d")
+rownames(a) <- c("A","B","C")
+colnames(a) <- c("a","b","c","d")
 ```
 
 
 ```r
-> a
+a
+```
+
+```
 ##   a b c  d
 ## A 1 4 7 10
 ## B 2 5 8 11
@@ -566,7 +704,10 @@ What do `length()` and `dim()` return when they are applied to a matrix?
 
 
 ```r
-> str(a)
+str(a)
+```
+
+```
 ##  int [1:3, 1:4] 1 2 3 4 5 6 7 8 9 10 ...
 ##  - attr(*, "dimnames")=List of 2
 ##   ..$ : chr [1:3] "A" "B" "C"
@@ -591,7 +732,7 @@ A data frame is the most common way of storing data in R, and if used systematic
 
 
 ```r
-> df <- data.frame(x = 1:3, y = c("a", "b", "c"))
+df <- data.frame(x = 1:3, y = c("a", "b", "c"))
 ```
 
 + How are data frames similar to matrices?
@@ -606,7 +747,7 @@ A data frame is the most common way of storing data in R, and if used systematic
 
 
 ```r
-> df <- data.frame(x = 1:3, y = c("a", "b", "c"))
+df <- data.frame(x = 1:3, y = c("a", "b", "c"))
 ```
 
 + How are data frames similar to matrices?
@@ -615,7 +756,10 @@ A data frame is the most common way of storing data in R, and if used systematic
   
 
 ```r
-> df
+df
+```
+
+```
 ##   x y
 ## 1 1 a
 ## 2 2 b
@@ -633,9 +777,12 @@ A data frame is the most common way of storing data in R, and if used systematic
 
 
 ```r
-> df <- data.frame(
-+   x = 1:3, y = c("a", "b", "c"))
-> str(df)
+df <- data.frame(
+  x = 1:3, y = c("a", "b", "c"))
+str(df)
+```
+
+```
 ## 'data.frame':	3 obs. of  2 variables:
 ##  $ x: int  1 2 3
 ##  $ y: Factor w/ 3 levels "a","b","c": 1 2 3
@@ -643,10 +790,13 @@ A data frame is the most common way of storing data in R, and if used systematic
 
 
 ```r
-> df <- data.frame(
-+   x = 1:3, y = c("a", "b", "c"),
-+   stringsAsFactors = FALSE)
-> str(df)
+df <- data.frame(
+  x = 1:3, y = c("a", "b", "c"),
+  stringsAsFactors = FALSE)
+str(df)
+```
+
+```
 ## 'data.frame':	3 obs. of  2 variables:
 ##  $ x: int  1 2 3
 ##  $ y: chr  "a" "b" "c"
@@ -666,7 +816,7 @@ Lets try:
 
 
 ```r
-> x <- as.data.frame(a)
+x <- as.data.frame(a)
 ```
 
 ---
@@ -683,12 +833,15 @@ Lets try:
 
 
 ```r
-> x <- as.data.frame(a)
+x <- as.data.frame(a)
 ```
 
 
 ```r
-> x
+x
+```
+
+```
 ##   a b c  d
 ## A 1 4 7 10
 ## B 2 5 8 11
@@ -703,12 +856,12 @@ Data frames con be combined using `cbind()` or `rbind()`.
 
 
 ```r
-> cbind(df, data.frame(z = 3:1))
+cbind(df, data.frame(z = 3:1))
 ```
 
 
 ```r
-> rbind(df, data.frame(x=10,y = "z"))
+rbind(df, data.frame(x=10,y = "z"))
 ```
 
 ---
@@ -719,7 +872,10 @@ Data frames con be combined using `cbind()` or `rbind`.
 
 
 ```r
-> cbind(df, data.frame(z = 3:1))
+cbind(df, data.frame(z = 3:1))
+```
+
+```
 ##   x y z
 ## 1 1 a 3
 ## 2 2 b 2
@@ -728,7 +884,10 @@ Data frames con be combined using `cbind()` or `rbind`.
 
 
 ```r
-> rbind(df, data.frame(x=10,y = "z"))
+rbind(df, data.frame(x=10,y = "z"))
+```
+
+```
 ##    x y
 ## 1  1 a
 ## 2  2 b

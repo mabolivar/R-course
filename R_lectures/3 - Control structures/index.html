@@ -242,19 +242,6 @@ strong {
 
 <slide class="" id="slide-10" style="background:;">
   <hgroup>
-    <h2>While</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><center><img src = "http://python-textbok.readthedocs.org/en/latest/_images/blockdiag-f3a27d8f6b0baede43d98ee8746bc4ed43aa58c8.png" style="width: 500px;"></center></p>
-
-<p><strong>Source</strong>: <a href="http://python-textbok.readthedocs.org/en/latest/Loop_Control_Statements.html">http://python-textbok.readthedocs.org/en/latest/Loop_Control_Statements.html</a></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-11" style="background:;">
-  <hgroup>
     <h2>While - Example 1</h2>
   </hgroup>
   <article data-timings="">
@@ -276,7 +263,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>While - Exercises</h2>
   </hgroup>
@@ -289,7 +276,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark nobackground" id="slide-13" style="background:;">
+<slide class="segue dark nobackground" id="slide-12" style="background:;">
   <hgroup>
     <h2>Conditional execution</h2>
   </hgroup>
@@ -299,7 +286,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Conditional execution</h2>
   </hgroup>
@@ -317,7 +304,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -342,7 +329,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -361,7 +348,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>if-else</h2>
   </hgroup>
@@ -377,7 +364,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>if-else - Example 1</h2>
   </hgroup>
@@ -395,7 +382,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>if-else - Example 2</h2>
   </hgroup>
@@ -415,7 +402,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>if-else - Example 3</h2>
   </hgroup>
@@ -431,6 +418,33 @@ strong {
 + }
 ## [1] &quot;Invalid participant&quot;
 </code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Logical operators</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
+
+<!-- Sun Mar 06 17:33:28 2016 -->
+
+<table border=1>
+<tr> <th> Operator </th> <th> Description </th>  </tr>
+  <tr> <td> &lt; </td> <td> less than
+ </td> </tr>
+  <tr> <td> &lt;= </td> <td> less than or equal to </td> </tr>
+  <tr> <td> &gt; </td> <td> greater than </td> </tr>
+  <tr> <td> &gt;= </td> <td> greater than or equal to </td> </tr>
+  <tr> <td> == </td> <td> exactly equal to </td> </tr>
+  <tr> <td> != </td> <td> not equal to </td> </tr>
+  <tr> <td> !x </td> <td> Not x </td> </tr>
+  <tr> <td> x | y </td> <td> x OR y </td> </tr>
+  <tr> <td> x &amp; y </td> <td> x AND y </td> </tr>
+   </table>
 
   </article>
   <!-- Presenter Notes -->
@@ -484,7 +498,7 @@ The syntax is:</p>
   </hgroup>
   <article data-timings="">
     <ol>
-<li><p>Read the database <em>COL PA MARA.csv</em></p>
+<li><p>Read the database <em>COL PA MARA.csv</em>. (<a href="https://goo.gl/77zASV">data</a>) (<a href="https://goo.gl/28MBXi">codebook</a>)</p>
 
 <pre><code class="r">&gt; acdata &lt;- read.csv(&quot;COL PA MARA.csv&quot;)
 </code></pre>
@@ -492,7 +506,7 @@ The syntax is:</p>
 <p>A valid participant is the one who wear the accelerometer for more than 4 valid days and at least one valid weekend day. However, if a person wear the accelerometry for more than 2000 minutes in midweek, he is also considered a valid participant.</p>
 
 <ul>
-<li>Create a new logical variable named <code>valid</code> which indicates if a particiant is valid or not. Bind your new variable to <code>df</code> data frame. (Use loops and conditional statements)</li>
+<li>Create a new logical variable named <code>valid</code> which indicates if a particiant is valid or not. Bind your new variable to <code>acdata</code> data frame. (Use loops and conditional statements)</li>
 <li>How many participants are valid?</li>
 </ul></li>
 <li><p>Using the <code>ifelse()</code> function, create a new logical variable named <code>valid</code> which indicates if a particiant is valid or not.</p>
@@ -529,16 +543,6 @@ The syntax is:</p>
 <li>Kabacoff, R. (2015). <em>R in action: data analysis and graphics with R</em>. Manning Publications Co.</li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="segue dark nobackground" id="slide-26" style="background:;">
-  <hgroup>
-    <h2>Birthday Problem</h2>
-  </hgroup>
-  <article data-timings="">
-    
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -603,19 +607,19 @@ The syntax is:</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='While'>
+        data-slide=10 title='While - Example 1'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='While - Example 1'>
+        data-slide=11 title='While - Exercises'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='While - Exercises'>
+        data-slide=12 title='Conditional execution'>
          12
       </a>
     </li>
@@ -627,7 +631,7 @@ The syntax is:</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Conditional execution'>
+        data-slide=14 title='if-else'>
          14
       </a>
     </li>
@@ -645,25 +649,25 @@ The syntax is:</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='if-else'>
+        data-slide=17 title='if-else - Example 1'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='if-else - Example 1'>
+        data-slide=18 title='if-else - Example 2'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='if-else - Example 2'>
+        data-slide=19 title='if-else - Example 3'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='if-else - Example 3'>
+        data-slide=20 title='Logical operators'>
          20
       </a>
     </li>
@@ -695,12 +699,6 @@ The syntax is:</p>
       <a href="#" target="_self" rel='tooltip' 
         data-slide=25 title='References'>
          25
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Birthday Problem'>
-         26
       </a>
     </li>
   </ul>

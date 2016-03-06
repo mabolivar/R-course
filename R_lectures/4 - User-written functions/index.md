@@ -66,8 +66,42 @@ Function arguments might include default values.
 
 ## My first function
 
-f <- function(a, b = 1, c = 2, d = NULL) {
-}
+Desing a function that returns the mean of numeric vector.
+
+---
+
+## My first function
+
+Desing a function that returns the mean of numeric vector.
+
+
+```r
+> f <- function(x) {
++   m <- sum(x)/length(x)
++   return(m)
++ }
+```
+
+---
+
+## My first function
+
+Desing a function that returns the mean of numeric vector.
+
+
+```r
+> f <- function(x) {
++   m <- sum(x)/length(x)
++   return(m)
++ }
+```
+
+
+```r
+> a <- c(2,4,6,8,10)
+> f(a)
+## [1] 6
+```
 
 ---
 
@@ -179,6 +213,21 @@ The `...` arguments indicates a variable number of arguments. It is used when:
 
 ## Exercises
 
+1. Design a function that receive as argument a numeric vector and returns the descriptive statistics of the vector in a data frame. (`mean`, `sd`, `median`, `kurtosis`, `skewness`, `NAs`). 
+Test your results using the `allmean_mv_EV` variable in the *COL PA MARA.csv* database.
+
+2. Evenson`s cut points for PA are presented in the following table. The counts are presented using an epoch = 60 sec.
+
+  <!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
+  <!-- Sun Mar 06 18:12:52 2016 -->
+  <table border=1>
+  <tr> <th>  </th> <th> counts </th> <th> PA_Intensity </th>  </tr>
+    <tr> <td align="right"> 1 </td> <td> &lt;=100 </td> <td> sedentary </td> </tr>
+    <tr> <td align="right"> 2 </td> <td> &lt;=2292 </td> <td> light </td> </tr>
+    <tr> <td align="right"> 3 </td> <td> &lt;=4008 </td> <td> moderate </td> </tr>
+    <tr> <td align="right"> 4 </td> <td> &gt;4008 </td> <td> vigorous </td> </tr>
+     </table>
+  Create a function that receive as argument the count number in an epoch and returns the PA intensity level for that epoch.
 
 ---
   
