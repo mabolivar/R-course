@@ -143,14 +143,6 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 
 `Logical vectors`: select elements where the corresponding logical value is `TRUE`.
 
-```{r}
-x[c(TRUE,FALSE,TRUE,TRUE)]
-```
-
-```{r}
-x[x>3]
-```
-
 If the logical vector is shorter than the vector being subsetted, it will be recycled to be the same length.
 
 ```{r}
@@ -331,11 +323,16 @@ class(x$a)
 ## Exercises
 
 1. If a matrix `a` is defined as `a <- matrix(1:9, nrow = 3)`, what would return `a[c(TRUE,TRUE,FALSE),c(-3)]`?
-2. Fix each of the following common data frame subsetting errors:
-  + `mtcars[mtcars$cyl = 4, ]`
-  + `mtcars[-1:4, ]`
-  + `mtcars[mtcars$cyl <= 5]`
-  + `mtcars[mtcars$cyl == 4 | 6, ]`
+2. Using the accelerometry data contained in *COL PA MARA.csv* file
+  ```{r}
+  setwd("C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data")
+  acdata <- read.csv("COL PA MARA.csv")
+  ```
+  Fix each of the following common data frame subsetting errors:
+  + `acdata[acdata$use = B, ]`
+  + `acdata[-1:4, ]`
+  + `acdata[acdata$valdays >= 4]`
+  + `acdata[acdata$valdays == 4 | 6, ]`
   
 3. Given a linear model, e.g., `mod <- lm(mpg ~ wt, data = mtcars)`, extract the residual degrees of freedom. Extract the R squared from the model summary (`summary(mod)`)
 

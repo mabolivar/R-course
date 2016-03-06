@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R programming">
+  <meta name="author" content="Manuel A. Bolivar">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R programming</h1>
+    <h2>Lecture 4. User-defined functions</h2>
+    <p>Manuel A. Bolivar<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>R functions</h2>
+
+<p>Functions are created using <code>fuction()</code> and are stored as R objects and are considered <em>first class objects</em>, i.e.,</p>
+
+<ul>
+<li>Functions can be assigned to variables.</li>
+<li>Functions can be stored in lists.</li>
+<li>Functions can be nested (functions inside fuctions).</li>
+<li>Functions can be passed as argumments of other functions.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Syntaxis</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The functions are R objects of class <em>function</em>.</p>
+
+<pre><code class="r">&gt; f &lt;- function(args){
++   body #Do something interesting
++ }
+</code></pre>
+
+<p>where </p>
+
+<ul>
+<li><em>args</em> is a set of symbol names.</li>
+<li><em>body</em> is an R expression.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Arguments</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Function arguments might include default values.</p>
+
+<ul>
+<li>Arguments with default values are optional.</li>
+<li>The <em>formal arguments</em> are the arguments included in the function definition.</li>
+<li>The <code>args()</code> functions returns the function arguments.</li>
+<li>A function call might not use all formal arguments.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>My first function</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>f &lt;- function(a, b = 1, c = 2, d = NULL) {
+}</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Argument matching</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Arguments can be matched by position and name.</p>
+
+<pre><code class="r">&gt; args(plot) #argument names of plot function
+## function (x, y, ...) 
+## NULL
+</code></pre>
+
+<p>All the following calls to the <code>plot()</code> function are equivalent.</p>
+
+<pre><code class="r">&gt; plot(1:20,log(1:20))
+&gt; plot(1:20,y = log(1:20))
+&gt; plot(x = 1:20, y = log(1:20))
+&gt; plot(y = log(1:20),x = 1:20)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Return values</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <code>return()</code> function specifies the value (vector, list, data.frame, function) returned by the function. For example,</p>
+
+<pre><code class="r">&gt; f &lt;- function(x){
++   return(x^2+5)
++ }
+</code></pre>
+
+<p>However, if the <code>return()</code> function is not used, R returns the last expression in the <em>body</em> evaluated.</p>
+
+<pre><code class="r">&gt; f &lt;- function(x){
++   x^2+5
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Lazy evaluation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Arguments to functions are evaluated only as needed (<em>lazily</em>). For example,</p>
+
+<pre><code class="r">&gt; f &lt;- function(a,b){
++   a^3
++ }
+</code></pre>
+
+<pre><code class="r">&gt; f(2) #Equivalent to f(a=2)
+## [1] 8
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Lazy evaluation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>R executed the function&#39;s body statements sequentially.</p>
+
+<pre><code class="r">&gt; f &lt;- function(a, b) {
++ print(a)
++ print(b)
++ }
+</code></pre>
+
+<pre><code class="r">&gt; f(30)
+## [1] 30
+## Error in print(b): el argumento &quot;b&quot; está ausente, sin valor por omisión
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>The <code>...</code> argument</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <code>...</code> arguments indicates a variable number of arguments. It is used when:</p>
+
+<ul>
+<li><p>The number of arguments passed to the function is not known it advanced (e.g. <code>paste()</code>).</p>
+
+<pre><code class="r">&gt; args(paste)
+## function (..., sep = &quot; &quot;, collapse = NULL) 
+## NULL
+</code></pre></li>
+<li><p>The functions is extending another function and uses the same arguments (e.g. <code>plot()</code>).</p>
+
+<pre><code class="r">&gt; args(plot)
+## function (x, y, ...) 
+## NULL
+</code></pre></li>
+<li><p>Take into acount that any argument after <code>...</code> must be named explicitly. </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Adler, J. (2010). <em>R in a nutshell: A desktop quick reference</em>. O&#39;Reilly Media, Inc.</li>
+<li>Leek, J. (2014). <em>R programming (MOOC)</em>. Johns Hopkins University, Coursera.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Syntaxis'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Arguments'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='My first function'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Argument matching'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Return values'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Lazy evaluation'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Lazy evaluation'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='The <code>...</code> argument'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Exercises'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='References'>
+         11
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
