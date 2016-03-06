@@ -1,0 +1,15 @@
+# R Course
+------------------------------------------
+This course exhibits the basic elements of R programming and is design for the Group of Epidemiology of Universidad de los Andes ([EpiAndes](http://epiandes.uniandes.edu.co/))
+
+To access the slides, please follow the following links.
+ 1. [Data types & data structures](mabolivar.github.io/R-course/R_lectures/1 - Intro to R/)
+ 2. [Subseting](mabolivar.github.io/R-course/R_lectures/2 - Subsetting/)
+ 3. [Control structures](http://mabolivar.github.io/R-course/R_lectures/3 - Control structures)
+ 4. [User-defined functions](http://mabolivar.github.io/R-course/R_lectures/4 - User-written functions)
+ 5. R functions (pending)
+ 6. Reading & writting data in R (pending)
+ 7. Date & times (pending)
+ 8. Plotting in R (pending)
+ 9. Manipulating & tidiying data (pending)
+ 10. Processing accelerometry data (pending)
