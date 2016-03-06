@@ -76,8 +76,38 @@ Function arguments might include default values.
 
 ## My first function
 
-f <- function(a, b = 1, c = 2, d = NULL) {
+Desing a function that returns the mean of numeric vector.
+
+---
+
+## My first function
+
+Desing a function that returns the mean of numeric vector.
+
+```{r}
+f <- function(x) {
+  m <- sum(x)/length(x)
+  return(m)
 }
+```
+
+---
+
+## My first function
+
+Desing a function that returns the mean of numeric vector.
+
+```{r}
+f <- function(x) {
+  m <- sum(x)/length(x)
+  return(m)
+}
+```
+
+```{r}
+a <- c(2,4,6,8,10)
+f(a)
+```
 
 ---
 
@@ -170,6 +200,19 @@ The `...` arguments indicates a variable number of arguments. It is used when:
 
 ## Exercises
 
+1. Design a function that receive as argument a numeric vector and returns the descriptive statistics of the vector in a data frame. (`mean`, `sd`, `median`, `kurtosis`, `skewness`, `NAs`). 
+Test your results using the `allmean_mv_EV` variable in the *COL PA MARA.csv* database.
+
+2. Evenson`s cut points for PA are presented in the following table. The counts are presented using an epoch = 60 sec.
+
+  ```{r,results="asis",echo=F}
+  counts <- c("<=100","<=2292","<=4008",">4008")
+  PA_Intensity <- c("sedentary","light","moderate","vigorous")
+  evenson <- data.frame(counts,PA_Intensity)
+  library(xtable)
+  print(xtable(evenson),type="html")
+  ```
+  Create a function that receive as argument the count number in an epoch and returns the PA intensity level for that epoch.
 
 ---
   

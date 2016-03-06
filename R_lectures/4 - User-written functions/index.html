@@ -113,14 +113,52 @@ strong {
     <h2>My first function</h2>
   </hgroup>
   <article data-timings="">
-    <p>f &lt;- function(a, b = 1, c = 2, d = NULL) {
-}</p>
+    <p>Desing a function that returns the mean of numeric vector.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>My first function</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Desing a function that returns the mean of numeric vector.</p>
+
+<pre><code class="r">&gt; f &lt;- function(x) {
++   m &lt;- sum(x)/length(x)
++   return(m)
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>My first function</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Desing a function that returns the mean of numeric vector.</p>
+
+<pre><code class="r">&gt; f &lt;- function(x) {
++   m &lt;- sum(x)/length(x)
++   return(m)
++ }
+</code></pre>
+
+<pre><code class="r">&gt; a &lt;- c(2,4,6,8,10)
+&gt; f(a)
+## [1] 6
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h2>Argument matching</h2>
   </hgroup>
@@ -144,7 +182,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Return values</h2>
   </hgroup>
@@ -167,7 +205,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Lazy evaluation</h2>
   </hgroup>
@@ -187,7 +225,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Lazy evaluation</h2>
   </hgroup>
@@ -209,7 +247,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>The <code>...</code> argument</h2>
   </hgroup>
@@ -236,17 +274,36 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ol>
+<li><p>Design a function that receive as argument a numeric vector and returns the descriptive statistics of the vector in a data frame. (<code>mean</code>, <code>sd</code>, <code>median</code>, <code>kurtosis</code>, <code>skewness</code>, <code>NAs</code>). 
+Test your results using the <code>allmean_mv_EV</code> variable in the <em>COL PA MARA.csv</em> database.</p></li>
+<li><p>Evenson`s cut points for PA are presented in the following table. The counts are presented using an epoch = 60 sec.</p>
+
+<!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
+
+<!-- Sun Mar 06 18:12:52 2016 -->
+
+<table border=1>
+<tr> <th>  </th> <th> counts </th> <th> PA_Intensity </th>  </tr>
+<tr> <td align="right"> 1 </td> <td> &lt;=100 </td> <td> sedentary </td> </tr>
+<tr> <td align="right"> 2 </td> <td> &lt;=2292 </td> <td> light </td> </tr>
+<tr> <td align="right"> 3 </td> <td> &lt;=4008 </td> <td> moderate </td> </tr>
+<tr> <td align="right"> 4 </td> <td> &gt;4008 </td> <td> vigorous </td> </tr>
+ </table>
+
+<p>Create a function that receive as argument the count number in an epoch and returns the PA intensity level for that epoch.</p></li>
+</ol>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
@@ -290,44 +347,56 @@ strong {
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Argument matching'>
+        data-slide=5 title='My first function'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Return values'>
+        data-slide=6 title='My first function'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Lazy evaluation'>
+        data-slide=7 title='Argument matching'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Lazy evaluation'>
+        data-slide=8 title='Return values'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='The <code>...</code> argument'>
+        data-slide=9 title='Lazy evaluation'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Exercises'>
+        data-slide=10 title='Lazy evaluation'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='References'>
+        data-slide=11 title='The <code>...</code> argument'>
          11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Exercises'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='References'>
+         13
       </a>
     </li>
   </ul>
