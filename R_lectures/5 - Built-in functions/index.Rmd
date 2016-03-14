@@ -60,8 +60,8 @@ strong {
 + `seq(1,10,0.4)`: Generate a sequence (1 -> 10, spaced by 0.4)
 + `sort()`: Sort the vector x
 + `order()`: List sorted element numbers of x
-+ `summary()`**: Returns a summary of a given object (e.g., data frame, lm, etc.).**
-+ `table()`**: Returns a contigency table for each combination of factors.**
++ **`summary()`: Returns a summary of a given object (e.g., data frame, lm, etc.).**
++ **`table()`: Returns a contigency table for each combination of factors.**
 + `tolower()`, `toupper()`: Convert string to lower/upper case letters.
 + `unique()`: Remove duplicate entries from vector.
 
