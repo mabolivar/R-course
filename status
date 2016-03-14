@@ -1,0 +1,129 @@
+[33mcommit e2eb9f87549df711a3792d9543d4bef59b28628e[m
+Merge: 396abe5 6c8033e
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 18:39:58 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/gh-pages'
+
+[33mcommit 396abe50b46e77e6d3141098e467fc062f5a1943[m
+Merge: fb961c0 33e6729
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 18:36:47 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/gh-pages'
+
+[33mcommit 6c8033ee79f62af9d6ae3ce0ed1919dd0894983e[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 18:36:38 2016 -0500
+
+    Minor fixes in README
+
+[33mcommit fb961c0233e0ad5c43e269937741e71661ead569[m
+Merge: a960ab1 4aa0a5f
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 18:31:32 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/gh-pages'
+
+[33mcommit 33e6729a7969cef85fe63cdf540d7e7f987d50e3[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 18:31:16 2016 -0500
+
+    Add README
+
+[33mcommit 4aa0a5fd22de3d0d1d542df841ff5148860763e7[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 18:15:43 2016 -0500
+
+    Completed lecture 4
+    
+    Added exercises and examples
+
+[33mcommit a960ab196d5059599d143b30abbfa991039b7019[m
+Merge: d49a577 ffacfd9
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 17:36:45 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/gh-pages'
+
+[33mcommit 9076305c43f47335bf630ba96bd60940bce10cea[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Sun Mar 6 17:36:21 2016 -0500
+
+    Added links and logical operators slide - lecture 3
+
+[33mcommit ffacfd903d0d5da14121c6b83a510ddb0ff089dd[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Tue Mar 1 22:03:32 2016 -0500
+
+    Add exercises to lectures 2 and 3
+
+[33mcommit 47f5649b34f8538a1cf757ddee5f53c099296010[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 29 16:35:19 2016 -0500
+
+    Added examples to lecture 3
+    
+    Added examples to lecture 3
+
+[33mcommit a255a67fceddd325b82bcac1badc493dd20ade8e[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 29 15:36:14 2016 -0500
+
+    Lecture 4 - User-defined functions
+    
+    Basic concepts of user-defned functions
+
+[33mcommit f9f39c3cec8a43ba77ea3e94def9985777ab7896[m
+Merge: e0a45af d49a577
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 29 10:44:04 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into gh-pages
+
+[33mcommit d49a577f86ead6cce068677fd68f19a5261fb1d7[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 29 10:42:04 2016 -0500
+
+    Slide order - Lecture 2
+    
+    Slides order in Lecture 2
+
+[33mcommit e0a45af8a0d9070e636ff3647023e714f9db8d94[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 29 10:35:33 2016 -0500
+
+    Lecture 3 Control structures
+    
+    Lecture  small fixes in 1 and 2
+
+[33mcommit 7248a770498c3c3146d855e83efc53aa30ef649c[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Tue Feb 23 13:19:51 2016 -0500
+
+    Lecture 2 - Subsetting
+    
+    Subsetting of vectors, matrices, lists and data frames
+
+[33mcommit 8e9f0e25a522121e7232e541d8f4646af87f5b2a[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 22 23:54:41 2016 -0500
+
+    Added exercices to lecture 1
+    
+    Added exercises to lecture 1
+
+[33mcommit ccd33f8fd4c24207d7be08fff4a82cc75e3d14ae[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 22 23:37:04 2016 -0500
+
+    1st commit
+    
+    Lecture 1 - Intro to R
+    Data types/structures
+
+[33mcommit 3707e380fcfabd7a4423f33bdb39d50bad291751[m
+Author: Manuel A. Bolívar <ma.bolivar643@gmail.com>
+Date:   Mon Feb 22 23:35:55 2016 -0500
+
+    :lollipop: Added .gitattributes & .gitignore files
