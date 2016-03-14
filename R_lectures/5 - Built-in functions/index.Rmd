@@ -11,18 +11,59 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Useful fuctions
 
-+ `summary()`
-+ `table()`
-+ `apply()` family functions
+```{r setup, include=FALSE}
+# This is an R setup chunk, containing default options applied to all other chunks
+library(knitr)
+# This sets the chunk default options
+opts_chunk$set(cache=TRUE, collapse=TRUE, error=FALSE, prompt=TRUE)
+# This sets the chunk display theme
+thm <- knit_theme$get("acid")
+knit_theme$set(thm)
+# This sets some display options
+options(digits=3)
+options(width=80)
+```
 
+
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+## Basic fuctions
+
++ `apply()`: Family of looping functions
++ `length()`: Return the number of elements in vector x.
++ `paste()` or `paste0()`: Concatenate vectors after converting to character.
++ `rep(1,5)`: Repeat the number 1 five times
++ `seq(1,10,0.4)`: Generate a sequence (1 -> 10, spaced by 0.4)
++ `sort()`: Sort the vector x
++ `order()`: List sorted element numbers of x
++ `summary()`: Returns a summary of a given object (e.g., data frame, lm, etc.).
++ `table()`: Returns a contigency table for each combination of factors.
++ `tolower()`, `toupper()`: Convert string to lower/upper case letters.
++ `unique()`: Remove duplicate entries from vector
 
 --- .class #id 
 
-## `summary()`
+## Basic fuctions
 
-
++ **`apply()`: Family of looping functions**
++ `length()`: Return the number of elements in vector x.
++ `paste()` or `paste0()`: Concatenate vectors after converting to character.
++ `rep(1,5)`: Repeat the number 1 five times
++ `seq(1,10,0.4)`: Generate a sequence (1 -> 10, spaced by 0.4)
++ `sort()`: Sort the vector x
++ `order()`: List sorted element numbers of x
++ `summary()`**: Returns a summary of a given object (e.g., data frame, lm, etc.).**
++ `table()`**: Returns a contigency table for each combination of factors.**
++ `tolower()`, `toupper()`: Convert string to lower/upper case letters.
++ `unique()`: Remove duplicate entries from vector.
 
 ---
 
@@ -64,7 +105,6 @@ table(mtcars$cyl,mtcars$am)
 
 + `lapply()`: To loop over a list and evaluate on each element.
 + `sapply()`: the same as `lapply`, but with the output in a more simpler form.
-+ `mapply()`: A multivariate version of `sapply`.
 + `apply`: To apply functions over array margins.
 + `tapply`: To apply a function to each cell of a ranged array. 
 
@@ -73,10 +113,179 @@ table(mtcars$cyl,mtcars$am)
 
 ## `lapply()` function
 
-+ 
+```{r}
+args(lapply)
+```
+
+`lapply` takes three arguments: 
+  + `X` a list
+  + `FUN` a function
+  + `...` additional arguments of the function `FUN`
+
+If `X` is not a list, it will be coerced to a list using `as.list()` function.
+
+`lapply` returns a list.
 
 ---
 
+## `lapply()` example
+
+```{r}
+lapply(mtcars,mean) #Returns the mean for each variable in a list
+```
+
+---
+
+## `sapply()` function
+
+```{r}
+args(sapply)
+```
+
+`sapply` takes various arguments: 
+  + `X` a list
+  + `FUN` a function
+  + `...` additional arguments of the function `FUN`
+  + `simplify` a logical value. If `TRUE`, should return a simplified version of `lapply` function results. (e.g, vector, matrix or array) 
+
+If `X` is not a list, it will be coerced to a list using `as.list()` function.
+
+---
+
+## `sapply()` example
+
+```{r}
+sapply(mtcars,mean) #Returns the mean for each variable in a vector
+```
+
+---
+
+## Exercise 
+
+1. What is the maximum value in each of the variables in `mtcars` data set?
+
+---
+## `apply()` function
+
+```{r}
+args(apply)
+```
+
+`apply` takes four arguments: 
+  + `X` an array, including matrix
+  + `MARGIN` a vector giving the subscripts which the function will be applied over. e.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns. 
+  + `FUN` a function
+  + `...` additional arguments of the function `FUN`
+
+It is most often used to apply a function to the rows or columns of a matrix.
+
+---
+
+## `apply()` example
+
+```{r}
+x <- cbind(x1 = 3, x2 = c(4:1, 2:5))
+x
+```
+
+---
+
+## `apply()` example
+
+
+```{r}
+#col sums
+apply(x, 2, sum) 
+```
+
+```{r}
+#row sums
+apply(x, 1, sum) 
+```
+
+---
+
+## `tapply()` function
+
+```{r}
+args(tapply)
+```
+
+`apply` takes four arguments: 
+  + `X` a vector (typically)
+  + `INDEX` list of one or more factors, each of same length as `X`. The elements are coerced to factors by `as.factor()`
+  + `FUN` a function
+  + `...` additional arguments of the function `FUN`
+
+Useful to summarise information across groups
+
+---
+
+## `tapply` example
+
+```{r}
+tapply(mtcars$wt, mtcars$cyl, mean)
+```
+
+```{r}
+tapply(mtcars$wt, mtcars$cyl, sd)
+```
+
+---
+## `tapply` example
+
+```{r}
+weightbycyl <- tapply(mtcars$wt, mtcars$cyl, mean)
+barplot(weightbycyl)
+```
+
+---
+
+## `tapply` example 2
+
+```{r}
+#tapply with multiple factors
+tapply(mtcars$wt, list(mtcars$cyl,mtcars$carb), mean)
+```
+
+---
+
+## Exercise 
+
+1. Are, in average, cars with automatic transmission (`?mtcars`) heavier that those with manual transmission?
+2. Compare `tapply()` and `table()` functions. How are they similar? How are they different?
+
+
+--- .segue .dark .nobackground
+
+## summary function
+
+---
+
+## `summary()`
+
+`summary` is a generic function used to produce result summaries of the results of various model fitting functions.
+
+```{r}
+data(mtcars) #Load mtcars data to environment
+summary(mtcars)
+```
+
+---
+
+## Exercises
+
+1. Design a function that receive as argument a numeric vector and returns the descriptive statistics of the vector in a data frame. (`mean`, `sd`, `median`, `minimum`, and `maximum`)
+2. Report the descriptive statistics for all the variables in `mtcars` using only one code line.
+3. Report the descriptive statistics for the weigth variable (`wt`) group by the transmission type.(`?mtcars`). Use only one code line.
+
+---
+
+## Homework
+
+**PENDING**
+
+---
 ## References
 
 + Koduvely, D. H. M. (2015). *Learning Bayesian Models with R*. Packt Publishing Limited.
