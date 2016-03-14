@@ -42,14 +42,30 @@
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Useful fuctions</h2>
-  </hgroup>
   <article data-timings="">
-    <ul>
-<li><code>summary()</code></li>
-<li><code>table()</code></li>
-<li><code>apply()</code> family functions</li>
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Basic fuctions</h2>
+
+<ul>
+<li><code>apply()</code>: Family of looping functions</li>
+<li><code>length()</code>: Return the number of elements in vector x.</li>
+<li><code>paste()</code> or <code>paste0()</code>: Concatenate vectors after converting to character.</li>
+<li><code>rep(1,5)</code>: Repeat the number 1 five times</li>
+<li><code>seq(1,10,0.4)</code>: Generate a sequence (1 -&gt; 10, spaced by 0.4)</li>
+<li><code>sort()</code>: Sort the vector x</li>
+<li><code>order()</code>: List sorted element numbers of x</li>
+<li><code>summary()</code>: Returns a summary of a given object (e.g., data frame, lm, etc.).</li>
+<li><code>table()</code>: Returns a contigency table for each combination of factors.</li>
+<li><code>tolower()</code>, <code>toupper()</code>: Convert string to lower/upper case letters.</li>
+<li><code>unique()</code>: Remove duplicate entries from vector</li>
 </ul>
 
   </article>
@@ -58,10 +74,23 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2><code>summary()</code></h2>
+    <h2>Basic fuctions</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li><strong><code>apply()</code>: Family of looping functions</strong></li>
+<li><code>length()</code>: Return the number of elements in vector x.</li>
+<li><code>paste()</code> or <code>paste0()</code>: Concatenate vectors after converting to character.</li>
+<li><code>rep(1,5)</code>: Repeat the number 1 five times</li>
+<li><code>seq(1,10,0.4)</code>: Generate a sequence (1 -&gt; 10, spaced by 0.4)</li>
+<li><code>sort()</code>: Sort the vector x</li>
+<li><code>order()</code>: List sorted element numbers of x</li>
+<li><code>summary()</code><strong>: Returns a summary of a given object (e.g., data frame, lm, etc.).</strong></li>
+<li><code>table()</code><strong>: Returns a contigency table for each combination of factors.</strong></li>
+<li><code>tolower()</code>, <code>toupper()</code>: Convert string to lower/upper case letters.</li>
+<li><code>unique()</code>: Remove duplicate entries from vector.</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -84,18 +113,14 @@
   <article data-timings="">
     <p>The <code>table()</code> uses the cross-classifiying factors to build a contigency table of the count at each combination of factor levels.</p>
 
-<pre><code class="r">table(mtcars$cyl)
-</code></pre>
-
-<pre><code>## 
+<pre><code class="r">&gt; table(mtcars$cyl)
+## 
 ##  4  6  8 
 ## 11  7 14
 </code></pre>
 
-<pre><code class="r">table(mtcars$cyl,mtcars$am)
-</code></pre>
-
-<pre><code>##    
+<pre><code class="r">&gt; table(mtcars$cyl,mtcars$am)
+##    
 ##      0  1
 ##   4  3  8
 ##   6  4  3
@@ -139,7 +164,6 @@
     <ul>
 <li><code>lapply()</code>: To loop over a list and evaluate on each element.</li>
 <li><code>sapply()</code>: the same as <code>lapply</code>, but with the output in a more simpler form.</li>
-<li><code>mapply()</code>: A multivariate version of <code>sapply</code>.</li>
 <li><code>apply</code>: To apply functions over array margins.</li>
 <li><code>tapply</code>: To apply a function to each cell of a ranged array. </li>
 </ul>
@@ -153,15 +177,355 @@
     <h2><code>lapply()</code> function</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
-<li></li>
+    <pre><code class="r">&gt; args(lapply)
+## function (X, FUN, ...) 
+## NULL
+</code></pre>
+
+<p><code>lapply</code> takes three arguments: </p>
+
+<ul>
+<li><code>X</code> a list</li>
+<li><code>FUN</code> a function</li>
+<li><code>...</code> additional arguments of the function <code>FUN</code></li>
 </ul>
+
+<p>If <code>X</code> is not a list, it will be coerced to a list using <code>as.list()</code> function.</p>
+
+<p><code>lapply</code> returns a list.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2><code>lapply()</code> example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; lapply(mtcars,mean) #Returns the mean for each variable in a list
+## $mpg
+## [1] 20.1
+## 
+## $cyl
+## [1] 6.19
+## 
+## $disp
+## [1] 231
+## 
+## $hp
+## [1] 147
+## 
+## $drat
+## [1] 3.6
+## 
+## $wt
+## [1] 3.22
+## 
+## $qsec
+## [1] 17.8
+## 
+## $vs
+## [1] 0.438
+## 
+## $am
+## [1] 0.406
+## 
+## $gear
+## [1] 3.69
+## 
+## $carb
+## [1] 2.81
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2><code>sapply()</code> function</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; args(sapply)
+## function (X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE) 
+## NULL
+</code></pre>
+
+<p><code>sapply</code> takes various arguments: </p>
+
+<ul>
+<li><code>X</code> a list</li>
+<li><code>FUN</code> a function</li>
+<li><code>...</code> additional arguments of the function <code>FUN</code></li>
+<li><code>simplify</code> a logical value. If <code>TRUE</code>, should return a simplified version of <code>lapply</code> function results. (e.g, vector, matrix or array) </li>
+</ul>
+
+<p>If <code>X</code> is not a list, it will be coerced to a list using <code>as.list()</code> function.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2><code>sapply()</code> example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; sapply(mtcars,mean) #Returns the mean for each variable in a vector
+##     mpg     cyl    disp      hp    drat      wt    qsec      vs      am    gear 
+##  20.091   6.188 230.722 146.688   3.597   3.217  17.849   0.438   0.406   3.688 
+##    carb 
+##   2.812
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Exercise</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>What is the maximum value in each of the variables in <code>mtcars</code> data set?</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2><code>apply()</code> function</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; args(apply)
+## function (X, MARGIN, FUN, ...) 
+## NULL
+</code></pre>
+
+<p><code>apply</code> takes four arguments: </p>
+
+<ul>
+<li><code>X</code> an array, including matrix</li>
+<li><code>MARGIN</code> a vector giving the subscripts which the function will be applied over. e.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns. </li>
+<li><code>FUN</code> a function</li>
+<li><code>...</code> additional arguments of the function <code>FUN</code></li>
+</ul>
+
+<p>It is most often used to apply a function to the rows or columns of a matrix.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2><code>apply()</code> example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; x &lt;- cbind(x1 = 3, x2 = c(4:1, 2:5))
+&gt; x
+##      x1 x2
+## [1,]  3  4
+## [2,]  3  3
+## [3,]  3  2
+## [4,]  3  1
+## [5,]  3  2
+## [6,]  3  3
+## [7,]  3  4
+## [8,]  3  5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2><code>apply()</code> example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; #col sums
+&gt; apply(x, 2, sum) 
+## x1 x2 
+## 24 24
+</code></pre>
+
+<pre><code class="r">&gt; #row sums
+&gt; apply(x, 1, sum) 
+## [1] 7 6 5 4 5 6 7 8
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2><code>tapply()</code> function</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; args(tapply)
+## function (X, INDEX, FUN = NULL, ..., simplify = TRUE) 
+## NULL
+</code></pre>
+
+<p><code>apply</code> takes four arguments: </p>
+
+<ul>
+<li><code>X</code> a vector (typically)</li>
+<li><code>INDEX</code> list of one or more factors, each of same length as <code>X</code>. The elements are coerced to factors by <code>as.factor()</code></li>
+<li><code>FUN</code> a function</li>
+<li><code>...</code> additional arguments of the function <code>FUN</code></li>
+</ul>
+
+<p>Useful to summarise information across groups</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2><code>tapply</code> example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; tapply(mtcars$wt, mtcars$cyl, mean)
+##    4    6    8 
+## 2.29 3.12 4.00
+</code></pre>
+
+<pre><code class="r">&gt; tapply(mtcars$wt, mtcars$cyl, sd)
+##     4     6     8 
+## 0.570 0.356 0.759
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2><code>tapply</code> example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; weightbycyl &lt;- tapply(mtcars$wt, mtcars$cyl, mean)
+&gt; barplot(weightbycyl)
+</code></pre>
+
+<p><img src="figure/unnamed-chunk-14-1.png" alt="plot of chunk unnamed-chunk-14"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2><code>tapply</code> example 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; #tapply with multiple factors
+&gt; tapply(mtcars$wt, list(mtcars$cyl,mtcars$carb), mean)
+##      1    2    3    4    6    8
+## 4 2.15 2.40   NA   NA   NA   NA
+## 6 3.34   NA   NA 3.09 2.77   NA
+## 8   NA 3.56 3.86 4.43   NA 3.57
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Exercise</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Are, in average, cars with automatic transmission (<code>?mtcars</code>) heavier that those with manual transmission?</li>
+<li>Compare <code>tapply()</code> and <code>table()</code> functions. How are they similar? How are they different?</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>summary function</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2><code>summary()</code></h2>
+  </hgroup>
+  <article data-timings="">
+    <p><code>summary</code> is a generic function used to produce result summaries of the results of various model fitting functions.</p>
+
+<pre><code class="r">&gt; data(mtcars) #Load mtcars data to environment
+&gt; summary(mtcars)
+##       mpg            cyl            disp           hp           drat     
+##  Min.   :10.4   Min.   :4.00   Min.   : 71   Min.   : 52   Min.   :2.76  
+##  1st Qu.:15.4   1st Qu.:4.00   1st Qu.:121   1st Qu.: 96   1st Qu.:3.08  
+##  Median :19.2   Median :6.00   Median :196   Median :123   Median :3.69  
+##  Mean   :20.1   Mean   :6.19   Mean   :231   Mean   :147   Mean   :3.60  
+##  3rd Qu.:22.8   3rd Qu.:8.00   3rd Qu.:326   3rd Qu.:180   3rd Qu.:3.92  
+##  Max.   :33.9   Max.   :8.00   Max.   :472   Max.   :335   Max.   :4.93  
+##        wt            qsec            vs              am             gear     
+##  Min.   :1.51   Min.   :14.5   Min.   :0.000   Min.   :0.000   Min.   :3.00  
+##  1st Qu.:2.58   1st Qu.:16.9   1st Qu.:0.000   1st Qu.:0.000   1st Qu.:3.00  
+##  Median :3.33   Median :17.7   Median :0.000   Median :0.000   Median :4.00  
+##  Mean   :3.22   Mean   :17.9   Mean   :0.438   Mean   :0.406   Mean   :3.69  
+##  3rd Qu.:3.61   3rd Qu.:18.9   3rd Qu.:1.000   3rd Qu.:1.000   3rd Qu.:4.00  
+##  Max.   :5.42   Max.   :22.9   Max.   :1.000   Max.   :1.000   Max.   :5.00  
+##       carb     
+##  Min.   :1.00  
+##  1st Qu.:2.00  
+##  Median :2.00  
+##  Mean   :2.81  
+##  3rd Qu.:4.00  
+##  Max.   :8.00
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Design a function that receive as argument a numeric vector and returns the descriptive statistics of the vector in a data frame. (<code>mean</code>, <code>sd</code>, <code>median</code>, <code>minimum</code>, and <code>maximum</code>)</li>
+<li>Report the descriptive statistics for all the variables in <code>mtcars</code> using only one code line.</li>
+<li>Report the descriptive statistics for the weigth variable (<code>wt</code>) group by the transmission type.(<code>?mtcars</code>). Use only one code line.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Homework</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>PENDING</strong></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>References</h2>
   </hgroup>
@@ -181,13 +545,13 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Useful fuctions'>
+        data-slide=1 title='NA'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='<code>summary()</code>'>
+        data-slide=2 title='Basic fuctions'>
          2
       </a>
     </li>
@@ -229,8 +593,104 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='References'>
+        data-slide=9 title='<code>lapply()</code> example'>
          9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='<code>sapply()</code> function'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='<code>sapply()</code> example'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Exercise'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='<code>apply()</code> function'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='<code>apply()</code> example'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='<code>apply()</code> example'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='<code>tapply()</code> function'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='<code>tapply</code> example'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='<code>tapply</code> example'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='<code>tapply</code> example 2'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Exercise'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='summary function'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='<code>summary()</code>'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Exercises'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Homework'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='References'>
+         25
       </a>
     </li>
   </ul>
