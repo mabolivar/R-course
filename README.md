@@ -8,6 +8,7 @@ To access the slides, please follow the corresponding link.
  3. [Control structures](http://mabolivar.github.io/R-course/R_lectures/3 - Control structures)
  4. [User-defined functions](http://mabolivar.github.io/R-course/R_lectures/4 - User-written functions)
  5. [R built-in functions](http://mabolivar.github.io/R-course/R_lectures/5 - Built-in functions/)
+ 6. [Data manipulation](http://mabolivar.github.io/R-course/R_lectures/6 - Data manipulation/)
  6. Reading & writting data in R (pending)
  7. Date & times (pending)
  8. Plotting in R (pending)

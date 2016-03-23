@@ -1,0 +1,411 @@
+---
+title       : R programming
+subtitle    : Lecture 6. Data manipulation
+author      : Manuel A. Bolivar (Adapted from slides by Hadley Wickham)
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+
+
+```{r setup, include=FALSE}
+# This is an R setup chunk, containing default options applied to all other chunks
+library(knitr)
+# This sets the chunk default options
+opts_chunk$set(cache=TRUE, collapse=TRUE, error=FALSE, prompt=TRUE)
+# This sets the chunk display theme
+thm <- knit_theme$get("acid")
+knit_theme$set(thm)
+# This sets some display options
+options(digits=3)
+options(width=80)
+```
+
+
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+## Outline
+
+1. `dplyr` package
+2. One table verbs
+3. Data pipelines
+
+
+--- .class #id 
+
+## `dplyr` package
+
++ Provides a flexible grammar of data manipulation.
++ Provide blazing fast performance for in-memory data by writing key pieces in C++.
++ Use the same interface to work with data no matter where it's stored, whether in a data frame, a data table or database.
+
+```{r, results=F}
+library(dplyr)
+```
+
+---
+
+## `tbl_df()` function
+
++ Provides a compact view of a data frame
+
+```{r}
+data(mtcars)
+cars <- tbl_df(mtcars)
+cars
+```
+
+---
+
+## One table verbs
+
++ **`filter`**: keep rows with matching condition.
++ **`select`**: select columns by name.
++ **`arrange`**: reorder rows.
++ **`mutate`**: add new variables.
++ **`summarise`**: reduce variables to values.
+
+---
+
+## Structure
+
++ First argument is a data frame.
++ Subsequent arguments say what to do with the data frame.
++ Always return a data frame.
+
+---
+
+## The `filter` verb
+
+```{r}
+df <- data.frame(
+color = c("blue", "black", "blue", "blue", "black"),
+value = 1:5)
+df
+```
+
+```{r, eval = F}
+filter(df,color == "blue")
+```
+
+---
+
+## The `filter` verb
+
+```{r}
+df <- data.frame(
+color = c("blue", "black", "blue", "blue", "black"),
+value = 1:5)
+df
+```
+
+```{r, eval = T}
+filter(df,color == "blue")
+```
+
+---
+
+## The `filter` verb
+
+```{r}
+df <- data.frame(
+color = c("blue", "black", "blue", "blue", "black"),
+value = 1:5)
+df
+```
+
+```{r, eval = F}
+filter(df,value %in% c(2,4))
+```
+
+--- .segue .dark .nobackground
+
+## nycflights13 data
+
+---
+
+
+## nycflights13 data
+
+```{r, warning=F}
+library(nycflights13)
+data(flights) #every flight departing NYC in 2013
+dim(flights)
+```
+```{r}
+data(weather)
+dim(weather)
+```
+
+```{r}
+data(planes)
+dim(planes)
+```
+
+
+```{r}
+data(airports)
+dim(airports)
+```
+
+---
+
+## flights data frame
+
+```{r}
+str(flights)
+```
+
+---
+
+## Exercises
+
+Find all flights:
+
++ To SFO or OAK
++ In January
++ Delayed more than an hour
++ That departed between midnight and five am.
++ That departed before 5am or after 10pm.
+
+---
+
+## The `select` verb
+
+```{r}
+select(df, color)
+```
+
+---
+
+## The `select` verb
+
+```{r}
+select(df, color)
+```
+
+```{r}
+select(df, -color)
+```
+
+---
+
+## The `select` verb
+
+Exist different ways to select columns using the `select` verb.
+
+e.g. How to select the two delay variables in the flights data frame?
+
+---
+
+## The `select` verb
+
+Exist different ways to select columns using the `select` verb.
+
+e.g. How to select the two delay variables in the flights data frame?
+
+```{r, eval = F}
+select(flights, arr_delay, dep_delay)
+select(flights, dep_delay, dep_delay + 2)
+select(flights, ends_with("delay"))
+select(flights, contains("delay"))
+select(flights, one_of(c(arr_delay, dep_delay)))
+select(flights, arr_delay:dep_delay) # Returns every thinkg between the vars
+```
+
+---
+
+## The `arrange` verb
+
+```{r}
+arrange(df, color)
+```
+
+---
+
+## The `arrange` verb
+
+```{r}
+arrange(df, color)
+```
+
+```{r}
+arrange(df, desc(value))
+```
+
+---
+
+## The `arrange` verb
+
+```{r}
+arrange(df, color, desc(value))
+```
+
+---
+
+## Exercises
+
++ Order the flights by departure date and time.
++ Which flights were most delayed?
++ Which flights caught up the most time
++ during the flight?
+
+---
+
+## The `mutate` verb
+
+```{r}
+mutate(df, double = 2 * value)
+```
+
+---
+
+## The `mutate` verb
+
+```{r}
+mutate(df, double = 2 * value,
+       quadruple = 2*double)
+```
+
+---
+
+## Exercises
+
+1. Compute speed in mph from time (in minutes) and distance (in miles). Which flight flew the fastest?
+2. Add a new variable that shows how much time was made up or lost in flight.
+3. Create a new variable `date` that agregates year, month and day variables. Hint: try `ISOdate(year, month, day)`
+
+---
+
+## The `summarise` verb
+
+```{r}
+df
+```
+
+
+```{r}
+summarise(df, total = sum(value))
+```
+
+---
+
+## The `summarise` verb 
+
++ Most data operations are useful done on groups defined by variables in the the dataset.
++ The `group_by` function takes an existing tbl and converts it into a grouped tbl where operations are performed "by group".
+
+---
+
+## The `summarise` verb 
+
++ Most data operations are useful done on groups defined by variables in the the dataset.
++ The `group_by` function takes an existing tbl and converts it into a grouped tbl where operations are performed "by group".
+
+```{r}
+by_color <- group_by(df, color)
+summarise(by_color, total = sum(value))
+```
+
+---
+
+## The `summarise` verb 
+
+```{r}
+by_date <- group_by(flights, month, day)
+by_hour <- group_by(flights, month, day, hour)
+by_plane <- group_by(flights, tailnum)
+by_dest <- group_by(flights, dest)
+```
+
+---
+
+## Summary functions
+
++ `min(x)`, `max(x)`, `median(x)`, `mean(x)`
++ `n()`, `n_distinct()`, `sum(x)`
++ `sum(x>15)`, `mean(x>15)`
+
+---
+
+## Exercises
+
+1. What is the plane with most flights along 2013?
+2. Create a new data frame with the mean, median and standard deviation of departure delay by date.
+
+--- .segue .dark .nobackground
+
+## Data pipelines (%>%)
+
+---
+
+## Data pipelines (`%>%`)
+
+The verbs and functions in R are really useful however it is hard t read multiple oprations.
+
+```{r, results=F,echo=F}
+flights <- mutate(flights,
+                  date = ISOdate(year, month, day)
+)
+```
+
+```{r}
+hourly_delay <- filter(
+  summarise(
+    group_by(
+      filter(
+        flights,
+        !is.na(dep_delay)
+      ),
+      date, hour
+    ),
+    delay = mean(dep_delay),
+    n = n()
+  ),
+  n > 10
+)
+```
+
+---
+
+## Data pipelines (`%>%`)
+
+**Solution**: The pipeline operator from `magrit` package
+
+```{r}
+hourly_delay <- flights %>%
+  filter(!is.na(dep_delay)) %>%
+  group_by(date, hour) %>%
+  summarise(delay = mean(dep_delay), n = n())  %>%
+  filter(n > 10)
+```
+
+---
+
+## Exercises
+
+Create data pipelines to answer the following
+questions:
+
+1. Which destinations have the highest average
+delays?
+2. Which flights operate every day of the year?
+
+---
+
+## References
+
++ RStudio. *Data wrangling with dplyr and tidyr*. https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+
