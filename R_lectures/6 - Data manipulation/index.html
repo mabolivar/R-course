@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R programming">
+  <meta name="author" content="Manuel A. Bolivar (Adapted from slides by Hadley Wickham)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R programming</h1>
+    <h2>Lecture 6. Data manipulation</h2>
+    <p>Manuel A. Bolivar (Adapted from slides by Hadley Wickham)<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Outline</h2>
+
+<ol>
+<li><code>dplyr</code> package</li>
+<li>One table verbs</li>
+<li>Data pipelines</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2><code>dplyr</code> package</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Provides a flexible grammar of data manipulation.</li>
+<li>Provide blazing fast performance for in-memory data by writing key pieces in C++.</li>
+<li>Use the same interface to work with data no matter where it&#39;s stored, whether in a data frame, a data table or database.</li>
+</ul>
+
+<pre><code class="r">&gt; library(dplyr)
+## 
+## Attaching package: &#39;dplyr&#39;
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2><code>tbl_df()</code> function</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Provides a compact view of a data frame</li>
+</ul>
+
+<pre><code class="r">&gt; data(mtcars)
+&gt; cars &lt;- tbl_df(mtcars)
+&gt; cars
+## Source: local data frame [32 x 11]
+## 
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl) (dbl)
+## 1   21.0     6   160   110  3.90  2.62  16.5     0     1     4     4
+## 2   21.0     6   160   110  3.90  2.88  17.0     0     1     4     4
+## 3   22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+## 4   21.4     6   258   110  3.08  3.21  19.4     1     0     3     1
+## 5   18.7     8   360   175  3.15  3.44  17.0     0     0     3     2
+## 6   18.1     6   225   105  2.76  3.46  20.2     1     0     3     1
+## 7   14.3     8   360   245  3.21  3.57  15.8     0     0     3     4
+## 8   24.4     4   147    62  3.69  3.19  20.0     1     0     4     2
+## 9   22.8     4   141    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6   168   123  3.92  3.44  18.3     1     0     4     4
+## ..   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...   ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>One table verbs</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong><code>filter</code></strong>: keep rows with matching condition.</li>
+<li><strong><code>select</code></strong>: select columns by name.</li>
+<li><strong><code>arrange</code></strong>: reorder rows.</li>
+<li><strong><code>mutate</code></strong>: add new variables.</li>
+<li><strong><code>summarise</code></strong>: reduce variables to values.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Structure</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>First argument is a data frame.</li>
+<li>Subsequent arguments say what to do with the data frame.</li>
+<li>Always return a data frame.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>The <code>filter</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; df &lt;- data.frame(
++ color = c(&quot;blue&quot;, &quot;black&quot;, &quot;blue&quot;, &quot;blue&quot;, &quot;black&quot;),
++ value = 1:5)
+&gt; df
+##   color value
+## 1  blue     1
+## 2 black     2
+## 3  blue     3
+## 4  blue     4
+## 5 black     5
+</code></pre>
+
+<pre><code class="r">&gt; filter(df,color == &quot;blue&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>The <code>filter</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; df &lt;- data.frame(
++ color = c(&quot;blue&quot;, &quot;black&quot;, &quot;blue&quot;, &quot;blue&quot;, &quot;black&quot;),
++ value = 1:5)
+&gt; df
+##   color value
+## 1  blue     1
+## 2 black     2
+## 3  blue     3
+## 4  blue     4
+## 5 black     5
+</code></pre>
+
+<pre><code class="r">&gt; filter(df,color == &quot;blue&quot;)
+##   color value
+## 1  blue     1
+## 2  blue     3
+## 3  blue     4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>The <code>filter</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; df &lt;- data.frame(
++ color = c(&quot;blue&quot;, &quot;black&quot;, &quot;blue&quot;, &quot;blue&quot;, &quot;black&quot;),
++ value = 1:5)
+&gt; df
+##   color value
+## 1  blue     1
+## 2 black     2
+## 3  blue     3
+## 4  blue     4
+## 5 black     5
+</code></pre>
+
+<pre><code class="r">&gt; filter(df,value %in% c(2,4))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>nycflights13 data</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>nycflights13 data</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; library(nycflights13)
+&gt; data(flights) #every flight departing NYC in 2013
+&gt; dim(flights)
+## [1] 336776     16
+</code></pre>
+
+<pre><code class="r">&gt; data(weather)
+&gt; dim(weather)
+## [1] 8719   14
+</code></pre>
+
+<pre><code class="r">&gt; data(planes)
+&gt; dim(planes)
+## [1] 3322    9
+</code></pre>
+
+<pre><code class="r">&gt; data(airports)
+&gt; dim(airports)
+## [1] 1397    7
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>flights data frame</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; str(flights)
+## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    336776 obs. of  16 variables:
+##  $ year     : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ month    : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ day      : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ dep_time : int  517 533 542 544 554 554 555 557 557 558 ...
+##  $ dep_delay: num  2 4 2 -1 -6 -4 -5 -3 -3 -2 ...
+##  $ arr_time : int  830 850 923 1004 812 740 913 709 838 753 ...
+##  $ arr_delay: num  11 20 33 -18 -25 12 19 -14 -8 8 ...
+##  $ carrier  : chr  &quot;UA&quot; &quot;UA&quot; &quot;AA&quot; &quot;B6&quot; ...
+##  $ tailnum  : chr  &quot;N14228&quot; &quot;N24211&quot; &quot;N619AA&quot; &quot;N804JB&quot; ...
+##  $ flight   : int  1545 1714 1141 725 461 1696 507 5708 79 301 ...
+##  $ origin   : chr  &quot;EWR&quot; &quot;LGA&quot; &quot;JFK&quot; &quot;JFK&quot; ...
+##  $ dest     : chr  &quot;IAH&quot; &quot;IAH&quot; &quot;MIA&quot; &quot;BQN&quot; ...
+##  $ air_time : num  227 227 160 183 116 150 158 53 140 138 ...
+##  $ distance : num  1400 1416 1089 1576 762 ...
+##  $ hour     : num  5 5 5 5 5 5 5 5 5 5 ...
+##  $ minute   : num  17 33 42 44 54 54 55 57 57 58 ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Find all flights:</p>
+
+<ul>
+<li>To SFO or OAK</li>
+<li>In January</li>
+<li>Delayed more than an hour</li>
+<li>That departed between midnight and five am.</li>
+<li>That departed before 5am or after 10pm.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>The <code>select</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; select(df, color)
+##   color
+## 1  blue
+## 2 black
+## 3  blue
+## 4  blue
+## 5 black
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>The <code>select</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; select(df, color)
+##   color
+## 1  blue
+## 2 black
+## 3  blue
+## 4  blue
+## 5 black
+</code></pre>
+
+<pre><code class="r">&gt; select(df, -color)
+##   value
+## 1     1
+## 2     2
+## 3     3
+## 4     4
+## 5     5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>The <code>select</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Exist different ways to select columns using the <code>select</code> verb.</p>
+
+<p>e.g. How to select the two delay variables in the flights data frame?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>The <code>select</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Exist different ways to select columns using the <code>select</code> verb.</p>
+
+<p>e.g. How to select the two delay variables in the flights data frame?</p>
+
+<pre><code class="r">&gt; select(flights, arr_delay, dep_delay)
+&gt; select(flights, dep_delay, dep_delay + 2)
+&gt; select(flights, ends_with(&quot;delay&quot;))
+&gt; select(flights, contains(&quot;delay&quot;))
+&gt; select(flights, one_of(c(arr_delay, dep_delay)))
+&gt; select(flights, arr_delay:dep_delay) # Returns every thinkg between the vars
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>The <code>arrange</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; arrange(df, color)
+##   color value
+## 1 black     2
+## 2 black     5
+## 3  blue     1
+## 4  blue     3
+## 5  blue     4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>The <code>arrange</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; arrange(df, color)
+##   color value
+## 1 black     2
+## 2 black     5
+## 3  blue     1
+## 4  blue     3
+## 5  blue     4
+</code></pre>
+
+<pre><code class="r">&gt; arrange(df, desc(value))
+##   color value
+## 1 black     5
+## 2  blue     4
+## 3  blue     3
+## 4 black     2
+## 5  blue     1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>The <code>arrange</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; arrange(df, color, desc(value))
+##   color value
+## 1 black     5
+## 2 black     2
+## 3  blue     4
+## 4  blue     3
+## 5  blue     1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Order the flights by departure date and time.</li>
+<li>Which flights were most delayed?</li>
+<li>Which flights caught up the most time</li>
+<li>during the flight?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>The <code>mutate</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; mutate(df, double = 2 * value)
+##   color value double
+## 1  blue     1      2
+## 2 black     2      4
+## 3  blue     3      6
+## 4  blue     4      8
+## 5 black     5     10
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>The <code>mutate</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; mutate(df, double = 2 * value,
++        quadruple = 2*double)
+##   color value double quadruple
+## 1  blue     1      2         4
+## 2 black     2      4         8
+## 3  blue     3      6        12
+## 4  blue     4      8        16
+## 5 black     5     10        20
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Compute speed in mph from time (in minutes) and distance (in miles). Which flight flew the fastest?</li>
+<li>Add a new variable that shows how much time was made up or lost in flight.</li>
+<li>Create a new variable <code>date</code> that agregates year, month and day variables. Hint: try <code>ISOdate(year, month, day)</code></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>The <code>summarise</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; df
+##   color value
+## 1  blue     1
+## 2 black     2
+## 3  blue     3
+## 4  blue     4
+## 5 black     5
+</code></pre>
+
+<pre><code class="r">&gt; summarise(df, total = sum(value))
+##   total
+## 1    15
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>The <code>summarise</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Most data operations are useful done on groups defined by variables in the the dataset.</li>
+<li>The <code>group_by</code> function takes an existing tbl and converts it into a grouped tbl where operations are performed &quot;by group&quot;.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>The <code>summarise</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Most data operations are useful done on groups defined by variables in the the dataset.</li>
+<li>The <code>group_by</code> function takes an existing tbl and converts it into a grouped tbl where operations are performed &quot;by group&quot;.</li>
+</ul>
+
+<pre><code class="r">&gt; by_color &lt;- group_by(df, color)
+&gt; summarise(by_color, total = sum(value))
+## Source: local data frame [2 x 2]
+## 
+##    color total
+##   (fctr) (int)
+## 1  black     7
+## 2   blue     8
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>The <code>summarise</code> verb</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; by_date &lt;- group_by(flights, month, day)
+&gt; by_hour &lt;- group_by(flights, month, day, hour)
+&gt; by_plane &lt;- group_by(flights, tailnum)
+&gt; by_dest &lt;- group_by(flights, dest)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Summary functions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>min(x)</code>, <code>max(x)</code>, <code>median(x)</code>, <code>mean(x)</code></li>
+<li><code>n()</code>, <code>n_distinct()</code>, <code>sum(x)</code></li>
+<li><code>sum(x&gt;15)</code>, <code>mean(x&gt;15)</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>What is the plane with most flights along 2013?</li>
+<li>Create a new data frame with the mean, median and standard deviation of departure delay by date.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark nobackground" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Data pipelines (%&gt;%)</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Data pipelines (<code>%&gt;%</code>)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The verbs and functions in R are really useful however it is hard t read multiple oprations.</p>
+
+<pre><code class="r">&gt; hourly_delay &lt;- filter(
++   summarise(
++     group_by(
++       filter(
++         flights,
++         !is.na(dep_delay)
++       ),
++       date, hour
++     ),
++     delay = mean(dep_delay),
++     n = n()
++   ),
++   n &gt; 10
++ )
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Data pipelines (<code>%&gt;%</code>)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Solution</strong>: The pipeline operator from <code>magrit</code> package</p>
+
+<pre><code class="r">&gt; hourly_delay &lt;- flights %&gt;%
++   filter(!is.na(dep_delay)) %&gt;%
++   group_by(date, hour) %&gt;%
++   summarise(delay = mean(dep_delay), n = n())  %&gt;%
++   filter(n &gt; 10)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Create data pipelines to answer the following
+questions:</p>
+
+<ol>
+<li>Which destinations have the highest average
+delays?</li>
+<li>Which flights operate every day of the year?</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>RStudio. <em>Data wrangling with dplyr and tidyr</em>. <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='<code>dplyr</code> package'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='<code>tbl_df()</code> function'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='One table verbs'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Structure'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='The <code>filter</code> verb'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='The <code>filter</code> verb'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='The <code>filter</code> verb'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='nycflights13 data'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='nycflights13 data'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='flights data frame'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Exercises'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='The <code>select</code> verb'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='The <code>select</code> verb'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='The <code>select</code> verb'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='The <code>select</code> verb'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='The <code>arrange</code> verb'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='The <code>arrange</code> verb'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='The <code>arrange</code> verb'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Exercises'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='The <code>mutate</code> verb'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='The <code>mutate</code> verb'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Exercises'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='The <code>summarise</code> verb'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='The <code>summarise</code> verb'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='The <code>summarise</code> verb'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='The <code>summarise</code> verb'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Summary functions'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Exercises'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Data pipelines (%&gt;%)'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Data pipelines (<code>%&gt;%</code>)'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Data pipelines (<code>%&gt;%</code>)'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Exercises'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='References'>
+         34
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
