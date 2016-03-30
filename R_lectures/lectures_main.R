@@ -6,12 +6,10 @@ library(slidifyLibraries)
 library(rmarkdown)
 library(knitr)
 
-setwd("./R_lectures")
-
 #author("1 - Intro to R")
 #author("2 - Subsetting")
 #author("3 - Control structures")
 #author("4 - User-written functions")
 author("5 - Built-in functions")
-author("6 - Data wrangling") 
 author("6 - Data manipulation") 
+author("6 - Exercises data manipulation")

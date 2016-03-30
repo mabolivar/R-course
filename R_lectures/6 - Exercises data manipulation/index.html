@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R programming">
+  <meta name="author" content="Manuel A. Bolivar">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R programming</h1>
+    <h2>Exercises. Data manipulation</h2>
+    <p>Manuel A. Bolivar<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Guide</h2>
+
+<p>This slide deck presents a set of exercises to practice the concepts seen in the manipulate lecture.</p>
+
+<p>To solve this exercises you will need the following files:</p>
+
+<ol>
+<li>Database: <a href="https://github.com/mabolivar/R-course/blob/master/data/muevete_baseline.xls">muevete_baseline.xls</a></li>
+<li>Codebook: <a href="https://github.com/mabolivar/R-course/blob/master/data/Codebook_Muevete_T0.xlsx">Codebook_Muevete_T0.xlsx</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data manipulation cheatsheet</a></li>
+</ol>
+
+<p>Additionally, you will requiere to install the packages <code>dplyr</code> and <code>readr</code> and use the <code>read_excel()</code> function to import the data to R.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Exercises I</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For all the exercises print your results in the appropriate manner, i.e., title, relevant observations. All exercises should be solved using a continous pipeline (<code>%&gt;%</code>).</p>
+
+<ol>
+<li><p>What is the socio-economic level with the lowest participant weight average? How many participants are in each socio-economic level? </p></li>
+<li><p>What is the proportion of participants who assits at least two times per month to the ciclovia?</p></li>
+<li><p>What is the mean of the difference in the weight of the participants between the first and second measurement?
+What is the mean of the difference in the body fat of the participants between the first and second measurement? Does it make sense? </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Exercises II</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>You as, a research, have decided to build a regression model to understand the variables related with the weight of the participant in the study. Previous studies have suggested that age, gender and the parent study level are significant variables to explain the weight in a child. Are all of this variables are statically signicant to explain the weight of a child? Use the <code>lm()</code> function.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Exercises III</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>You want to know if the childs born in the first half of the years then to be more active than the childs born in the second half. You are doing some exploratory analysis and want to know if the mean of mvpa in midweek is higher in the first group. Conclude.
+
+<ul>
+<li>To solve this question download the data of <a href="https://github.com/mabolivar/R-course/blob/master/data/COL%20PA%20MARA.csv">PA</a> - <a href="https://github.com/mabolivar/R-course/blob/master/data/codebook_MARA.txt">codebook</a>.</li>
+<li>Use the appropiate two table verb to combine both tables.</li>
+<li>Use the <code>mdy()</code> function from the <code>lubridate</code> package to transform characters into dates. Hint: <code>?lubridate</code></li>
+<li>Present your results.</li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Exercises I'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Exercises II'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Exercises III'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
