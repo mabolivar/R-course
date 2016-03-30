@@ -33,7 +33,7 @@ To solve this exercises you will need the following files:
   2. Codebook: [Codebook_Muevete_T0.xlsx](https://github.com/mabolivar/R-course/blob/master/data/Codebook_Muevete_T0.xlsx)
   3. [Data manipulation cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 
-Additionally, you will requiere to install the packages `dplyr` and `readr` and use the `read_excel()` function to import the data to R.
+Additionally, you will requiere to install the packages `dplyr` and `readxl` and use the `read_excel()` function to import the data to R.
 
 --- .class #id 
 
@@ -54,13 +54,13 @@ What is the mean of the difference in the body fat of the participants between t
 
 ## Exercises II
 
-4. You as, a research, have decided to build a regression model to understand the variables related with the weight of the participant in the study. Previous studies have suggested that age, gender and the parent study level are significant variables to explain the weight in a child. Are all of this variables are statically signicant to explain the weight of a child? Use the `lm()` function.
+4. You as, a research, have decided to build a regression model to understand the variables related with the weight of the participant in the study. Previous studies have suggested that age, gender and the parent study level are significant variables to explain the weight in a child. Are all of this variables statically signicant to explain the weight of a child? Use the `lm()` function.
 
 ---
 
 ## Exercises III
 
-5. You want to know if the childs born in the first half of the years then to be more active than the childs born in the second half. You are doing some exploratory analysis and want to know if the mean of mvpa in midweek is higher in the first group. Conclude.
+5. You want to know if the childs born in the first half of the year tend to be more active than the childs born in the second half. You are doing some exploratory analysis and want to know if the mean of mvpa in midweek is higher in the first group. Conclude.
   + To solve this question download the data of [PA](https://github.com/mabolivar/R-course/blob/master/data/COL%20PA%20MARA.csv) - [codebook](https://github.com/mabolivar/R-course/blob/master/data/codebook_MARA.txt).
   + Use the appropiate two table verb to combine both tables.
   + Use the `mdy()` function from the `lubridate` package to transform characters into dates. Hint: `?lubridate`
