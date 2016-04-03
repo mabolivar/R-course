@@ -54,7 +54,7 @@ strong {
 
 <h2>Plotting</h2>
 
-<p>R Provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).</p>
+<p>R provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).</p>
 
 <ul>
 <li><strong>graphics</strong>: contains the basic plotting functions from the &quot;base&quot; graphic system (e.g. <code>plot</code>, <code>hist</code>, <code>boxplot</code>).</li>
@@ -415,10 +415,12 @@ strong {
 
 <slide class="" id="slide-20" style="background:;">
   <hgroup>
-    <h2>Basic plots - histograms</h2>
+    <h2>Basic plots - scatterplot</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">&gt; qplot(data=mtcars,mpg)
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab(&quot;Weight&quot;) + ylab(&quot;Miles per gallon&quot;)
 </code></pre>
 
 <p><center>
@@ -431,10 +433,14 @@ strong {
 
 <slide class="" id="slide-21" style="background:;">
   <hgroup>
-    <h2>Basic plots - histograms</h2>
+    <h2>Basic plots - scatterplot</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">&gt; qplot(factor(cyl), data=mtcars, geom=&quot;bar&quot;, fill=factor(am))
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab(&quot;Weight&quot;) + ylab(&quot;Miles per gallon&quot;) + 
++   geom_abline(intercept = lm1$coefficients[1],
++               slope = lm1$coefficients[2], size = 1)
 </code></pre>
 
 <p><center>
@@ -447,10 +453,14 @@ strong {
 
 <slide class="" id="slide-22" style="background:;">
   <hgroup>
-    <h2>Basic plot - lineplot</h2>
+    <h2>Basic plots - scatterplot</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">&gt; qplot(mtcars$wt, mtcars$mpg, geom = &quot;line&quot;) 
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab(&quot;Weight&quot;) + ylab(&quot;Miles per gallon&quot;) + 
++   geom_abline(intercept = lm1$coefficients[1],
++               slope = lm1$coefficients[2], size = 1) + ylim(c(0,35))
 </code></pre>
 
 <p><center>
@@ -463,13 +473,61 @@ strong {
 
 <slide class="" id="slide-23" style="background:;">
   <hgroup>
+    <h2>Basic plots - histograms</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars,mpg)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-33-1.png" alt="plot of chunk unnamed-chunk-33">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Basic plots - histograms</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(factor(cyl), data=mtcars, geom=&quot;bar&quot;, fill=factor(am))
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-35-1.png" alt="plot of chunk unnamed-chunk-35">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Basic plot - lineplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(mtcars$wt, mtcars$mpg, geom = &quot;line&quot;) 
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-37-1.png" alt="plot of chunk unnamed-chunk-37">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
     <h2>Exercises</h2>
   </hgroup>
   <article data-timings="">
-    <p>For this excercise use download .agd file of the accelerometry data oof one participant. Use the following code to read the .agd data.</p>
+    <p>For this excercise use download .agd file of the accelerometry data of one participant (<a href="https://github.com/mabolivar/R-course/tree/master/data">link</a>). Use the following code to read the .agd data.</p>
 
 <pre><code class="r">&gt; library(RSQLite)
-&gt; library(dyplr)
+&gt; library(dplyr)
 &gt; con &lt;- dbConnect(RSQLite::SQLite(), 
 +                  dbname=&quot;C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data/A1_0011_01.agd&quot;)
 &gt; df &lt;- dbGetQuery(conn=con, 
@@ -486,7 +544,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
@@ -515,7 +573,7 @@ strong {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Exercises</h2>
   </hgroup>
@@ -649,38 +707,56 @@ strong {
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Basic plots - histograms'>
+        data-slide=20 title='Basic plots - scatterplot'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Basic plots - histograms'>
+        data-slide=21 title='Basic plots - scatterplot'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Basic plot - lineplot'>
+        data-slide=22 title='Basic plots - scatterplot'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Exercises'>
+        data-slide=23 title='Basic plots - histograms'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Exercises'>
+        data-slide=24 title='Basic plots - histograms'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Exercises'>
+        data-slide=25 title='Basic plot - lineplot'>
          25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Exercises'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Exercises'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Exercises'>
+         28
       </a>
     </li>
   </ul>

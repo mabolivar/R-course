@@ -15,6 +15,7 @@ knit        : slidify::knit2slides
 ```{r setup, include=FALSE}
 # This is an R setup chunk, containing default options applied to all other chunks
 library(knitr)
+library(dplyr)
 # This sets the chunk default options
 opts_chunk$set(cache=TRUE, collapse=TRUE, error=FALSE, prompt=TRUE)
 # This sets the chunk display theme
@@ -38,7 +39,7 @@ strong {
 
 ## Plotting
 
-R Provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).
+R provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).
 
   + **graphics**: contains the basic plotting functions from the "base" graphic system (e.g. `plot`, `hist`, `boxplot`).
   + **lattice**: aims to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships (e.g. `xyplot`, `bwplot`, `levelplot`)
@@ -251,7 +252,7 @@ plot(mtcars$wt, mtcars$mpg, type = "l", lwd = 2)
 ```
 
 <center>
-```{r, echo=F}
+```{r, echo=F, fig.height=6}
 mtcars <- arrange(mtcars,wt)
 plot(mtcars$wt, mtcars$mpg, type = "l", lwd = 2) 
 ```
@@ -354,6 +355,75 @@ qplot(data=mtcars, wt, mpg,
 
 ---
 
+## Basic plots - scatterplot
+
+```{r, eval=F }
+qplot(data=mtcars, wt, mpg,
+      color = as.factor(cyl),shape = as.factor(am),
+      size = hp) + xlab("Weight") + ylab("Miles per gallon")
+```
+
+<center>
+```{r, echo=F, fig.height=5, message=FALSE, warning=FALSE, errors=F, warnings=F}
+
+qplot(data=mtcars, wt, mpg,
+      color = as.factor(cyl),shape = as.factor(am),
+      size = hp) + xlab("Weight") + ylab("Miles per gallon")
+
+```
+</center>
+
+---
+
+## Basic plots - scatterplot
+
+```{r, eval=F }
+qplot(data=mtcars, wt, mpg,
+      color = as.factor(cyl),shape = as.factor(am),
+      size = hp) + xlab("Weight") + ylab("Miles per gallon") + 
+  geom_abline(intercept = lm1$coefficients[1],
+              slope = lm1$coefficients[2], size = 1)
+```
+
+<center>
+```{r, echo=F, fig.height=5, message=FALSE, warning=FALSE, errors=F, warnings=F}
+
+qplot(data=mtcars, wt, mpg,
+      color = as.factor(cyl),shape = as.factor(am),
+      size = hp) + xlab("Weight") + ylab("Miles per gallon") + 
+  geom_abline(intercept = lm1$coefficients[1],
+              slope = lm1$coefficients[2], size = 1)
+
+```
+</center>
+
+---
+
+## Basic plots - scatterplot
+
+```{r, eval=F }
+qplot(data=mtcars, wt, mpg,
+      color = as.factor(cyl),shape = as.factor(am),
+      size = hp) + xlab("Weight") + ylab("Miles per gallon") + 
+  geom_abline(intercept = lm1$coefficients[1],
+              slope = lm1$coefficients[2], size = 1) + ylim(c(0,35))
+```
+
+<center>
+```{r, echo=F, fig.height=5, message=FALSE, warning=FALSE, errors=F, warnings=F}
+
+qplot(data=mtcars, wt, mpg,
+      color = as.factor(cyl),shape = as.factor(am),
+      size = hp) + xlab("Weight") + ylab("Miles per gallon") + 
+  geom_abline(intercept = lm1$coefficients[1],
+              slope = lm1$coefficients[2], size = 1) + ylim(c(0,35))
+
+```
+</center>
+
+
+---
+
 ## Basic plots - histograms
 
 ```{r, eval=F }
@@ -403,11 +473,11 @@ qplot(mtcars$wt, mtcars$mpg, geom = "line")
 
 ## Exercises
 
-For this excercise use download .agd file of the accelerometry data oof one participant. Use the following code to read the .agd data.
+For this excercise use download .agd file of the accelerometry data of one participant ([link](https://github.com/mabolivar/R-course/tree/master/data)). Use the following code to read the .agd data.
 
 ```{r, eval=F}
 library(RSQLite)
-library(dyplr)
+library(dplyr)
 con <- dbConnect(RSQLite::SQLite(), 
                  dbname="C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data/A1_0011_01.agd")
 df <- dbGetQuery(conn=con, 

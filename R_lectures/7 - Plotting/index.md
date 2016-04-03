@@ -27,7 +27,7 @@ strong {
 
 ## Plotting
 
-R Provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).
+R provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).
 
   + **graphics**: contains the basic plotting functions from the "base" graphic system (e.g. `plot`, `hist`, `boxplot`).
   + **lattice**: aims to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships (e.g. `xyplot`, `bwplot`, `levelplot`)
@@ -303,6 +303,56 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 
 ---
 
+## Basic plots - scatterplot
+
+
+```r
+> qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab("Weight") + ylab("Miles per gallon")
+```
+
+<center>
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27-1.png)
+</center>
+
+---
+
+## Basic plots - scatterplot
+
+
+```r
+> qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab("Weight") + ylab("Miles per gallon") + 
++   geom_abline(intercept = lm1$coefficients[1],
++               slope = lm1$coefficients[2], size = 1)
+```
+
+<center>
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29-1.png)
+</center>
+
+---
+
+## Basic plots - scatterplot
+
+
+```r
+> qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab("Weight") + ylab("Miles per gallon") + 
++   geom_abline(intercept = lm1$coefficients[1],
++               slope = lm1$coefficients[2], size = 1) + ylim(c(0,35))
+```
+
+<center>
+![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31-1.png)
+</center>
+
+
+---
+
 ## Basic plots - histograms
 
 
@@ -311,7 +361,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27-1.png)
+![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33-1.png)
 </center>
 
 
@@ -325,7 +375,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29-1.png)
+![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35-1.png)
 </center>
 
 
@@ -339,7 +389,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31-1.png)
+![plot of chunk unnamed-chunk-37](figure/unnamed-chunk-37-1.png)
 </center>
 
 
@@ -347,12 +397,12 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 
 ## Exercises
 
-For this excercise use download .agd file of the accelerometry data oof one participant. Use the following code to read the .agd data.
+For this excercise use download .agd file of the accelerometry data of one participant ([link](https://github.com/mabolivar/R-course/tree/master/data)). Use the following code to read the .agd data.
 
 
 ```r
 > library(RSQLite)
-> library(dyplr)
+> library(dplyr)
 > con <- dbConnect(RSQLite::SQLite(), 
 +                  dbname="C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data/A1_0011_01.agd")
 > df <- dbGetQuery(conn=con, 
