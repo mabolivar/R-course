@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0066)file:///C:/Users/Manuel/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Readme</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\Users\Manuel\Dropbox\Mis documentos\1. Medicina\RECREOVIA\">--><base href=".">
+</head>
+<body>
+<hr>
+<h1>Physical activity calculator</h1>
+<hr>
+<p>This code computes minutes of physical activity (PA) intensity (moderate and vigorous) using  evidence-based cut points for accelerometry data (ActiGraph).  It provides as an output for each participant: 1) Number of valid days of use; 2)Total wear time for moderate and vigorous PA intensity (in minutes); 3) Total minutes within bouts registered (minutes of break time, minutes of moderate activity, minutes of vigorous activity, and total bout duration in minutes) for each participant. It also computes minutes and counts for moderate and vigorous PA intensity level for midweek and weekend separately.</p>
+<p>Results are exported to a CSV file.</p>
+<h2>Table of contents</h2>
+<ol>
+<li>R and RStudio</li>
+<li>Required packages</li>
+<li>How to use this code?</li>
+</ol>
+<hr>
+<h1>R and RStudio</h1>
+<h2>R</h2>
+<p>R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS. To download R, please choose your preferred Comprehensive R Archive Network (CRAN) mirror:</p>
+<ul>
+<li><a href="http://cran.stat.ucla.edu/">University of California, Los Angeles, CA</a></li>
+<li><a href="http://watson.nci.nih.gov/cran_mirror/">National Cancer Institute, Bethesda, MD</a></li>
+<li><a href="http://cran.mtu.edu/">Michigan Technological University, Houghton, MI</a></li>
+<li><a href="http://cran.wustl.edu/">Washington University, St. Louis, MO</a></li>
+<li><a href="http://cran.case.edu/">Case Western Reserve University, Cleveland, OH</a></li>
+<li><a href="http://lib.stat.cmu.edu/R/CRAN/">Statlib, Carnegie Mellon University, Pittsburgh, PA</a></li>
+<li><a href="http://mirrors.nics.utk.edu/cran/">National Institute for Computational Sciences, Oak Ridge, TN</a></li>
+<li><a href="http://cran.revolutionanalytics.com/">Revolution Analytics, Dallas, TX</a></li>
+<li><a href="http://cran.fhcrc.org/">Fred Hutchinson Cancer Research Center, Seattle, WA</a></li>
+<li><a href="http://cran.cs.wwu.edu/">Western Washington University, Bellingham, WA</a></li>
+</ul>
+<h2>RStudio</h2>
+<p>RStudio is a free and open source integrated development environment for R (See Fig 1). It is not required to run or develop code in R but it is a useful tool to do it. </p>
+<p><img src="./Readme_files/rstudio-windows.png" alt="Fig 1" title="Fig 1. RStudio IDE"></p>
+<p>For further information about RStudio, the reader may refer to RStudio <a href="http://www.rstudio.com/">webpage</a>. You can download the RStudio installer from the following links:</p>
+<ul>
+<li><a href="http://download1.rstudio.org/RStudio-0.98.484.exe">RStudio 0.98.484 - Windows XP/Vista/7/8</a></li>
+<li><a href="http://download1.rstudio.org/RStudio-0.98.484.dmg">RStudio 0.98.484 - Mac OS X 10.6+ (64-bit)</a></li>
+</ul>
+<h1>Required packages</h1>
+<p>In R, <em>Packages</em> are collections of R functions, data, and compiled code in a well-defined format. In order to execute the code, some packages are required and must be downloaded, installed and loaded prior to running the code.</p>
+<p>The required packages are:</p>
+<ul>
+<li><em>Hmisc</em></li>
+<li><em>RSQLite</em></li>
+<li><em>sqldf</em></li>
+<li><em>xlsx</em></li>
+</ul>
+<p>To install any package, you can use the built-in function:</p>
+<pre><code>install.packages(&lt;package_name&gt;)
+</code></pre>
+
+<p>Or, if you decided to install RStudio, this IDE provides easy tool to automatically download and install multiple packages at the same time. Under the Packages tab (bottom-right panel), you can see all your installed packages. There, you can use the "Install package" button to download and install the required packages. The following image presents this dialog.</p>
+<p><img src="./Readme_files/qtgi.jpg" alt="Fiq 2" title="Fig 2 Install package dialog"></p>
+<h1>How to use this code?</h1>
+<p>In order to use the code, the R file <strong><em>ac_protocol.R</em></strong> have to be edited. The code holds five important components: <em>Working directory</em>, <em>Required libraries</em>, <em>Functions</em>, <em>Global parameters</em> and <em>Main routine</em>. In this section, the description of those components is presented.</p>
+<h2>Set the working directory</h2>
+<p>The working directory (wd) is the folder which stores the R code, the input data and the code's output data. Likewise, the wd folder must contain the following folders:</p>
+<ul>
+<li><strong>R</strong>: The code is stored in this folder.</li>
+<li><strong>data</strong>: Contains all the .agd files to be processed.</li>
+<li><strong>output</strong>: The final data frame and a log will be stored in this folder.</li>
+</ul>
+<p>Line 5 sets the working directory.</p>
+<h2>Load required libraries</h2>
+<p>Starting at line 9, the lines load all the required libraries. Those libraries must be installed before running the code; otherwise, an error message will be printed on Console. </p>
+<pre><code>Error in library("Hmisc") : there is no package called ‘Hmisc’
+</code></pre>
+
+<p>The reader may refer back to <em>Requiered libraries</em> section for more information.</p>
+<h2>Load functions</h2>
+<p>From line 15 until 213, all the functions are declared. Those function must be loaded in the <em>Workspace</em> to run the main routine.</p>
+<h2>Set global parameters</h2>
+<p>Before the main routine, a set of global parameters must be fixed.</p>
+<ul>
+<li><strong>inputdir</strong>: Input data folder directory.</li>
+<li><strong>outputdir</strong>: Output folder directory.</li>
+<li><strong>outputfile</strong>: Output .csv file name.</li>
+</ul>
+<h2>Load and run the main function</h2>
+<p>In the main function, you should fix the values for the functions parameters.</p>
+<p>The main function is composed of six blocks:</p>
+<h3>1. Read data form the .agd files (SQLite databases)</h3>
+<p>The following block reads the database (.agd file) using the file directory <code>dbDir</code> and save the accelerometry data on the variable <code>data</code> and all the settings parameters on the variable <code>settings</code>.</p>
+<pre><code>db &lt;- readDatabase(dbDir)
+data &lt;- db$data
+settings &lt;- db$settings
+</code></pre>
+
+<h3>2. Non-wear period identification</h3>
+<p>In this block the non-wear periods are identified. The function <code>nonWearPeriods()</code> receives as parameter the data frame, the scan parameter used to identify the non-wear periods, the minimum number of minutes to identify a non-wear period and the tolerance.</p>
+<pre><code>nw &lt;- nonWearPeriods(data,innactivity=60,tolerance=0,scanParam="axis1")
+data$activity &lt;- setValues(rep("wear",nrow(data)),"non-wear", nw)
+</code></pre>
+
+<h3>3. PA identification</h3>
+<p>Add the physical activity intensity to each epoch using evidence-based cut points. In this case, the Freedson et al. (1998) cut points are used.</p>
+<pre><code>data$PA &lt;- mapply(FUN=cut_points_freedsonAdults1998,data$axis1,60)
+</code></pre>
+
+<h3>4. Bout identification</h3>
+<p>The bout identification can be done by using two definitions of bouts:</p>
+<ul>
+<li>
+<p><em>Maximum total break duration</em>: This definition declares a maximum noncontinuous time for the break time allowed within a bout. For example, if the maximum total break duration is fixed at 2 minutes, when the participant spend 3 minutes of non-moderate or non-vigorous activity, the bout is disrupted (regardless of how long the bout has been).</p>
+<pre><code>boutsMaxTotalBreakDuration(PAvector,boutlen,bouttol)
+</code></pre>
+
+</li>
+<li>
+<p><em>Percentage of activity</em>: A ratio between the total time of moderate to vigorous physical activity and the total time of bout duration (including breaks) is used to declare the end of a bout. The maximum break length is defined as: [total bout duration]*[ratio].This length applies after the bout duration is greater than minimum bout length.</p>
+<pre><code>boutsPercActiv(PAvector,boutlen,bouttol,ratio)
+</code></pre>
+
+</li>
+</ul>
+<p>The users are free to choose the definition that better fit their needs. The following block use the <em>Percentage of activity</em> bout definition to classify each epoch in the data frame.</p>
+<pre><code>bouts &lt;- boutsPercActiv(PAvector=data$PA,boutlen=10,bouttol=2, ratio = 0.2)
+data$bouted &lt;- setValues(rep("unbout",nrow(data)),"bouted", bouts)
+</code></pre>
+
+<h3>5. Cleaning (Remove last day of data and more than 7 days of data)</h3>
+<p>The function <code>removeData()</code> deletes the days/hours/minutes/seconds (given as parameter) from the data frame.</p>
+<pre><code>sample_days &lt;- sort(unique(as.Date(data$datetime)))
+first_day &lt;- min(sample_days)
+last_day &lt;- max(sample_days)
+toremove &lt;- sample_days[sample_days&gt;first_day+6]
+data &lt;- removeData(data,toremove=c(toremove,last_day),units="days")
+</code></pre>
+
+<h3>6. Consolidation</h3>
+<p>Extract all the physical activity intensity related variables for each participant.</p>
+<p>For further information about the functions and their parameters, you can refer to the function documentation.</p>
+<p><em>After compile and load all the fuctions into the <em>workspace</em>, run the function <code>main( )</code> to obtain the final data frame.</em></p>
+<h2>Output</h2>
+<p>The R code will generate a .csv file with the result of the analysis. Each row of the .csv file contains the aggregate information of one .agd file (i.e one participant). The variables are generated as follows:</p>
+<ul>
+<li><strong>PID</strong>: Participant ID.</li>
+<li><strong>valid</strong>: At least 4 days with 10+ hours of wake/wear time, including 1 valid weekend day.</li>
+<li><strong>VldDays</strong>: Number of days with 10+ hours of wake/wear time.</li>
+<li><strong>VldDays_WK</strong>: Number of WEEKDAYS with 10+ hours of wake/wear time.</li>
+<li><strong>VldDays_WD</strong>: Number of WEEKEND DAYS with 10+ hours of wake/wear time.</li>
+<li><strong>Tot_MinMVPA</strong>: Total minutes (unbouted) of moderate to vigorous activity, considering only activity from valid days.</li>
+<li><strong>Tot_MinMPA</strong>: Total minutes (unbouted) of moderate activity, considering only activity from valid days.</li>
+<li><strong>Tot_MinVPA</strong>: Total minutes (unbouted) of vigorous activity, considering only activity from valid days.</li>
+<li><strong>Tot_MinMVPA_WK</strong>: Total minutes (unbouted) of moderate to vigorous activity during week days, considering only activity from valid week days.</li>
+<li><strong>Tot_MinMPA_WK</strong>: Total minutes (unbouted) of moderate activity during week days, considering only activity from valid week days.</li>
+<li><strong>Tot_MinVPA_WK</strong>: Total minutes (unbouted) of vigorous activity during week days, considering only activity from valid week days.</li>
+<li><strong>Tot_MinMVPA_WD</strong>: Total minutes (unbouted) of moderate to vigorous activity during week-end days, considering only activity from valid weekend days.</li>
+<li><strong>Tot_MinMPA_WD</strong>: Total minutes (unbouted) of moderate activity during week-end days, considering only activity from valid weekend days.</li>
+<li><strong>Tot_MinVPA_WD</strong>: Total minutes (unbouted) of vigorous activity during week-end days, considering only activity from valid weekend days.</li>
+<li><strong>btMVPA_num</strong>: Total number of bouts of moderate to vigorous activity, using only valid days.</li>
+<li><strong>btVPA_num</strong>: Total number of bouts of moderate to vigorous activity that contains at least 1 min of vigorous activity, using only valid days.</li>
+<li><strong>bt_min</strong>: Total bout length (including MVPA plus breaks), using only valid days.</li>
+<li><strong>bt_rest</strong>: Total minutes of break-time within bouts, considering only valid days.</li>
+<li><strong>bt_MVPA</strong>: Total minutes of moderate to vigorous activity (excluding break-time) within MVPA bouts, using only valid days.</li>
+<li><strong>bt_MPA</strong>: Total minutes of moderate activity within MVPA bouts, using only valid days.</li>
+<li><strong>bt_VPA</strong>: Total minutes of vigorous activity within MVPA bouts, using only valid days.</li>
+<li><strong>btMVPA_num_WK</strong>: Total number of bouts of moderate to vigorous activity, using only valid week days.</li>
+<li><strong>btVPA_num_WK</strong>: Total number of bouts of moderate to vigorous activity that contains at least 1 min of vigorous activity, using only valid week days.</li>
+<li><strong>bt_min_WK</strong>: Total bout length (MVPA plus breaks), using only valid week days.</li>
+<li><strong>bt_rest_WK</strong>: Total minutes of break-time within MVPA bouts using only valid week days.</li>
+<li><strong>bt_MVPA_WK</strong>: Total minutes of moderate to vigorous activity (excluding break-time) within MVPA bouts, using only valid week days.</li>
+<li><strong>bt_MPA_WK</strong>: Total minutes of moderate activity within MVPA bouts, using only valid week days.</li>
+<li><strong>bt_VPA_WK</strong>: Total minutes of vigorous activity within MVPA bouts, using only valid week days.</li>
+<li><strong>btMVPA_num_WD</strong>: Total number of bouts of moderate to vigorous activity, using only valid week days.</li>
+<li><strong>btVPA_num_WD</strong>: Total number of bouts of moderate to vigorous activity that contains at least 1 min of vigorous activity, using only valid weekend days.</li>
+<li><strong>bt_min_WD</strong>: Total bout length (MVPA plus breaks), using only valid weekend days.</li>
+<li><strong>bt_rest_WD</strong>: Total minutes of break-time within MVPA bouts using only valid weekend days.</li>
+<li><strong>bt_MVPA_WD</strong>: Total minutes of moderate to vigorous activity (excluding break-time) within MVPA bouts, using only valid weekend days.</li>
+<li><strong>bt_MPA_WD</strong>: Total minutes of moderate activity within MVPA bouts, using only valid weekend days.</li>
+<li><strong>bt_VPA_WD</strong>: Total minutes of vigorous activity within MVPA bouts, using only valid weekend days.</li>
+</ul>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
