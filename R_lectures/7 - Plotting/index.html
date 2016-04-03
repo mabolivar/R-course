@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R programming">
+  <meta name="author" content="Manuel A. Bolivar">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R programming</h1>
+    <h2>Lecture 7. Plotting</h2>
+    <p>Manuel A. Bolivar<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Plotting</h2>
+
+<p>R provides a set of fuctions and packages for visualizing data. The following packages are the most commonly used for plotting (they can not be mixed).</p>
+
+<ul>
+<li><strong>graphics</strong>: contains the basic plotting functions from the &quot;base&quot; graphic system (e.g. <code>plot</code>, <code>hist</code>, <code>boxplot</code>).</li>
+<li><strong>lattice</strong>: aims to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships (e.g. <code>xyplot</code>, <code>bwplot</code>, <code>levelplot</code>)</li>
+<li><strong>ggplot2</strong>: offers a powerful graphics language for creating elegant and complex plots.  Originally based on Leland Wilkinson&#39;s The Grammar of Graphics book (e.g. <code>qplot</code>, <code>ggplot</code>).</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class segue dark nobackground" id="id" style="background:;">
+  <hgroup>
+    <h2>graphics package</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Base graphics</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Base graphics are used most commonly and are a very powerful system for creating 2-D graphics.</li>
+</ul>
+
+<pre><code class="r">&gt; data(mtcars)
+&gt; plot(x =  mtcars$wt, y = mtcars$mpg)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Function parameters (<code>par</code>)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <code>par()</code> function is used to specify global parameters that affect all plots in an R session (see <code>?par</code>).</p>
+
+<p>This parameters can often be overrriden as arguments to specific plotting functions.</p>
+
+<ul>
+<li><code>pch</code>: the plotting symbol (default is open circle)</li>
+<li><code>lty</code>: the line type (default is solid line), can be dashed, dotted, etc.</li>
+<li><code>lwd</code>: the line width, specified as an integer multiple</li>
+<li><code>col</code>: the plotting color, specified as a number, string, or hex code; the colors function gives you a vector of colors by name.</li>
+<li><code>las</code>: the orientation of the axis labels on the plot.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Params - <code>pch</code></h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><center>
+<img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3">
+</center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">&gt; plot(x =  mtcars$wt, 
++      y = mtcars$mpg, 
++      pch = 19)
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Params - <code>main</code>, <code>xlim</code> &amp; <code>ylim</code></h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><center>
+<img src="figure/unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5">
+</center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">&gt; plot(x =  mtcars$wt, y = mtcars$mpg, 
++      pch = 19, col = 2, 
++      main = &quot;Cars performance
++       based on weight&quot;,
++      xlab = &quot;Weight&quot;, 
++      ylab = &quot;Miles per gallon&quot;)
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Add layer - grid</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><center>
+<img src="figure/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7">
+</center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">&gt; plot(x =  mtcars$wt, y = mtcars$mpg, 
++      pch = 19, col = 2, 
++      main = &quot;Cars performance
++       based on weight&quot;,
++      xlab = &quot;Weight&quot;, 
++      ylab = &quot;Miles per gallon&quot;)
+&gt; grid(lwd = 2)
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Add more data - abline</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><center>
+<img src="figure/unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9">
+</center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">&gt; plot(x =  mtcars$wt, y = mtcars$mpg, 
++      pch = 19, col = 2, 
++      main = &quot;Cars performance
++       based on weight&quot;,
++      xlab = &quot;Weight&quot;, 
++      ylab = &quot;Miles per gallon&quot;)
+&gt; grid(lwd = 2)
+&gt; lm1 &lt;- lm(mpg ~ wt, data = mtcars)
+&gt; abline(lm1, col = &quot;blue&quot;, lwd = 2)
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>More on base graphics</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>More useful params are: 
+
+<ul>
+<li><code>xlim</code></li>
+<li><code>ylim</code></li>
+<li><code>type</code></li>
+<li><code>cex</code></li>
+</ul></li>
+<li>Functions to add information:
+
+<ul>
+<li><code>points</code></li>
+<li><code>abline</code></li>
+</ul></li>
+<li>Other plots:
+
+<ul>
+<li><code>hist</code></li>
+<li><code>barplot</code></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Basic graphs - hist</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; hist(mtcars$mpg, col =&quot;gray&quot;)
+</code></pre>
+
+<p><img src="figure/unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Basic graphs - barplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; counts &lt;- table(mtcars$cyl)
+&gt; barplot(counts)
+</code></pre>
+
+<p><img src="figure/unnamed-chunk-12-1.png" alt="plot of chunk unnamed-chunk-12"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Basic graphs - barplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; counts &lt;- table(mtcars$am,mtcars$cyl)
+&gt; barplot(counts, col = c(&quot;blue&quot;, &quot;red&quot;))
+</code></pre>
+
+<p><img src="figure/unnamed-chunk-13-1.png" alt="plot of chunk unnamed-chunk-13"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Basic graphs - line plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; mtcars &lt;- arrange(mtcars,wt)
+&gt; plot(mtcars$wt, mtcars$mpg, type = &quot;l&quot;, lwd = 2) 
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class segue dark nobackground" id="id" style="background:;">
+  <hgroup>
+    <h2>ggplot2 package</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>ggplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This package was developed by Hadley Wickham and provides a lenguage to create beautiful plots quick and easy.</p>
+
+<pre><code class="r">&gt; library(ggplot2)
+&gt; qplot(data = mtcars, x =  wt, y = mpg)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars,wt,mpg)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am))
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-21-1.png" alt="plot of chunk unnamed-chunk-21">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am))
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-23-1.png" alt="plot of chunk unnamed-chunk-23">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-25-1.png" alt="plot of chunk unnamed-chunk-25">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab(&quot;Weight&quot;) + ylab(&quot;Miles per gallon&quot;)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-27-1.png" alt="plot of chunk unnamed-chunk-27">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab(&quot;Weight&quot;) + ylab(&quot;Miles per gallon&quot;) + 
++   geom_abline(intercept = lm1$coefficients[1],
++               slope = lm1$coefficients[2], size = 1)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-29-1.png" alt="plot of chunk unnamed-chunk-29">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Basic plots - scatterplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars, wt, mpg,
++       color = as.factor(cyl),shape = as.factor(am),
++       size = hp) + xlab(&quot;Weight&quot;) + ylab(&quot;Miles per gallon&quot;) + 
++   geom_abline(intercept = lm1$coefficients[1],
++               slope = lm1$coefficients[2], size = 1) + ylim(c(0,35))
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-31-1.png" alt="plot of chunk unnamed-chunk-31">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Basic plots - histograms</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(data=mtcars,mpg)
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-33-1.png" alt="plot of chunk unnamed-chunk-33">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Basic plots - histograms</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(factor(cyl), data=mtcars, geom=&quot;bar&quot;, fill=factor(am))
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-35-1.png" alt="plot of chunk unnamed-chunk-35">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Basic plot - lineplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">&gt; qplot(mtcars$wt, mtcars$mpg, geom = &quot;line&quot;) 
+</code></pre>
+
+<p><center>
+<img src="figure/unnamed-chunk-37-1.png" alt="plot of chunk unnamed-chunk-37">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For this excercise use download .agd file of the accelerometry data of one participant (<a href="https://github.com/mabolivar/R-course/tree/master/data">link</a>). Use the following code to read the .agd data.</p>
+
+<pre><code class="r">&gt; library(RSQLite)
+&gt; library(dplyr)
+&gt; con &lt;- dbConnect(RSQLite::SQLite(), 
++                  dbname=&quot;C:/Users/Manuel/Dropbox/1. Mis documentos/1. Medicina/R course/data/A1_0011_01.agd&quot;)
+&gt; df &lt;- dbGetQuery(conn=con, 
++                  statement=
++                    paste(&quot;SELECT (cast(dataTimestamp as double))*1.0e-7 as datetime, *
++                          FROM &#39;&quot;,&quot;data&quot;, &quot;&#39;&quot;, sep=&quot;&quot;)) %&gt;%
++   select(-dataTimestamp) %&gt;% 
++   mutate(datetime = datetime-62135596800,
++          datetime = decimal_date(datetime,origin=&quot;1970-01-01 00:00:00&quot;, &quot;GMT&quot;))
+&gt; dbDisconnect(con)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Plot in a line chart the physical activity (PA) (axis 1) of the participant against time for all days. </p></li>
+<li><p>Plot the physical activity (PA) (axis 1) of the participant against time for one day between 6:00 am and 09:00 pm. Hint: use <code>as.Date()</code> and <code>hour()</code> function - <code>lubridate</code> package</p></li>
+</ol>
+
+<pre><code class="r">&gt; # Moving average function
+&gt; mav &lt;- function(datetime,values,n=1){
++   val &lt;- rep(-1,length(values))
++   for(i in seq_along(datetime)){
++     if(i&lt;=n){
++       val[i] &lt;- NA
++     }
++     else{
++     val[i] &lt;- mean(values[(i-n):(i+n)])
++     }
++   }
++   return(data.frame(datetime,val))
++ }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Exercises</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Plot the average PA activity per hour. What is the more active hour in the day?</p></li>
+<li><p>Compare the PA of two participants. Who is more active?</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='graphics package'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Base graphics'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Function parameters (<code>par</code>)'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Params - <code>pch</code>'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Params - <code>main</code>, <code>xlim</code> &amp; <code>ylim</code>'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Add layer - grid'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Add more data - abline'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='More on base graphics'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Basic graphs - hist'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Basic graphs - barplot'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Basic graphs - barplot'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Basic graphs - line plot'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='ggplot2 package'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='ggplot2'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Basic plots - scatterplot'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Basic plots - scatterplot'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Basic plots - scatterplot'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Basic plots - scatterplot'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Basic plots - scatterplot'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Basic plots - scatterplot'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Basic plots - scatterplot'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Basic plots - histograms'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Basic plots - histograms'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Basic plot - lineplot'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Exercises'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Exercises'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Exercises'>
+         28
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
