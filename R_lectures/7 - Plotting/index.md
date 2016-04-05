@@ -50,7 +50,7 @@ R provides a set of fuctions and packages for visualizing data. The following pa
 ```
 
 <center>
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
 </center>
 
 ---
@@ -74,7 +74,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 *** {name: left}
 
 <center>
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3-1.png)
 </center>
 
 *** {name: right}
@@ -94,7 +94,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 *** {name: left}
 
 <center>
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-5](assets/fig/unnamed-chunk-5-1.png)
 </center>
 
 *** {name: right}
@@ -117,7 +117,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 *** {name: left}
 
 <center>
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7-1.png)
 </center>
 
 *** {name: right}
@@ -141,7 +141,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 *** {name: left}
 
 <center>
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-9](assets/fig/unnamed-chunk-9-1.png)
 </center>
 
 *** {name: right}
@@ -184,7 +184,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 > hist(mtcars$mpg, col ="gray")
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-11](assets/fig/unnamed-chunk-11-1.png)
 
 
 ---
@@ -197,7 +197,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 > barplot(counts)
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-12](assets/fig/unnamed-chunk-12-1.png)
 
 ---
 
@@ -209,7 +209,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 > barplot(counts, col = c("blue", "red"))
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-13](assets/fig/unnamed-chunk-13-1.png)
 
 ---
 
@@ -222,7 +222,7 @@ This parameters can often be overrriden as arguments to specific plotting functi
 ```
 
 <center>
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-15](assets/fig/unnamed-chunk-15-1.png)
 </center>
 
 --- .class #id .segue .dark .nobackground
@@ -242,7 +242,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17-1.png)
+![plot of chunk unnamed-chunk-17](assets/fig/unnamed-chunk-17-1.png)
 </center>
 
 ---
@@ -255,7 +255,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
+![plot of chunk unnamed-chunk-19](assets/fig/unnamed-chunk-19-1.png)
 </center>
 
 ---
@@ -269,7 +269,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png)
+![plot of chunk unnamed-chunk-21](assets/fig/unnamed-chunk-21-1.png)
 </center>
 
 ---
@@ -283,7 +283,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png)
+![plot of chunk unnamed-chunk-23](assets/fig/unnamed-chunk-23-1.png)
 </center>
 
 ---
@@ -298,7 +298,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25-1.png)
+![plot of chunk unnamed-chunk-25](assets/fig/unnamed-chunk-25-1.png)
 </center>
 
 ---
@@ -313,7 +313,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27-1.png)
+![plot of chunk unnamed-chunk-27](assets/fig/unnamed-chunk-27-1.png)
 </center>
 
 ---
@@ -330,7 +330,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29-1.png)
+![plot of chunk unnamed-chunk-29](assets/fig/unnamed-chunk-29-1.png)
 </center>
 
 ---
@@ -347,7 +347,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31-1.png)
+![plot of chunk unnamed-chunk-31](assets/fig/unnamed-chunk-31-1.png)
 </center>
 
 
@@ -361,7 +361,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33-1.png)
+![plot of chunk unnamed-chunk-33](assets/fig/unnamed-chunk-33-1.png)
 </center>
 
 
@@ -375,7 +375,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35-1.png)
+![plot of chunk unnamed-chunk-35](assets/fig/unnamed-chunk-35-1.png)
 </center>
 
 
@@ -389,7 +389,7 @@ This package was developed by Hadley Wickham and provides a lenguage to create b
 ```
 
 <center>
-![plot of chunk unnamed-chunk-37](figure/unnamed-chunk-37-1.png)
+![plot of chunk unnamed-chunk-37](assets/fig/unnamed-chunk-37-1.png)
 </center>
 
 
@@ -411,7 +411,7 @@ For this excercise use download .agd file of the accelerometry data of one parti
 +                          FROM '","data", "'", sep="")) %>%
 +   select(-dataTimestamp) %>% 
 +   mutate(datetime = datetime-62135596800,
-+          datetime = decimal_date(datetime,origin="1970-01-01 00:00:00", "GMT"))
++          datetime = as.POSIXct(datetime,origin="1970-01-01 00:00:00", "GMT"))
 > dbDisconnect(con)
 ```
 

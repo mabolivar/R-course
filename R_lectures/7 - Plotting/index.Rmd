@@ -486,7 +486,7 @@ df <- dbGetQuery(conn=con,
                          FROM '","data", "'", sep="")) %>%
   select(-dataTimestamp) %>% 
   mutate(datetime = datetime-62135596800,
-         datetime = decimal_date(datetime,origin="1970-01-01 00:00:00", "GMT"))
+         datetime = as.POSIXct(datetime,origin="1970-01-01 00:00:00", "GMT"))
 dbDisconnect(con)
 ```
 
