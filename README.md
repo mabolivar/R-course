@@ -3,7 +3,7 @@
 This course exhibits the basic elements of R programming and is design for the Group of Epidemiology of Universidad de los Andes ([EpiAndes](http://epiandes.uniandes.edu.co/))
 
 To access the slides, please follow the corresponding link.
- 1. [Data types & data structures]('http://mabolivar.github.io/R-course/R_lectures/1%20-%20Intro%20to%20R/)
+ 1. [Data types & data structures](http://mabolivar.github.io/R-course/R_lectures/1%20-%20Intro%20to%20R/)
  2. [Subseting](http://mabolivar.github.io/R-course/R_lectures/2%20-%20Subsetting/)
  3. [Control structures](http://mabolivar.github.io/R-course/R_lectures/3%20-%20Controlvstructures)
  4. [User-defined functions](http://mabolivar.github.io/R-course/R_lectures/4%20-%20User-written%20functions)
